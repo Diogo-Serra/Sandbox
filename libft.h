@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 21:57:01 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/16 22:18:06 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/16 23:47:49 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include <stddef.h>
 
-void *memset(void *s, int c, size_t n);
+void	*memset(void *s, int c, size_t n);
 
 #endif /*LIBFT_H*/

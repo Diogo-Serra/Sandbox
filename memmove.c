@@ -6,16 +6,16 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 23:12:53 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/16 23:40:24 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/16 23:46:43 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *memmove(void *dest, const void *src, size_t n)
+void	*memmove(void *dest, const void *src, size_t n)
 {
-	unsigned const char *s;
-	unsigned char *d;
+	unsigned const char	*s;
+	unsigned char		*d;
 
 	s = (const unsigned char *)src;
 	d = (unsigned char *)dest;
