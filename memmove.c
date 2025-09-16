@@ -6,9 +6,13 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 23:12:53 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/16 23:13:04 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/16 23:21:05 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void	*memmove(void *dest, const void *src, size_t n)
+{
+
+}
