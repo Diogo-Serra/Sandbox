@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 22:13:32 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/16 22:49:09 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/16 22:52:30 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	*memcpy(void *dest, const void *src, size_t n)
 {
 	const unsigned char *s;
 	unsigned char *d;
-
+		
 	s = (const unsigned char *)src;
 	d = (unsigned char *)dest;
-	while (n--)
+	while (n--)		
 		*d++ = *s++;
 	return (dest);
 }
