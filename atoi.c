@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 22:33:35 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/14 21:53:59 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/16 22:10:52 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_putnbr(int nb)
 	if (digit >= 10)
 		ft_putnbr(digit / 10);
 	c = (digit % 10) + '0';
-	write(1, &c, 1);	
+	write(1, &c, 1);
 }
 
 int	ft_atoi(const char *s)
@@ -60,11 +60,11 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 	while (size < argc)
 	{
-		write(1, "Results:\n", 9);	
+		write(1, "Results:\n", 9);
 		result = ft_atoi(argv[size]);
 		ft_putnbr(result);
 		write(1, "\n", 1);
 		size++;
-	}	
+	}
 	return (0);
 }

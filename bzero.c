@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/15 18:25:46 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/15 18:33:30 by diserra          ###   ########.fr       */
+/*   Created: 2025/09/16 22:09:11 by diserra           #+#    #+#             */
+/*   Updated: 2025/09/16 22:11:53 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	bzero(void *s, size_t n)
 {
-	unsigned char	*p;
+	unsigned char *p;
 
 	p = (unsigned char *)s;
 	while (n--)
