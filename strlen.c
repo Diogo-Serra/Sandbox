@@ -6,7 +6,18 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 00:37:26 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/17 00:37:27 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/17 00:40:26 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+size_t	strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
