@@ -6,17 +6,27 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 00:44:50 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/17 00:52:18 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/17 01:12:22 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strdup(const char *s, size_t n)
+char	*strdup(const char *s)
 {
-	unsigned char *out;
+	char 	*out;
+	size_t	len;
 	size_t	i;
 
-	out = malloc((sizeof(char) * strlen(s)))
-
+	len = strlen(s);
+	out = malloc(sizeof(char) * (len + 1));
+	i = 0;
+	if (!out)
+		return (NULL);
+	while (i <= len)
+	{
+		out[i] = s[i];
+		i++;
+	}
+	return (out);
 }
