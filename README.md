@@ -21,7 +21,7 @@ This repo serves as a sandbox to improve skills in:
 
 ## 📚 Useful Resources
 
-- [My curated list for 42 Piscine](https://github.com/stars/Diiicode/lists/42-piscine-c-shell)  
+- [My curated list for 42 Piscine](https://github.com/stars/Diogo-Serra/lists/42-piscine-c-shell)
 - [GNU C Library Reference](https://www.gnu.org/software/libc/manual/)  
 - [GNU Make Manual](https://www.gnu.org/software/make/manual/)  
 
