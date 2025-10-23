@@ -6,14 +6,14 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 23:34:27 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/23 14:41:10 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/23 15:30:23 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int	*ft_strslen(char *src)
+int	*ft_strslen(const char *src, char c)
 {
 	int	*data;
 	size_t	len;
@@ -27,88 +27,77 @@ int	*ft_strslen(char *src)
 	words = 0;
 	while (src[len])
 	{
-		if (src[len] == ' ')
+		if (src[len] == c)
 			spaces++;
-		if (src[len] != ' ' && (len == 0 || src[len - 1] == ' '))
+		if (src[len] != c && (len == 0 || src[len - 1] == c))
 			words++;
 		len++;
 	}
 	data = malloc(3 * sizeof(int));
 	if (!data)
 		return (NULL);
-	data[0] = len; // len
+	data[0] = (int)len; // len
 	data[1] = spaces; //spaces
 	data[2] = words; // words
 	return (data);
 }
 
-int	ft_wordlen(char *src)
+int	ft_wordlen(const char *src, char c)
 {
 	int i;
 
 	i = 0;
-	while (src[i] != ' ')
+	while (*src && src[i] != c)
 		i++;
 	return (i);
 }
 
-char *ft_strchr(char *src, char c)
+char	*ft_strchr(const char *s, int c)
 {
-	char *p;
-
-	p = src;
-	while (*p)
-	{
-		if (*p == c)
-			src++;
-		if (*p != c)
-			return (p);
-	}
-	if (c == '\0')
-		return (NULL);
+  while (*s && *s == (char)c)
+        s++;
+    return ((char *)s);
 }
 
-char **ft_split(char *src, char c)
+char **ft_split(const char *src, char c)
 {
 	char	**tab;
 	int		*data;
 	int		i;
 	int		j;
 
-	data = ft_strslen(src);
+	data = ft_strslen(src, c);
 	tab = malloc(data[2] * sizeof(char) + 1);
 	if (!tab)
 		return (NULL);
 	i = 0;
-	while (*src && data[2] > 0)
+	src = ft_strchr(src, (int)c);
+	while (*src)
 	{
 		j = 0;
-		tab[i] = malloc (ft_wordlen(src) * sizeof(char) + 1);
+		tab[i] = malloc ((ft_wordlen(src, c) + 1) * sizeof(char));
 		if (!tab[i])
 			return (NULL);
-		while (*src != c)
-		{
-			tab[i][j] = *src++;
-			j++;
-		}
-		tab[i][j + 1] = '\0';
-		data[2] -= 1;
+		while (*src && *src != c)
+			tab[i][j++] = *src++;
+		tab[i][j] = '\0';
 		i++;
-		src = ft_strchr(src, c);
+		src = ft_strchr(src, (int)c);	
 	}
-	return(tab);
+	tab[i] = NULL;
+	return (tab);
 }
 
 int	main(void)
 {
+	char	src[] = "Escola 42 Success";
 	char	**result;
-	char	src[] = "Success 12 Lisboa 42 Success";
 	int		i;
-	char	c = ' ';
 
 	i = 0;
 	result = ft_split(src, ' ');
 	while (result[i])
 		printf("%s\n", result[i++]);
+	free(result);
 	return (0);
 }
