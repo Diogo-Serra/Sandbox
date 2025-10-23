@@ -6,14 +6,14 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 23:34:27 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/23 03:04:09 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/23 14:41:10 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int	*ft_strslen(const char *src)
+int	*ft_strslen(char *src)
 {
 	int	*data;
 	size_t	len;
@@ -41,7 +41,8 @@ int	*ft_strslen(const char *src)
 	data[2] = words; // words
 	return (data);
 }
-int	ft_wordlen(const char *src)
+
+int	ft_wordlen(char *src)
 {
 	int i;
 
@@ -51,7 +52,7 @@ int	ft_wordlen(const char *src)
 	return (i);
 }
 
-char *ft_strchr(const char *src, char c)
+char *ft_strchr(char *src, char c)
 {
 	char *p;
 
@@ -67,7 +68,7 @@ char *ft_strchr(const char *src, char c)
 		return (NULL);
 }
 
-char **ft_split(const char *src, char c)
+char **ft_split(char *src, char c)
 {
 	char	**tab;
 	int		*data;
@@ -95,7 +96,6 @@ char **ft_split(const char *src, char c)
 		i++;
 		src = ft_strchr(src, c);
 	}
-	tab[i] = '\0';
 	return(tab);
 }
 
@@ -104,6 +104,7 @@ int	main(void)
 	char	**result;
 	char	src[] = "Success 12 Lisboa 42 Success";
 	int		i;
+	char	c = ' ';
 
 	i = 0;
 	result = ft_split(src, ' ');
