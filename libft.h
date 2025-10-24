@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:40:05 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 22:47:54 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/24 23:19:14 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_putnbr(int nb);
 size_t	ft_strlen(const char *s);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif /*LIBFT_H*/
