@@ -6,33 +6,11 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 22:14:46 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/25 00:21:53 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/25 00:25:41 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	*ft_calloc(size_t nmemb, size_t size)
-{
-	void	*ptr;
-	size_t	total;
-
-	if (size != 0 && nmemb > __SIZE_MAX__ / size)
-		return (NULL);
-	total = nmemb * size;
-	if (nmemb == 0 || size == 0)
-		total = 1;
-	ptr = malloc(total);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, total);
-	return (ptr);
-}
-
-int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -44,7 +22,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-void	ft_putnbrs(int	c)
+void	ft_putnbrs(int c)
 {
 	char	nbr[20];
 	long	n;
@@ -64,8 +42,7 @@ void	ft_putnbrs(int	c)
 	}
 	if (c < 0)
 		nbr[--i] = '-';
-    write(1, nbr + i, 19 - i);
-	
+	write(1, nbr + i, 19 - i);
 }
 
 int	main(void)
