@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:40:05 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 16:20:53 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/24 22:47:54 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <limits.h>
 
+int		ft_isdigit(int c);
 int		ft_atoi(const char *s);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strcpy(char *dest, const char *src);
