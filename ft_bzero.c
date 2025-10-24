@@ -6,17 +6,23 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:40:18 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 14:40:19 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/24 15:12:25 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*p;
 
 	p = (unsigned char *)s;
 	while (n--)
 		*p++ = 0;
+}
+
+int	main(void)
+{
+	
+	return (0);
 }
