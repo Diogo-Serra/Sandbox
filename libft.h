@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:40:05 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 15:12:50 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:20:53 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stddef.h>
 # include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 
 int		ft_atoi(const char *s);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
