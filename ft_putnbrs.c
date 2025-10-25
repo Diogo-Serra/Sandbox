@@ -24,13 +24,12 @@ void	*ft_memset(void *s, int c, size_t n)
 
 void	ft_putnbrs(int c)
 {
-	char	nbr[20];
-	long	n;
+	char	nbr[21];
+	long long	n;
 	int		i;
 
 	i = 19;
-	n = (long)c;
-	ft_memset(nbr, 0, sizeof(nbr));
+	n = c;
 	if (c == 0)
 		nbr[--i] = '0';
 	if (c < 0)
