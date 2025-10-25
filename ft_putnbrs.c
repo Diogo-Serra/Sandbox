@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 22:14:46 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/25 00:25:41 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/25 00:51:39 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,4 @@ void	ft_putnbrs(int c)
 	if (c < 0)
 		nbr[--i] = '-';
 	write(1, nbr + i, 19 - i);
-}
-
-int	main(void)
-{
-	ft_putnbrs(5555555);
-	write(1, "\n", 1);
-	return (0);
 }
