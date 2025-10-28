@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 22:14:46 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/25 00:51:39 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/28 17:15:48 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_putnbrs(int c)
 {
-	char	nbr[21];
+	char		nbr[21];
 	long long	n;
-	int		i;
+	int			i;
 
 	i = 19;
 	n = c;
