@@ -6,49 +6,11 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 12:27:16 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/29 16:48:32 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/29 17:42:55 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	ft_bzero(void *s, size_t n)
-{
-	unsigned char	*p;
-
-	p = (unsigned char *)s;
-	while (n--)
-		*p++ = 0;
-}
-
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	const unsigned char	*s;
-	unsigned char		*d;
-
-	s = (const unsigned char *)src;
-	d = (unsigned char *)dest;
-	while (n--)
-		*d++ = *s++;
-	return (dest);
-}
-
-void	*ft_calloc(size_t nmemb, size_t size)
-{
-	void	*ptr;
-	size_t	total;
-
-	if (size != 0 && nmemb > SIZE_MAX / size)
-		return (NULL);
-	total = nmemb * size;
-	if (nmemb == 0 || size == 0)
-		total = 1;
-	ptr = malloc(total);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, total);
-	return (ptr);
-}
 
 size_t	ft_wordlen(const char *s, char c)
 {
@@ -58,7 +20,7 @@ size_t	ft_wordlen(const char *s, char c)
 	while (*s && *s != c)
 	{
 		len++;
-		s++;	
+		s++;
 	}
 	return (len);
 }
@@ -70,11 +32,11 @@ size_t	ft_countwords(const char *s, char c)
 
 	i = 0;
 	count = 0;
-	while(s[i])
+	while (s[i])
 	{
 		if (s[i] != c && (i == 0 || s[i - 1] == c))
 			count++;
-		i++;		
+		i++;
 	}
 	return (count);
 }
@@ -95,10 +57,44 @@ static void	*free_heap(char **tab)
 
 char	**ft_split(char const *s, char c)
 {
+	char	**tab;
+	size_t	i;
+	size_t	nwords;
+	size_t	lenword;
 
+	i = 0;
+	nwords = ft_countwords(s, c);
+	tab = (char **)ft_calloc(nwords + 1, sizeof(char *));
+	if (!tab)
+		return (NULL);
+	while (*s && i < nwords)
+	{
+		while (*s && *s == c)
+			s++;
+		lenword = ft_wordlen(s, c);
+		tab[i] = ft_calloc(lenword + 1, sizeof(char));
+		if (!tab[i])
+			free_heap(tab);
+		ft_memcpy(tab[i++], s, lenword);
+		s += lenword;
+	}
+	return (tab);
 }
 
 int	main(void)
 {
+	char	src[] = "Teste Escola 42 Teste Escola 42";
+	char	sep = ' ';
 
+	char	**tab;
+	size_t	i;
+	size_t	nwords;
+
+	i = 0;
+	nwords = ft_countwords(src, sep);
+	tab = ft_split(src, sep);
+	while (i < nwords)
+		printf("%s\n", tab[i++]);
+	free_heap(tab);
+	return (0);
 }
