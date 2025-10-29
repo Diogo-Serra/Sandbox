@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 20:51:02 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/29 21:27:25 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/29 23:40:02 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,35 +38,61 @@ size_t	ft_lenWords(const char *src, char c)
 	return (i);
 }
 
-void	ft_freeHeap(char **src)
+void	*ft_freeHeap(char **src)
 {
 	size_t	i;
 	
 	i = 0;
-	while (src)
-	{
-		free(src[i]);
-		i++;
-	}
+	while (src[i])
+		free(src[i++]);
 	free(src);
 	return (NULL);
 }
-/*
+
 char **ft_split(char const *s, char c)
 {
-	
-}*/
+	char	**dst;
+	size_t	lenWords;
+	size_t	nWords;
+	size_t	i;
+		
+	i = 0;
+	nWords = ft_countWords(s, c);
+	dst = (char **)ft_calloc(nWords + 1, sizeof(char *));
+	if (!dst)
+		return (NULL);
+	while (i < nWords)
+	{
+		while (*s && *s == c)
+			s++;
+		lenWords = ft_lenWords(s, c);
+		dst[i] = ft_calloc(lenWords + 1, sizeof(char));
+		if (!dst[i])
+			return (ft_freeHeap(dst));
+		ft_memcpy(dst[i], s, lenWords);
+		s += lenWords;
+		i++;
+	}
+	return (dst);
+}
 
 int	main(void)
 {
-	size_t res;
-	char	*dst;
-	
-	ft_m
-	res = ft_lenWords("asd asd asd asd", ' ');
-	printf("%zu", res);
-	res = ft_lenWords("asd asd asd asd", ' ');
-	printf("%zu", res);
-	
+	char	test[] = "Escola 42 Lisboa";
+	char	sep = ' ';
+
+	char	**tab;
+	size_t	nWords;
+	size_t	i;
+
+	tab = ft_split(test, sep);
+	i = 0;
+	nWords = ft_countWords(test, sep);
+	while (i < nWords)
+		printf("%s\n", tab[i++]);
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
 	return (0);
 }
