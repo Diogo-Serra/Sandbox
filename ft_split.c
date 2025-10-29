@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 20:51:02 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/29 23:40:02 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/29 23:45:06 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_countWords(const char *src, char c)
 	{
 		if (src[i] != c && (i == 0 || src[i - 1] == c))
 			words++;
-		i++;;
+		i++;
 	}
 	return (words);
 }
@@ -87,12 +87,9 @@ int	main(void)
 
 	tab = ft_split(test, sep);
 	i = 0;
-	nWords = ft_countWords(test, sep);
-	while (i < nWords)
+	while (tab[i])
 		printf("%s\n", tab[i++]);
 	i = 0;
-	while (tab[i])
-		free(tab[i++]);
-	free(tab);
+	ft_freeHeap(tab);
 	return (0);
 }
