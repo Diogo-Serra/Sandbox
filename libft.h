@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:40:05 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/29 11:48:01 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/29 20:54:22 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_list
 int		ft_isdigit(int c);
 int		ft_atoi(const char *s);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+char	**ft_split(char const *s, char c);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strdup(const char *s);
 void	ft_bzero(void *s, size_t n);
