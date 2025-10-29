@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:41:10 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 16:22:27 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/29 11:56:31 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,13 @@ char	*ft_strdup(const char *s)
 {
 	char	*out;
 	size_t	len;
-	size_t	i;
 
+	if (!s) // original not protected
+		return (NULL);
 	len = ft_strlen(s);
-	out = malloc(sizeof(char) * (len + 1));
-	i = 0;
+	out = ft_calloc(len + 1, sizeof(char));
 	if (!out)
 		return (NULL);
-	while (i <= len)
-	{
-		out[i] = s[i];
-		i++;
-	}
+	ft_memcpy(out, s, len);
 	return (out);
 }
