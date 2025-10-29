@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:40:54 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 16:31:34 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/29 11:52:27 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putnbr(int nb)
 	if (digit < 0)
 	{
 		write(1, "-", 1);
-		digit = -digit;
+		digit *= -1;
 	}
 	if (digit >= 10)
 		ft_putnbr(digit / 10);
