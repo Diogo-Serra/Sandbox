@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:40:05 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/29 01:37:31 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/29 01:39:51 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ size_t	ft_strlen(const char *s);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 int		t_lstsize(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif /*LIBFT_H*/
