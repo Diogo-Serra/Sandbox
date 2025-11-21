@@ -23,23 +23,17 @@ char *join_strings(int count, ...)
 {
     va_list pargs;
     char    *joined;
-	int		tlen;
     int     i;
 
-    i = 0;
-	tlen = 1;
-    va_start(pargs, count);
-    while (i < count)
-    {
-		tlen += ft_strlen(va_arg(pargs, char *));
-		i++;
-    }
-	va_end(pargs);
-	joined = ft_calloc(tlen, sizeof(char));
-	if (!joined)
-		return (NULL);
+	i = -1;
 	va_start(pargs, count);
-	i = 0;
+	while (++i < count)
+	{
+		if (i == 0)
+			joined = ft_strdup(va_arg(pargs, char *));
+		else
+			joined = ft_strjoin_free(joined, va_arg(pargs, char *));
+	}
 	va_end(pargs);
     return (joined);
 }

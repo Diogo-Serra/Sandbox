@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:40:05 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/21 11:30:13 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/21 12:25:41 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ int 	count_equal(int count, int target, ...);
 double 	avg_int(int count, ...);
 int 	total(int n, ...);
 int 	max(int n, ...);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin_free(char *s1, char const *s2);
 
 #endif /*LIBFT_H*/
