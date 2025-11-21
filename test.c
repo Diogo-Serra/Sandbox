@@ -1,8 +1,4 @@
-
-#include <stdarg.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "libft.h"
 
 int total(int n, ...);
 int max(int n, ...);
@@ -20,26 +16,34 @@ int main(void)
     printf("targets = %d\n", count_equal(5, 1, 3, 4, 1, 2, 1));
     joined = join_strings(3, "one", "two", "three");
     printf("joined = %s\n", joined);
-    free(joined);
 }
 
 char *join_strings(int count, ...)
 {
     va_list pargs;
-    char    *joined;
+    char    *joined = "teste";
+	int		tlen;
     int     i;
 
     i = 0;
-    joined = NULL;
+	tlen = 1;
     va_start(pargs, count);
     while (i < count)
     {
-        if (i == 0)
-            joined = strdup(va_arg(pargs, char *));
-        else
-            joined = strcat(joined, va_arg(pargs, char *));
-        i++;
-    }    
+		tlen += ft_strlen(va_arg(pargs, char *));
+		i++;
+    }
+	i = 0;
+	va_end(pargs);
+	joined = ft_calloc(tlen, sizeof(char));
+	if (!joined)
+		return (NULL);
+	va_start(pargs, count);
+	while (i < count)
+	{
+		joined = ft_strcpy(joined, va_arg(pargs, char *));
+	}
+	printf("tlen: %d\n", tlen);
     return (joined);
 }
 int count_equal(int count, int target, ...)

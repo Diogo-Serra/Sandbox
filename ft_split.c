@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 20:51:02 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/29 23:45:06 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/21 11:18:29 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,13 @@ char **ft_split(char const *s, char c)
 	}
 	return (dst);
 }
-
+/* 
 int	main(void)
 {
 	char	test[] = "Escola 42 Lisboa";
 	char	sep = ' ';
 
 	char	**tab;
-	size_t	nWords;
 	size_t	i;
 
 	tab = ft_split(test, sep);
@@ -92,4 +91,4 @@ int	main(void)
 	i = 0;
 	ft_freeHeap(tab);
 	return (0);
-}
+} */

@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:40:05 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/29 21:27:49 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/21 11:21:19 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
-# include <limits.h>
 # include <stdint.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -45,5 +45,11 @@ t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 int		t_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+char 	*join_strings(int count, ...);
+int 	count_equal(int count, int target, ...);
+double 	avg_int(int count, ...);
+int 	total(int n, ...);
+int 	max(int n, ...);
+
 
 #endif /*LIBFT_H*/
