@@ -16,12 +16,13 @@ int main(void)
     printf("targets = %d\n", count_equal(5, 1, 3, 4, 1, 2, 1));
     joined = join_strings(3, "one", "two", "three");
     printf("joined = %s\n", joined);
+	free (joined);
 }
 
 char *join_strings(int count, ...)
 {
     va_list pargs;
-    char    *joined = "teste";
+    char    *joined;
 	int		tlen;
     int     i;
 
@@ -39,15 +40,7 @@ char *join_strings(int count, ...)
 		return (NULL);
 	va_start(pargs, count);
 	i = 0;
-	while (i < count)
-	{
-		if (i == 0)
-			joined = ft_strdup(va_arg(pargs, char *));
-		else 
-			joined = ft_strjoin(joined, va_arg(pargs, char *));
-		i++;
-	}
-	printf("tlen: %d\n", tlen);
+	va_end(pargs);
     return (joined);
 }
 int count_equal(int count, int target, ...)
