@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/24 14:48:13 by diosoare          #+#    #+#              #
-#    Updated: 2025/11/21 11:22:08 by diosoare         ###   ########.fr        #
+#    Updated: 2025/11/21 11:30:01 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS := \
 	ft_atoi.c ft_bzero.c ft_memcpy.c ft_memchr.c ft_memcmp.c \
 	ft_memmove.c ft_memset.c ft_putnbr.c ft_strcpy.c ft_calloc.c \
 	ft_strdup.c ft_strlen.c ft_putnbrs.c ft_isdigit.c ft_lstnew.c \
-	ft_lstnew.c ft_lstadd_front.c ft_split.c varg_test.c
+	ft_lstnew.c ft_lstadd_front.c ft_split.c ft_strjoin.c varg_test.c
 
 OBJS := $(SRCS:.c=.o)
 

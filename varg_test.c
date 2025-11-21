@@ -33,15 +33,19 @@ char *join_strings(int count, ...)
 		tlen += ft_strlen(va_arg(pargs, char *));
 		i++;
     }
-	i = 0;
 	va_end(pargs);
 	joined = ft_calloc(tlen, sizeof(char));
 	if (!joined)
 		return (NULL);
 	va_start(pargs, count);
+	i = 0;
 	while (i < count)
 	{
-		joined = ft_strcpy(joined, va_arg(pargs, char *));
+		if (i == 0)
+			joined = ft_strdup(va_arg(pargs, char *));
+		else 
+			joined = ft_strjoin(joined, va_arg(pargs, char *));
+		i++;
 	}
 	printf("tlen: %d\n", tlen);
     return (joined);
