@@ -1,20 +1,47 @@
 
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 int total(int n, ...);
 int max(int n, ...);
 double avg_int(int count, ...);
 int count_equal(int count, int target, ...);
+char *join_strings(int count, ...);
 
 int main(void)
 {
+    char *joined;
+
     printf("total = %d\n", total(5, 2, 32, 43, 5, 20));
     printf("max = %d\n", max(5, 2, 32, 43, 5, 20));
     printf("average = %f\n", avg_int(3, 10, 15, 20));
     printf("targets = %d\n", count_equal(5, 1, 3, 4, 1, 2, 1));
+    joined = join_strings(3, "one", "two", "three");
+    printf("joined = %s\n", joined);
+    free(joined);
 }
 
+char *join_strings(int count, ...)
+{
+    va_list pargs;
+    char    *joined;
+    int     i;
+
+    i = 0;
+    joined = NULL;
+    va_start(pargs, count);
+    while (i < count)
+    {
+        if (i == 0)
+            joined = strdup(va_arg(pargs, char *));
+        else
+            joined = strcat(joined, va_arg(pargs, char *));
+        i++;
+    }    
+    return (joined);
+}
 int count_equal(int count, int target, ...)
 {
     va_list pargs;
