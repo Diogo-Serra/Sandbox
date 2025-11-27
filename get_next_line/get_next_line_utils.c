@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 15:00:57 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:56:41 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ char	*ft_strchr(const char *storage, int newline)
 char	*ft_strdup(const char *source)
 {
 	char	*dup;
-	size_t	i;
+	ssize_t	i;
 
 	i = 0;
 	i = ft_strlen(source);
-	dup = (char *)malloc((i + 1) * sizeof(char));
+	dup = malloc((i + 1) * sizeof(char));
 	if (!dup)
 		return (NULL);
 	i = -1;
@@ -57,13 +57,13 @@ char	*ft_strdup(const char *source)
 
 char	*ft_strjoin(char *storage, char const *buffer)
 {
-	size_t	i;
-	size_t	j;
+	ssize_t	i;
+	ssize_t	j;
 	char	*out;
 
 	if (!storage || !buffer)
 		return (NULL);
-	out = (char *)malloc((ft_strlen(storage) + ft_strlen(buffer) + 1) * sizeof(char));
+	out = malloc((ft_strlen(storage) + ft_strlen(buffer) + 1) * sizeof(char));
 	if (!out)
 		return (NULL);
 	i = -1;
