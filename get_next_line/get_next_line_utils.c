@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 14:51:04 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:00:57 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_strdup(const char *source)
 	return (dup);
 }
 
-char	*ft_strjoin(char const *storage, char const *buffer)
+char	*ft_strjoin(char *storage, char const *buffer)
 {
 	size_t	i;
 	size_t	j;
