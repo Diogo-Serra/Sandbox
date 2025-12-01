@@ -6,11 +6,27 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/01 20:18:30 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/01 20:22:20 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_strchr(const char *line, int c)
+{
+	char		ch;
+
+	ch = (unsigned char)c;
+	while (*s)
+	{
+		if (*s == ch)
+			return ((char *)s);
+		s++;
+	}
+	if (ch == '\0')
+		return ((char *)s);
+	return (NULL);
+}
 
 size_t	ft_strllen(const char *source)
 {
@@ -27,7 +43,28 @@ size_t	ft_strllen(const char *source)
 	return (i);
 }
 
-char	*ft_strjoin(char *line, char const *buffer)
+char	*clean_buffer(char *buffer)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
+	if (buffer[i] == '\n')
+		i++;
+	j = 0;
+	while (buffer[i + j])
+	{
+		buffer[j] = buffer[i + j];
+		j++;
+	}
+	while (j < BUFFER_SIZE + 1)
+		buffer[j++] = '\0';
+	return (buffer);
+}
+
+char	*ft_strnjoin(char *line, char const *buffer)
 {
 	ssize_t	i;
 	ssize_t	j;
@@ -51,41 +88,4 @@ char	*ft_strjoin(char *line, char const *buffer)
 	}
 	out[i] = '\0';
 	return (free(line), out);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	char		ch;
-
-	ch = (unsigned char)c;
-	while (*s)
-	{
-		if (*s == ch)
-			return ((char *)s);
-		s++;
-	}
-	if (ch == '\0')
-		return ((char *)s);
-	return (NULL);
-}
-
-char	*clean_buffer(char *buffer)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	while (buffer[i] && buffer[i] != '\n')
-		i++;
-	if (buffer[i] == '\n')
-		i++;
-	j = 0;
-	while (buffer[i + j])
-	{
-		buffer[j] = buffer[i + j];
-		j++;
-	}
-	while (j < BUFFER_SIZE + 1)
-		buffer[j++] = '\0';
-	return (buffer);
 }

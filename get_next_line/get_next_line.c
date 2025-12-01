@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/01 20:08:33 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/01 20:21:38 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*get_next_line(int fd)
 			return (clean_buffer(buffer), free(line), NULL);
 		if (bytes == 0)
 			return (line);
-		line = ft_strjoin(line, buffer);
+		line = ft_strnjoin(line, buffer);
 		if (!line)
 			return (clean_buffer(buffer), NULL);
 		clean_buffer(buffer);
