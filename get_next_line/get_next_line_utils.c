@@ -6,73 +6,86 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 15:56:41 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/01 20:18:30 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *source)
+size_t	ft_strllen(const char *source)
 {
 	size_t	i;
 
 	i = 0;
+	if (!source)
+		return (0);
 	while (source[i])
-		i++;
+	{
+		if (source[i++] == '\n')
+			break ;
+	}
 	return (i);
 }
 
-char	*ft_strchr(const char *storage, int newline)
-{
-	char		ch;
-
-	ch = (unsigned char)newline;
-	while (*storage)
-	{
-		if (*storage == ch)
-			return ((char *)storage);
-		storage++;
-	}
-	if (ch == '\0')
-		return ((char *)storage);
-	return (NULL);
-}
-
-char	*ft_strdup(const char *source)
-{
-	char	*dup;
-	ssize_t	i;
-
-	i = 0;
-	i = ft_strlen(source);
-	dup = malloc((i + 1) * sizeof(char));
-	if (!dup)
-		return (NULL);
-	i = -1;
-	while (source[++i])
-		dup[i] = source[i];
-	dup[i] = '\0';
-	return (dup);
-}
-
-char	*ft_strjoin(char *storage, char const *buffer)
+char	*ft_strjoin(char *line, char const *buffer)
 {
 	ssize_t	i;
 	ssize_t	j;
 	char	*out;
 
-	if (!storage || !buffer)
-		return (NULL);
-	out = malloc((ft_strlen(storage) + ft_strlen(buffer) + 1) * sizeof(char));
+	out = malloc((ft_strllen(line) + ft_strllen(buffer) + 1) * sizeof(char));
 	if (!out)
-		return (NULL);
-	i = -1;
-	while (storage[++i])
-		out[i] = storage[i];
-	j = -1;
-	while (buffer[++j])
-		out[i + j] = buffer[j];
-	out[i + j] = '\0';
-	free(storage);
-	return (out);
+		return (free(line), NULL);
+	i = 0;
+	while (line && line[i])
+	{
+		out[i] = line[i];
+		i++;
+	}
+	j = 0;
+	while (buffer[j])
+	{
+		out[i++] = buffer[j];
+		if (buffer[j++] == '\n')
+			break ;
+	}
+	out[i] = '\0';
+	return (free(line), out);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	char		ch;
+
+	ch = (unsigned char)c;
+	while (*s)
+	{
+		if (*s == ch)
+			return ((char *)s);
+		s++;
+	}
+	if (ch == '\0')
+		return ((char *)s);
+	return (NULL);
+}
+
+char	*clean_buffer(char *buffer)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
+	if (buffer[i] == '\n')
+		i++;
+	j = 0;
+	while (buffer[i + j])
+	{
+		buffer[j] = buffer[i + j];
+		j++;
+	}
+	while (j < BUFFER_SIZE + 1)
+		buffer[j++] = '\0';
+	return (buffer);
 }

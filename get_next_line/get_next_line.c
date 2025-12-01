@@ -6,15 +6,11 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 16:01:23 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/01 20:08:33 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
-
-char	*gnl_handler(int fd, char *buffer);
-char	*gnl_load_line(char	*storage, char	*buffer);
 
 /* int	main(void)
 {
@@ -44,57 +40,27 @@ char	*gnl_load_line(char	*storage, char	*buffer);
 char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE + 1];
-	
+	char		*line;
+	ssize_t		bytes;
+
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	return (gnl_handler(fd, buffer));
-}
-
-char	*gnl_handler(int fd, char *buffer)
-{
-	char	*storage;
-	ssize_t	bytes;
-
-	storage = ft_strdup(buffer);
-	if (!storage)
-		return (NULL);
-	buffer[0] = '\0';
+	line = NULL;
 	bytes = 1;
-	while (bytes > 0 && !ft_strchr(storage, '\n'))
+	while (bytes > 0 || buffer[0])
 	{
-		bytes = read(fd, buffer, BUFFER_SIZE);
+		if (!buffer[0])
+			bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes < 0)
-			return (free(storage), NULL);
-		buffer[bytes] = '\0';
-		storage = ft_strjoin(storage, buffer);
+			return (clean_buffer(buffer), free(line), NULL);
+		if (bytes == 0)
+			return (line);
+		line = ft_strjoin(line, buffer);
+		if (!line)
+			return (clean_buffer(buffer), NULL);
+		clean_buffer(buffer);
+		if (line && ft_strchr(line, '\n'))
+			break ;
 	}
-	if (!storage || !storage[0])
-		return (free(storage), NULL);
-	if (bytes > 0)
-		return (gnl_load_line(storage, buffer));
-	return (buffer[0] = '\0', storage);
-}
-
-char	*gnl_load_line(char	*storage, char	*buffer)
-{
-	char	*line;
-	char	*line_pos;
-	ssize_t	line_len;
-	ssize_t	i;
-
-	line_pos = ft_strchr(storage, '\n');
-	line_len = line_pos - storage + 1;
-	line = malloc((line_len + 1) * sizeof(char));
-	if (!line)
-		return (free(storage), NULL);
-	i = -1;
-	while (++i < line_len)
-		line[i] = storage[i];
-	line[i] = '\0';
-	i = -1;
-	while (storage[line_len + ++i])
-		buffer[i] = storage[line_len + i];
-	buffer[i] = '\0';
-	free(storage);
 	return (line);
 }
