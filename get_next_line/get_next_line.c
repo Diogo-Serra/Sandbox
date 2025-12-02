@@ -6,13 +6,14 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/01 20:21:38 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/02 16:03:39 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/* int	main(void)
+#include <stdio.h>
+int	main(void)
 {
 	char *line;
 	int fd;
@@ -35,7 +36,7 @@
 	free(line);
 	close(fd);
 	return (0);
-} */
+}
 
 char	*get_next_line(int fd)
 {

@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/01 20:22:20 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/02 16:01:20 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ char	*ft_strchr(const char *line, int c)
 	char		ch;
 
 	ch = (unsigned char)c;
-	while (*s)
+	while (*line)
 	{
-		if (*s == ch)
-			return ((char *)s);
-		s++;
+		if (*line == ch)
+			return ((char *)line);
+		line++;
 	}
 	if (ch == '\0')
-		return ((char *)s);
+		return ((char *)line);
 	return (NULL);
 }
 
