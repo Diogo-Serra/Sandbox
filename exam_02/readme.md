@@ -1,3 +1,8 @@
+
+<p align="center">
+  <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/covers/banner42.png" alt="Banner">
+</p>
+
 # 42 Exam Practice – exam_02 (C Programming)
 
 **Exam Rules**  
