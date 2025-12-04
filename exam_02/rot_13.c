@@ -6,15 +6,15 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 22:33:37 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/04 22:39:12 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/04 22:39:58 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void rot_13(char *str)
+void	rot_13(char *str)
 {
-	char c;
+	char	c;
 
 	while (*str)
 	{

@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 22:28:20 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/04 22:33:01 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/04 22:39:40 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	rev_print(char	*str)
 {
 	int	i;
-	
+
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	while (i > 0)
 		write(1, &str[--i], 1);
