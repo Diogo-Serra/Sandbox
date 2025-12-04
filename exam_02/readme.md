@@ -1,6 +1,6 @@
 # 42 Exam Practice – exam_02 (C Programming)
 
-**Exam Rules (same as real exam)**  
+**Exam Rules**  
 - Only the files you create/submit will be evaluated.  
 - Allowed functions for the whole exam (unless the specific exercise forbids some):  
   `write`, `malloc`, `free`  
