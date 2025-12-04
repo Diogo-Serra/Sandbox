@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:40:05 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/21 12:25:41 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/04 20:03:11 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 int		t_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-char 	*join_strings(int count, ...);
-int 	count_equal(int count, int target, ...);
-double 	avg_int(int count, ...);
-int 	total(int n, ...);
-int 	max(int n, ...);
+char	*join_strings(int count, ...);
+int		count_equal(int count, int target, ...);
+double	avg_int(int count, ...);
+int		total(int n, ...);
+int		max(int n, ...);
 char	*ft_strjoin_free(char *s1, char const *s2);
 
 #endif /*LIBFT_H*/

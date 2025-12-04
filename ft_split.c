@@ -6,17 +6,17 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 20:51:02 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/21 11:18:29 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/04 20:02:25 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_countWords(const char *src, char c)
+size_t	count_words(const char *src, char c)
 {
 	size_t	i;
 	size_t	words;
-	
+
 	i = 0;
 	words = 0;
 	while (src[i])
@@ -28,20 +28,20 @@ size_t	ft_countWords(const char *src, char c)
 	return (words);
 }
 
-size_t	ft_lenWords(const char *src, char c)
+size_t	word_len(const char *src, char c)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while (src[i] && src[i] != c)
 		i++;
 	return (i);
 }
 
-void	*ft_freeHeap(char **src)
+void	*free_heap(char **src)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while (src[i])
 		free(src[i++]);
@@ -49,28 +49,28 @@ void	*ft_freeHeap(char **src)
 	return (NULL);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**dst;
-	size_t	lenWords;
-	size_t	nWords;
+	size_t	words_len;
+	size_t	n_words;
 	size_t	i;
-		
+
 	i = 0;
-	nWords = ft_countWords(s, c);
-	dst = (char **)ft_calloc(nWords + 1, sizeof(char *));
+	n_words = count_words(s, c);
+	dst = (char **)ft_calloc(n_words + 1, sizeof(char *));
 	if (!dst)
 		return (NULL);
-	while (i < nWords)
+	while (i < n_words)
 	{
 		while (*s && *s == c)
 			s++;
-		lenWords = ft_lenWords(s, c);
-		dst[i] = ft_calloc(lenWords + 1, sizeof(char));
+		words_len = word_len(s, c);
+		dst[i] = ft_calloc(words_len + 1, sizeof(char));
 		if (!dst[i])
-			return (ft_freeHeap(dst));
-		ft_memcpy(dst[i], s, lenWords);
-		s += lenWords;
+			return (free_heap(dst));
+		ft_memcpy(dst[i], s, words_len);
+		s += words_len;
 		i++;
 	}
 	return (dst);
@@ -89,6 +89,6 @@ int	main(void)
 	while (tab[i])
 		printf("%s\n", tab[i++]);
 	i = 0;
-	ft_freeHeap(tab);
+	free_heap(tab);
 	return (0);
 } */
