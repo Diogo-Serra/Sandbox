@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 21:46:27 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/04 21:47:03 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/04 21:50:28 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int	ft_strlen(char	*str)
 	int	i;
 
 	i = 0;
-	while (str)
+	while (str[i])
 		i++;
 	return (i);
 }
