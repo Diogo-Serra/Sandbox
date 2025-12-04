@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:40:35 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/04 21:11:20 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/04 21:13:23 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,16 @@
 
 void	putnbr(int	digit)
 {
-	char	arr[11];
+	char	arr[3];
 	int		i;
 	
-	if (digit < 0)
-		digit *= -1;
-	if (digit == 0)
-	{
-		write(1, "0", 1);
-		return ;
-	}
-	i = 11;
+	i = 3;
 	while (digit)
 	{
 		arr[--i] = (digit % 10) + '0';
 		digit /= 10;
 	}
-	write(1, &arr[i], 11 - i);
+	write(1, &arr[i], 3 - i);
 	write(1, "\n", 1);
 }
  
