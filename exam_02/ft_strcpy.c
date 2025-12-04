@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 21:15:01 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/04 21:21:53 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/04 21:22:38 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,4 @@ char	*ft_strcpy(char *dest, const char *src)
 		*dest++ = *src++;
 	*dest = '\0';
 	return (out);
-}
-
-int	main()
-{
-	char	dest[6];
-	
-	ft_strcpy(dest, "Hello");
-	printf("Teste: %s\n", dest);	
-	return (0);
 }
