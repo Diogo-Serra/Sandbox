@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:40:35 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/04 21:13:23 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/04 21:14:11 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,4 @@ void	fizzbuzz(void)
 		else 
 			putnbr(i);
 	}
-}
-
-int	main(void)
-{
-	fizzbuzz();
-	return (0);
 }
