@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 21:50:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/04 22:03:50 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/04 22:04:59 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_swap(int *a, int *b)
 {
-	*a = *a + *b;
-	*b = *a - *b;
-	*a = *a - *b;
+	int	temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
