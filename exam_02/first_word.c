@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:04:42 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/04 20:38:46 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/04 20:40:02 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	first_word(char	*src)
 {
-	while (*src == ' ')
+	while (*src == ' ' || *src == '\t')
 		src++;
-	while (*src && *src != ' ')
+	while (*src && *src != ' ' && *src != '\t')
 		write(1 , src++, 1);
 	write(1 , "\n", 1);
 }
