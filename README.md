@@ -33,7 +33,3 @@ This repo is for personal practice, but if you see a bug or want to suggest impr
 
 ---
 
-## 👤 Author
-
-- **Diogo Serra**  
-  [![GitHub](https://img.shields.io/badge/GitHub-Diiicode-black?logo=github)](https://github.com/Diiicode)
