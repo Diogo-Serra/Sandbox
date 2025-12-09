@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 14:49:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/09 15:24:10 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/09 16:52:21 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,4 @@ char	*camel_to_snake(char *str)
 	}
 	snake[d] = '\0';
 	return (snake);
-}
-
-int	main(void)
-{
-	char	str[] = "helloWorld";
-	char	*snake;
-		
-	snake = camel_to_snake(str);
-	printf("%s\n", snake);
-	free (snake);
-	return (0);
 }
