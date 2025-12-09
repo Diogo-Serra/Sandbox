@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:31:11 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/09 17:44:22 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/09 17:45:25 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strdup(const char *s)
 int	main(int argc, char **argv)
 {
 	char	*dup;
-	
+
 	if (argc == 2)
 	{
 		dup = ft_strdup(argv[1]);
