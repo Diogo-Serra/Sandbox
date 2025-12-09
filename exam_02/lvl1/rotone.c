@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 22:40:21 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/04 22:46:42 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/09 16:51:13 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rotone(char *str)
 {
-	char c;
+	char	c;
 
 	while (*str)
 	{
