@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 19:16:14 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/09 22:42:58 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/09 22:43:22 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	last_word(const char *s)
 	while (*s && (*s != ' ' && *s != '\t'))
 	{
 		write(1, s, 1);
-		s++;		
+		s++;
 	}
 }
 
