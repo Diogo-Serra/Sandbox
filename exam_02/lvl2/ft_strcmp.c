@@ -6,16 +6,16 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:03:48 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/09 17:13:31 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/09 17:14:32 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 && *s2 && *s1 == *s2)
 	{
 		s1++;
 		s2++;
 	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);	
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
