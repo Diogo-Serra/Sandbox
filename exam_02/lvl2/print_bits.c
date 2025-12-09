@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   max.c                                              :+:      :+:    :+:   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 22:43:57 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/09 23:11:39 by diosoare         ###   ########.fr       */
+/*   Created: 2025/12/09 23:03:54 by diosoare          #+#    #+#             */
+/*   Updated: 2025/12/09 23:11:04 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int	max(int *tab, unsigned int len)
+void	print_bits(unsigned char octet)
 {
-	unsigned int	i;
-	int				max;
+	int				i;
+	unsigned char	bit;
 
-	if (len == 0)
-		return (0);
-	max = tab[0];
-	i = 1;
-	while (i < len)
+	i = 8;
+	while (i--)
 	{
-		if (tab[i] > max)
-			max = tab[i];
-		i++;
+		bit = (octet >> i) & 1;
+		bit = bit + '0';
+		write(1, &bit, 1);
 	}
-	return (max);
 }
 
-/* int	main(void)
+int	main(void)
 {
-	int arr[] = {2, 12, 5, 35, 6};
-	int	maxnb;
-
-	maxnb = max(arr, 5);
-	printf("%d\n", maxnb);
+	print_bits(2);
+	write(1, "\n", 1);
+	print_bits(255);
+	write(1, "\n", 1);
+	print_bits(0);
+	write(1, "\n", 1);
 	return (0);
-} */
+}
