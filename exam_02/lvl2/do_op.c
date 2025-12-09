@@ -6,14 +6,14 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:31:29 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/09 16:19:46 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/09 16:50:23 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-int	atoi(char *str)
+int	ft_atoi(char *str)
 {
 	int		sign;
 	int		result;
@@ -27,6 +27,7 @@ int	atoi(char *str)
 			sign *= -1;
 		str++;
 	}
+	result = 0;
 	while (*str)
 	{
 		result = (result * 10) + (*str - '0');
@@ -35,36 +36,29 @@ int	atoi(char *str)
 	return (result * sign);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	int a;
-
-	a = atoi("42");
-	printf("%d\n", a);
-	return (0);
-/* 	int		a;
+	int		a;
 	int		b;
 	char	op;
 	int		result;
-	
+
 	if (argc == 4)
 	{
-		a = atoi(argv[1]);
+		a = ft_atoi(argv[1]);
 		op = (argv[2][0]);
-		b = atoi(argv[3]);
-		
+		b = ft_atoi(argv[3]);
 		if (op == '+')
 			result = a + b;
-		if (op == '-')
+		else if (op == '-')
 			result = a - b;				
-		if (op == '/')
+		else if (op == '/')
 			result = a / b;				
-		if (op == '*')
+		else if (op == '*')
 			result = a * b;
-		printf("%d\n");
+		printf("%d\n", result);
 	}
 	else
 		printf("\n");
 	return (0);
- */
 }
