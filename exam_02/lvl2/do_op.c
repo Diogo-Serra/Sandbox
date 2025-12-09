@@ -6,29 +6,43 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:31:29 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/09 16:01:38 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/09 16:19:46 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-ssize_t	do_op(int a, int b, char op)
+int	atoi(char *str)
 {
-	if (op == '+')
-		return ((ssize_t)a + b);
-	if (op == '-')
-		return ((ssize_t)a - b);	
-	if (op == '/')
-		return ((ssize_t)a / b);	
-	if (op == '*')
-		return ((ssize_t)a * b);
-	return (0);		
+	int		sign;
+	int		result;
+
+	while ((*str == ' ') || (*str >= 9 && *str <= 13))
+		str++;
+	sign = 1;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	while (*str)
+	{
+		result = (result * 10) + (*str - '0');
+		str++;
+	}
+	return (result * sign);
 }
 
-int	main(int argc, char	**argv)
+int	main(void)
 {
-	int		a;
+	int a;
+
+	a = atoi("42");
+	printf("%d\n", a);
+	return (0);
+/* 	int		a;
 	int		b;
 	char	op;
 	int		result;
@@ -49,6 +63,8 @@ int	main(int argc, char	**argv)
 			result = a * b;
 		printf("%d\n");
 	}
-	printf("%d\n");
-	
+	else
+		printf("\n");
+	return (0);
+ */
 }
