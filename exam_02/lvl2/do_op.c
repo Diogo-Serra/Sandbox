@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:31:29 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/09 16:50:23 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/09 16:51:58 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int	main(int argc, char **argv)
 		if (op == '+')
 			result = a + b;
 		else if (op == '-')
-			result = a - b;				
+			result = a - b;
 		else if (op == '/')
-			result = a / b;				
+			result = a / b;
 		else if (op == '*')
 			result = a * b;
 		printf("%d\n", result);
