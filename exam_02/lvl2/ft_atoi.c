@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:53:19 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/09 17:00:27 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/09 17:01:32 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_atoi(char *str)
 			sign *= -1;
 		str++;
 	}
+	result = 0;
 	while (*str)
 		result = (result * 10) + (*str++ - '0');
 	return (result * sign);
