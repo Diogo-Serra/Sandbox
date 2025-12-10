@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 01:52:45 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/10 02:07:01 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/10 02:16:45 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_atoi_base(char *str, int base)
 {
 	ssize_t	result;	
+	int		digit;
 	int		sign;
 
 	sign = 1;
