@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 17:49:33 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/12 16:32:18 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/12 17:13:52 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	free_list(t_student **head, t_student **tail)
 {
 	t_student	*current;
 	t_student	*temp;
-	
+
 	current = *head;
 	while (current)
 	{
