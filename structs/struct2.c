@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 17:49:33 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/12 16:31:00 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/12 16:32:18 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int	main(void)
 	s3 = create_student("Test3", 25, 15.50);
 	printf("%s\n%d\n%f\n", s3->name, s3->student_id, s3->grade);
 	add_back(&head, &tail, s3);
+	print_list(head);
 	free_list(&head, &tail);
 	return (0);
 }
