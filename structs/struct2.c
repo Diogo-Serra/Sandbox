@@ -6,11 +6,24 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 17:49:33 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/12 16:28:08 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/12 16:31:00 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
+
+void	print_list(t_student *head)
+{
+	t_student	*current;
+
+	current = head;
+	while (current)
+	{
+		printf("%s -> ", current->name);
+		current = current->next;
+	}
+	printf("NULL\n");
+}
 
 void	free_list(t_student **head, t_student **tail)
 {
