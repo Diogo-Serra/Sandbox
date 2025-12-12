@@ -6,13 +6,13 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 17:49:33 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/12 16:13:28 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/12 16:28:08 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 
-void	free_list(t_student **head)
+void	free_list(t_student **head, t_student **tail)
 {
 	t_student	*current;
 	t_student	*temp;
@@ -25,12 +25,27 @@ void	free_list(t_student **head)
 		current = temp;
 	}
 	*head = NULL;
+	*tail = NULL;
 }
 
-void	add_front(t_student **head, t_student *new_node)
+void	add_back(t_student **head, t_student **tail, t_student *new_node)
+{
+	if (!*head)
+	{
+		*head = new_node;
+		*tail = new_node;
+		return ;
+	}
+	(*tail)->next = new_node;
+	*tail = new_node;
+}
+
+void	add_front(t_student **head, t_student **tail, t_student *new_node)
 {
 	new_node->next = *head;
 	*head = new_node;
+	if (!*tail)
+		*tail = new_node;
 }
 
 t_student	*create_student(char *name, int id, float grade)
@@ -57,16 +72,22 @@ t_student	*create_student(char *name, int id, float grade)
 int	main(void)
 {
 	t_student	*head;
+	t_student	*tail;
 	t_student	*s1;
 	t_student	*s2;
+	t_student	*s3;
 
 	head = NULL;
-	s1 = create_student("Diogo", 35, 18.5);
+	tail = NULL;
+	s1 = create_student("Test1", 35, 18.50);
 	printf("%s\n%d\n%f\n", s1->name, s1->student_id, s1->grade);
-	add_front(&head, s1);
-	s2 = create_student("Maria", 30, 19.5);
-	add_front(&head, s2);
+	add_front(&head, &tail, s1);
+	s2 = create_student("Test2", 30, 19.50);
 	printf("%s\n%d\n%f\n", s2->name, s2->student_id, s2->grade);
-	free_list(&head);
+	add_front(&head, &tail, s2);
+	s3 = create_student("Test3", 25, 15.50);
+	printf("%s\n%d\n%f\n", s3->name, s3->student_id, s3->grade);
+	add_back(&head, &tail, s3);
+	free_list(&head, &tail);
 	return (0);
 }
