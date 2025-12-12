@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct1.c                                          :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/05 22:30:49 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/12 15:07:39 by diosoare         ###   ########.fr       */
+/*   Created: 2025/12/12 15:01:05 by diosoare          #+#    #+#             */
+/*   Updated: 2025/12/12 15:09:01 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "structs.h"
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
-void	create_coordinates(void)
+# include <stdio.h>
+# include <stdlib.h>
+
+typedef struct s_student
 {
-	t_point	coordinate_1;
+	char				name[50];
+	int					student_id;
+	float				grade;
+	struct s_student	*next;
+}	t_student;
 
-	coordinate_1.x = 0;
-	coordinate_1.y = 0;
-	printf("1x: %d\n1y: %d\n2x: %d\n2y: %d\n", coordinate_1.x, coordinate_1.y);
-}
-
-int	main(void)
+typedef struct s_point
 {
-	t_point	first_coordinate;
+	int	x;
+	int	y;
+}	t_point;
 
-	first_coordinate.x = 5;
-	first_coordinate.y = 10;
-	printf("x: %d\ny: %d\n", first_coordinate.x, first_coordinate.y);
-	create_coordinates();
-	return (0);
-}
+#endif /* STRUCTS_H */
