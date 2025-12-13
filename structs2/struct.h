@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 16:36:23 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/13 17:07:13 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/13 17:17:12 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ typedef struct s_player
 	char	name[50];	
 }	t_player;
 
-t_player	create_player(int id, int score, char *name);
+t_player	*create_player(int id, int score, char *name);
 
 #endif /* STRUCT_H */
