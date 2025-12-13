@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 16:38:37 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/13 16:40:04 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/13 17:11:17 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 int	main(void)
 {
+	t_player	player1;
+
 	printf("Teste");
+	player1 = create_player(1, 50, "Test1");
+	printf("ID:%d\nName:%s\nScore:%d", player1.id, player1.name, player1.score);
+	printf("\n");
 	return (0);
 }
