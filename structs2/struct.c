@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 16:38:37 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/13 17:18:50 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/15 12:45:50 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 
 	printf("Teste\n");
 	player1 = create_player(1, 50, "Player1");
-	printf("ID:%d\nName:%s\nScore:%d", player1->id, player1->name, player1->score);
+	printf("%d\n%s\n%d", player1->id, player1->name, player1->score);
 	printf("\n");
 	free (player1);
 	return (0);
