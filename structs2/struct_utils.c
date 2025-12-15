@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 16:44:13 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/15 16:19:34 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:41:50 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,59 +14,18 @@
 
 t_player	*create_player(int id, int score, char *name)
 {
-	t_player	*player;
+	t_player	*new_player;
 	int			i;
-
-	player = malloc(sizeof(t_player));
-	if (!player)
-		return (NULL);
-	player->id = id;
-	player->score = score;
+	
+	new_player->id = id;
+	new_player->score = score;
+	new_player->next = NULL;
 	i = 0;
 	while (name[i])
 	{
-		player->name[i] = name[i];
+		new_player->name[i] = name[i];
 		i++;
 	}
-	player->name[i] = '\0';
-	player->next = NULL;
-	return (player);
-}
-
-void	add_front(t_player **head, t_player *new_node)
-{
-	new_node->next = *head;
-	*head = new_node;
-}
-
-void	add_back(t_player	**head, t_player *new_node)
-{
-	t_player	*current;
-
-	if (!new_node)
-		return ;
-	if (!*head)
-	{
-		*head = new_node;
-		return ;
-	}
-	current = *head;
-	while (current->next)
-		current = current->next;
-	current->next = new_node;
-}
-
-void	print_list(t_player **head)
-{
-	t_player	*current;
-
-	if (!*head)
-		return ;
-	current = *head;
-	while (current)
-	{
-		printf("%s\n", current->name);
-		current = current->next;
-	}
-	printf("NULL\n");
+	new_player->name[i] = '\0';
+	return (new_player);
 }
