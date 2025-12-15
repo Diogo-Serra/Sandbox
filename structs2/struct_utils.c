@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 16:44:13 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/15 13:33:44 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:38:23 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	add_back(t_player	**head, t_player *new_node)
 
 	if (!new_node)
 		return ;
-	if(!*head)
+	if (!*head)
 	{
 		*head = new_node;
 		return ;
@@ -59,7 +59,7 @@ void	add_back(t_player	**head, t_player *new_node)
 void	print_list(t_player **head)
 {
 	t_player	*current;
-	
+
 	if (!*head)
 		return ;
 	current = head;
