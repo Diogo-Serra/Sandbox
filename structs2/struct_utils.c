@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 16:44:13 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/15 16:41:50 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:42:14 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_player	*create_player(int id, int score, char *name)
 {
 	t_player	*new_player;
 	int			i;
-	
+
 	new_player->id = id;
 	new_player->score = score;
 	new_player->next = NULL;
