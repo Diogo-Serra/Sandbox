@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 16:44:13 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/15 14:38:23 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:53:23 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ t_player	*create_player(int id, int score, char *name)
 	return (player);
 }
 
-void	add_front(t_player **head, t_player new_node)
+void	add_front(t_player **head, t_player *new_node)
 {
-	new_node.next = *head;
+	new_node->next = *head;
 	head = &new_node;
 }
 
@@ -62,7 +62,7 @@ void	print_list(t_player **head)
 
 	if (!*head)
 		return ;
-	current = head;
+	current = *head;
 	while (current)
 	{
 		printf("%s\n", current->name);
