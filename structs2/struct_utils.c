@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 16:44:13 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/15 14:53:23 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/15 15:15:23 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_player	*create_player(int id, int score, char *name)
 void	add_front(t_player **head, t_player *new_node)
 {
 	new_node->next = *head;
-	head = &new_node;
+	*head = new_node;
 }
 
 void	add_back(t_player	**head, t_player *new_node)
