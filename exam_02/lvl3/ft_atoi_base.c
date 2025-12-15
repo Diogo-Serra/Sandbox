@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 01:52:45 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/10 02:17:19 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:30:05 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ft_atoi_base(char *str, int base)
 
 	sign = 1;
 	result = 0;
-
 	while (*str == ' ' || *str >= 9 && *str <= 13)
 		str++;
 	if (*str == '-' || *str == '+')
@@ -37,7 +36,7 @@ int	ft_atoi_base(char *str, int base)
 		else if (*str >= 'A' && *str <= 'F')
 			digit = *str - 'A' + 10;
 		if (digit == -1 || digit >= base)
-			break;
+			break ;
 		result = result * base + digit;
 		str++;
 	}

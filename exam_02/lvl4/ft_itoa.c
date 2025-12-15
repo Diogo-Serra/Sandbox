@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 02:17:39 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/10 02:31:58 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:26:28 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_itoa(int nb)
 	int		i;
 	int		j;
 	ssize_t	nbr;
-	
+
 	nbr = nb;
 	i = 10;
 	if (nb == 0)
