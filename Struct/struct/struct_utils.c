@@ -6,11 +6,28 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 09:12:39 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/17 09:55:07 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/17 11:47:26 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
+
+size_t	count_list(t_person **head)
+{
+	t_person	*current;
+	size_t		count;
+
+	if (!*head)
+		return (0);
+	current = *head;
+	count = 0;
+	while (current)
+	{
+		count++;
+		current = current->next;		
+	}
+	return (count);
+}
 
 void	print_list(t_person **head)
 {
