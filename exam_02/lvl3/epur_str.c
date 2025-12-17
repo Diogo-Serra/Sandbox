@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 10:34:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/17 11:07:13 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/17 11:07:26 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*epur_str(char *str)
 	while (str[i] && str[i] != ' ' || str[i] != '\t')
 		out[j++] = str[i++];
 	out[j] = '\0';
-	return (out);	
+	return (out);
 }
 
 int	main(void)
