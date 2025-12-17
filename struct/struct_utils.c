@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 09:12:39 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/17 09:48:45 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/17 09:52:23 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,18 @@ int	main(void)
 	t_person	*head;
 	t_person	*person1;
 	t_person	*person2;
-
+	t_person	*person3;
+	
+	head = NULL;
 	person1 = add_person(35, "Diogo");
 	person2 = add_person(30, "Sara");
-	printf("%d, %s\n", person1->age, person1->name);
-	printf("%d, %s\n", person2->age, person2->name);
+	person3 = add_person(25, "Tiago");
 	add_front(&head, person1);
 	add_front(&head, person2);
+	add_back(&head, person3);
 	print_list(&head);
 	free(person1);
 	free(person2);
+	free(person3);
 	return (0);
 }
