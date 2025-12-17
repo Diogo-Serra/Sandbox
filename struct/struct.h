@@ -6,12 +6,14 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 09:06:15 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/17 09:15:26 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/17 09:16:58 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
+
+# include <stdio.h>
 
 typedef struct s_person
 {
