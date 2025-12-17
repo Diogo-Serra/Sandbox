@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 09:06:15 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/17 09:16:58 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/17 09:21:00 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define STRUCT_H
 
 # include <stdio.h>
+# include <stdlib.h>
 
 typedef struct s_person
 {
