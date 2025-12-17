@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 09:12:39 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/17 09:52:23 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/17 09:55:07 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ t_person	*add_person(int age, char *name)
 	if (!age || !*name)
 		return (NULL);
 	new_person = malloc(sizeof(t_person));
+	if (!new_person)
+		return (NULL);
 	new_person->next = NULL;
 	new_person->age = age;
 	i = 0;
@@ -77,7 +79,7 @@ int	main(void)
 	t_person	*person1;
 	t_person	*person2;
 	t_person	*person3;
-	
+
 	head = NULL;
 	person1 = add_person(35, "Diogo");
 	person2 = add_person(30, "Sara");
