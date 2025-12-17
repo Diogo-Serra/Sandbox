@@ -6,11 +6,33 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 09:12:39 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/17 09:28:53 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/17 09:37:29 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
+
+void	print_list(t_person **head)
+{
+	t_person	*current;
+
+	if (!*head)
+		return ;
+	current = *head;
+	while (current->next)
+	{
+		printf("%s, %i", current->name, current->age);
+		current->next = current->next;
+	}
+}
+
+void	add_front(t_person **head, t_person *new_node)
+{
+	if (!*head || !new_node)
+		return ;
+	new_node->next = *head;
+	head = new_node->next;
+}
 
 t_person	*add_person(int age, char *name)
 {
@@ -26,7 +48,7 @@ t_person	*add_person(int age, char *name)
 	while (name[i])
 	{
 		new_person->name[i] = name[i];
-		i++;		
+		i++;
 	}
 	new_person->name[i] = '\0';
 	return (new_person);
@@ -34,10 +56,17 @@ t_person	*add_person(int age, char *name)
 
 int	main(void)
 {
+	t_person	*head;
 	t_person	*person1;
+	t_person	*person2;
 
 	person1 = add_person(35, "Diogo");
+	person2 = add_person(30, "Sara");
 	printf("%d, %s\n", person1->age, person1->name);
+	printf("%d, %s\n", person2->age, person2->name);
+	add_front(&head, person1);
+	add_front(&head, person2);
 	free(person1);
+	free(person2);
 	return (0);
 }
