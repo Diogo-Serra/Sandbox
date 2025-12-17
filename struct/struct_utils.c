@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 09:12:39 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/17 09:25:35 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/17 09:25:48 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int	main(void)
 
 	person1 = add_person(35, "Diogo");
 	printf("%d, %s", person1->age, person1->name);
+	free(person1);
 	return (0);
 }
