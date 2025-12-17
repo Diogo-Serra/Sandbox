@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 09:12:39 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/17 09:28:02 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/17 09:28:53 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_person	*add_person(int age, char *name)
 		new_person->name[i] = name[i];
 		i++;		
 	}
+	new_person->name[i] = '\0';
 	return (new_person);
 }
 
