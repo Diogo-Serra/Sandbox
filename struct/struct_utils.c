@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 09:12:39 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/17 09:48:32 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/17 09:48:45 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	add_back(t_person **head, t_person *new_node)
 	while (current->next)
 		current = current->next;
 	current->next = new_node;
-		
 }
 
 void	add_front(t_person **head, t_person *new_node)
