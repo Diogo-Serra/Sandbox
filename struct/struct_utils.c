@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 09:12:39 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/17 09:42:20 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/17 09:48:32 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,24 @@ void	print_list(t_person **head)
 		printf("Person: %s, %i\n", current->name, current->age);
 		current = current->next;
 	}
+}
+
+void	add_back(t_person **head, t_person *new_node)
+{
+	t_person	*current;
+
+	if (!new_node)
+		return ;
+	if (!*head)
+	{
+		*head = new_node;
+		return ;
+	}
+	current = *head;
+	while (current->next)
+		current = current->next;
+	current->next = new_node;
+		
 }
 
 void	add_front(t_person **head, t_person *new_node)
