@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:00:14 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 15:08:07 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:16:51 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,22 @@
 #include <unistd.h>
 #include <stdio.h>
 
-size_t	strlen(const char *str)
+size_t	wordlen(const char *str)
 {
 	size_t	len;
 
 	len = 0;
 	while (str[len] && str[len] != ' ')
+		len++;
+	return (len);
+}
+
+size_t	strlen(const char *str)
+{
+	size_t	len;
+
+	len = 0;
+	while (str[len])
 		len++;
 	return (len);
 }
@@ -33,7 +43,7 @@ char	*strjoin_expand(char *s1, const char *s2)
 	char	*expand;
 
 	expand = "   ";
-	out = malloc((strlen(s1) + 3 + strlen(s2)) + 1);
+	out = malloc((strlen(s1) + 3 + wordlen(s2)) + 1);
 	if (!out)
 		return (NULL);
 	i = 0;
@@ -69,7 +79,7 @@ char	*expand_str(char *str)
 		expanded = strjoin_expand(expanded, &str[i]);
 		if (!expanded)
 			return (NULL);
-		i += strlen(&str[i]);
+		i += wordlen(&str[i]);
 	}
 	return (expanded);
 }
