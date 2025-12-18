@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:38:55 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 16:06:25 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:11:04 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,15 @@ t_person	*create_person(char *name, int age)
 	t_person	*new_person;
 	size_t		i;
 	
+	if (!name)
+		return (NULL);
 	new_person = malloc(sizeof(t_person));
 	if (!new_person)
 		return (NULL);
 	new_person->age = age;
 	new_person->next = NULL;
 	i = 0;
-	while (name[i])
+	while (name[i] && i < 49)
 	{
 		new_person->name[i] = name[i];
 		i++;
