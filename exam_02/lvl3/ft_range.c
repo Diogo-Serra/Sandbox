@@ -6,25 +6,44 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 16:12:22 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 16:58:31 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 18:48:58 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
-void	ft_range(int start, int	end)
+int	*ft_range(int start, int end)
 {
-	while (start < end)
-		printf("%s\n", start);
-	start++;
+	int		*arr;
+	int		count;
+	int		i;
+
+	count = end - start + 1;
+	arr = malloc(count * sizeof(int));
+	if (!arr)
+		return (0);
+	i = 0;
+	while(i < count)
+		arr[i++] = start++;
+	return (arr);
 }
 
 int	main(void)
 {
-	size_t	total;
-
-	total = ft_range(1, 5);
-	printf("%zu\n", total);
+	int	*arr;
+	int	count;
+	int	start;
+	int	end;
+	int	i;
+	
+	start = 1;
+	end = 10;
+	count = end - start + 1;
+	arr = ft_range(start, end);
+	i = 0;
+	while (i < count)
+		printf("%d\n", arr[i++]);
 	return (0);
 }

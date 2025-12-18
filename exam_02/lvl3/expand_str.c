@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:00:14 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 15:18:43 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 18:49:54 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*strjoin_expand(char *s1, const char *s2)
 	free(s1);
 	return (out);
 }
- 
+
 char	*expand_str(char *str)
 {
 	size_t	i;
@@ -77,7 +77,7 @@ char	*expand_str(char *str)
 		while (str[i] == ' ')
 			i++;
 		if (str[i] == '\0')
-			break;
+			break ;
 		expanded = strjoin_expand(expanded, &str[i]);
 		if (!expanded)
 			return (NULL);
@@ -86,7 +86,7 @@ char	*expand_str(char *str)
 	return (expanded);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	char	str[] = "Hello World Test";
 	char	*out;
@@ -95,4 +95,4 @@ int	main(void)
 	printf("%s\n", out);
 	free(out);
 	return (0);
-}
+} */
