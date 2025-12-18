@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:38:55 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 15:55:26 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:06:25 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,27 @@ typedef struct s_person
 	struct s_person	*next;
 }	t_person;
 
+size_t	count_list(t_person **head)
+{
+	t_person	*current;
+	size_t		count;
+
+	if (!*head)
+		return (0);
+	current = *head;
+	count = 0;
+	while (current)
+	{
+		current = current->next;
+		count++;
+	}
+	return (count);
+}
+
 void	add_front(t_person **head, t_person *new_node)
 {
 	new_node->next = *head;
-	*head = new_node->next;
+	*head = new_node;
 }
 
 t_person	*create_person(char *name, int age)
@@ -51,12 +68,16 @@ int	main(void)
 	t_person	*head;
 	t_person	*person1;
 	t_person	*person2;
+	size_t		list_size;
 	
+	head = NULL;
 	person1 = create_person("Diogo", 35);
 	person2 = create_person("Viktoriia", 26);
 	add_front(&head, person1);
 	add_front(&head, person2);
 	printf("%d, %s\n", person1->age, person1->name);
 	printf("%d, %s\n", person2->age, person2->name);
+	list_size = count_list(&head);
+	printf("%zu\n", list_size);
 	return (0);
 }
