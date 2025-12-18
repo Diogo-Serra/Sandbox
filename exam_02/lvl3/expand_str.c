@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:00:14 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 14:48:29 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 14:56:05 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ char	*expand_str(char *str)
 	char	*expanded;
 
 	i = 0;
-	expanded = malloc(strlen(&str[i]) + 1);
+	expanded = malloc(1);
+	if (!expanded)
+		return (NULL);
+	expanded[0] = '\0';
 	while (str[i])
 	{
 		while (str[i] == ' ')
