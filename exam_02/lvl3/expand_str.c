@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:00:14 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 14:57:04 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:00:14 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*strjoin_expand(char *s1, const char *s2)
 	char	*expand;
 
 	expand = "   ";
-	out = malloc((strlen(s1) + strlen(s2)) + 1);
+	out = malloc((strlen(s1) + 3 + strlen(s2)) + 1);
 	if (!out)
 		return (NULL);
 	i = 0;
@@ -41,7 +41,7 @@ char	*strjoin_expand(char *s1, const char *s2)
 	while (s1[j])
 		out[i++] = s1[j++];
 	n = 0;
-	while (j > 0 && expand[n])
+	while (expand[n] && *s1)
 		out[i++] = expand[n++];
 	j = 0;
 	while (s2[j] && s2[j] != ' ')
@@ -65,7 +65,7 @@ char	*expand_str(char *str)
 	{
 		while (str[i] == ' ')
 			i++;
-		expanded = strjoin_expand(expanded, str);
+		expanded = strjoin_expand(expanded, &str[i]);
 		if (!expanded)
 			return (NULL);
 		i += strlen(&str[i]);
