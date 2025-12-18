@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:00:14 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 15:16:51 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:18:43 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ char	*expand_str(char *str)
 	{
 		while (str[i] == ' ')
 			i++;
+		if (str[i] == '\0')
+			break;
 		expanded = strjoin_expand(expanded, &str[i]);
 		if (!expanded)
 			return (NULL);
