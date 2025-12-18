@@ -6,18 +6,18 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 16:12:22 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 16:24:08 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:58:31 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-size_t	ft_range(int start, int	end)
+void	ft_range(int start, int	end)
 {
-	int	range;
-
-	
+	while (start < end)
+		printf("%s\n", start);
+	start++;
 }
 
 int	main(void)
