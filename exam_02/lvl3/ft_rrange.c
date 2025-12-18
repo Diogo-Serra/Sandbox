@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 18:57:48 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 18:58:32 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 19:00:19 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,24 @@ int	*ft_range(int start, int end)
 		return (0);
 	i = 0;
 	while (i < count)
-		arr[i++] = start++;
+		arr[count--] = end--;
 	return (arr);
 }
+
+/* int	main(void)
+{
+	int	*arr;
+	int	count;
+	int	start;
+	int	end;
+	int	i;
+	
+	start = 1;
+	end = 10;
+	count = end - start + 1;
+	arr = ft_range(start, end);
+	i = 0;
+	while (i < count)
+		printf("%d\n", arr[i++]);
+	return (0);
+} */
