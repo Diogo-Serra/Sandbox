@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:38:55 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 16:11:31 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 18:51:13 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_person	*create_person(char *name, int age)
 {
 	t_person	*new_person;
 	size_t		i;
-	
+
 	if (!name)
 		return (NULL);
 	new_person = malloc(sizeof(t_person));
@@ -65,7 +65,7 @@ t_person	*create_person(char *name, int age)
 	new_person->name[i] = '\0';
 	return (new_person);
 }
-int	main(void)
+/* int	main(void)
 {
 	t_person	*head;
 	t_person	*person1;
@@ -82,4 +82,4 @@ int	main(void)
 	list_size = count_list(&head);
 	printf("%zu\n", list_size);
 	return (0);
-}
+} */
