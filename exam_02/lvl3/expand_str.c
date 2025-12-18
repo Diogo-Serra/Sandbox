@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:00:14 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 15:00:14 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:08:07 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ char	*strjoin_expand(char *s1, const char *s2)
 	while (s1[j])
 		out[i++] = s1[j++];
 	n = 0;
-	while (expand[n] && *s1)
-		out[i++] = expand[n++];
+	if (j > 0 && s2[0] != '\0')
+		while (expand[n])
+			out[i++] = expand[n++];
 	j = 0;
 	while (s2[j] && s2[j] != ' ')
 		out[i++] = s2[j++];
