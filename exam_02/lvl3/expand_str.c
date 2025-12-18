@@ -6,12 +6,13 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:00:14 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/18 13:16:34 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/18 13:35:19 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 size_t	word_len(char *str)
 {
@@ -32,7 +33,7 @@ size_t	count_words(char *str)
 	nwords = 0;
 	while (str[i])
 	{
-		if (str[i] != ' ' && (i == 0 || str[i - 1] != ' '))
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
 			nwords++;
 		i++;
 	}
@@ -41,19 +42,28 @@ size_t	count_words(char *str)
 
 char	*expand_str(char *str)
 {
-	char	**storage;
-	size_t	wordlen;
-	size_t	nwords;
 	size_t	i;
+	size_t	nwords;
+	size_t	wordlen;
+	size_t	total_len;
 
 	nwords = count_words(str);
-	wordlen = word_len(str);
-	printf("%i\n", nwords);
+	i = 0;
+	while (str[i])
+	{
+		while (str[i] == ' ')
+			i++;
+		wordlen = word_len(&str[i]);
+		i += wordlen;
+		total_len += wordlen;
+	}
+	
+	return (str);
 }
 
 int	main(void)
 {
-	char	str[] = "Hello World!";
+	char	str[] = " Hello World!";
 	char	*out;
 
 	out = expand_str(str);
