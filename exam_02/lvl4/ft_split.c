@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 13:09:33 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/19 13:27:30 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/19 13:30:11 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	word_len(char *src, char sep)
 	size_t	len;
 
 	len = 0;
-	while (src[len] || src[len] == sep)
+	while (src[len] && src[len] != sep)
 		len++;
 	return (len);
 }
@@ -45,11 +45,12 @@ size_t	count_words(char *src, char sep)
 	
 }
  */
+
 int	main(void)
 {
 	char	src[] = "Hello World Test!";
 	char	sep = ' ';
 
-	printf("%zu\n", count_words(src, sep));
+	printf("%zu\n%zu\n", count_words(src, sep), word_len(src, sep));
 	return (0);
 }
