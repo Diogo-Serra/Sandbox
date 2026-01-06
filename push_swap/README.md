@@ -27,7 +27,7 @@ make
 ```
 → Displays the sequence of operations (one instruction per line).
 
-## Resources & AI Usage
+## Resources
 
 ### References:
 
