@@ -15,7 +15,7 @@ This project emphasizes algorithmic efficiency, time/space complexity analysis, 
 
 ### Compilation
 ```bash
-git clone <your-repo-url> push_swap
+git clone https://github.com/Diogo-Serra/Sandbox/tree/main/push_swap push_swap
 cd push_swap
 make
 ```
