@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/06 11:11:46 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/06 11:20:42 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int		stack_is_sorted(t_stack *stack);
 int		stack_has_duplicates(t_stack *stack);
 t_stack	*stack_min(t_stack *stack);
 t_stack	*stack_max(t_stack *stack);
-int		get_position(t_stack *stack, int value);
 
 /* parsing.c */
 t_stack	*parse_input(int argc, char **argv);

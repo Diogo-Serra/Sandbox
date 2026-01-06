@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 09:51:54 by diosoare          #+#    #+#              #
-#    Updated: 2026/01/06 11:17:55 by diosoare         ###   ########.fr        #
+#    Updated: 2026/01/06 11:19:13 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		:= push_swap
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
 
-LIBFT_DIR	:= ./Libft
+LIBFT_DIR	:= ./libft
 LIBFT		:= $(LIBFT_DIR)/libft.a
 
 SRCS		:= \
