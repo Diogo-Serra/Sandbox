@@ -29,7 +29,7 @@ make
 
 ## Resources & AI Usage
 
-References:
+### References:
 
 - Classic sorting algorithms and complexity analysis
 - Stack operation theory and visualizations
