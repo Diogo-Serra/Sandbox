@@ -24,3 +24,15 @@ make
 ./push_swap 4 2 1 6 3 5
 ```
 → Displays the sequence of operations (one instruction per line).
+
+## Resources & AI Usage
+
+References:
+
+Classic sorting algorithms and complexity analysis
+Stack operation theory and visualizations
+Community testers and visualizers
+
+### AI usage:
+Used solely for generating random test cases, exploring edge-case scenarios, and visualizing sorting steps.
+All algorithm design, implementation, optimization, and debugging were done manually, fully understood, and peer-reviewed.
