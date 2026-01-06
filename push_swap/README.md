@@ -1,0 +1,26 @@
+*This project has been created as part of the 42 curriculum by diosoare.*
+
+# push_swap
+
+## Description
+
+Push_swap is an algorithmic project from the 42 curriculum.  
+The objective is to sort a list of unique integers using **two stacks (a and b)** and a **restricted set of operations**, achieving the **lowest possible number of moves**.
+
+The program `push_swap` receives a list of integers as arguments and outputs the shortest sequence of operations required to sort stack **a** in ascending order (smallest number at the top).
+
+This project emphasizes algorithmic efficiency, time/space complexity analysis, and rigorous C programming.
+
+## Instructions
+
+### Compilation
+```bash
+git clone <your-repo-url> push_swap
+cd push_swap
+make
+```
+### Usage
+```bash
+./push_swap 4 2 1 6 3 5
+```
+→ Displays the sequence of operations (one instruction per line).
