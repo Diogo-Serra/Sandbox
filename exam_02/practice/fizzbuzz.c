@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:57:37 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/06 13:46:32 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:47:33 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ void	ft_putnbr(int nb)
 	if (nb < 0)
 		arr[--i] = '-';
 	write(1, arr + i, 11 - i);
+}
+
+void	fizz_buzz(void)
+{
+	
 }
 
 int	main(void)
