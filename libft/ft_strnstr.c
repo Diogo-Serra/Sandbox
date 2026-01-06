@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 16:18:18 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/28 16:57:45 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/16 08:44:02 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/21 14:37:37 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	t_list	*last;
+	size_t	i;
+	size_t	j;
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
+	if (!*needle)
+		return ((char *)haystack);
+	i = 0;
+	while (haystack[i] && i < len)
 	{
-		*lst = new;
-		return ;
+		j = 0;
+		while (needle[j] && i + j < len && haystack[i + j] == needle[j])
+			j++;
+		if (!needle[j])
+			return ((char *)&haystack[i]);
+		i++;
 	}
-	last = *lst;
-	while (last->next)
-		last = last->next;
-	last->next = new;
+	return (NULL);
 }

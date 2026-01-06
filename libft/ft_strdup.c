@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 14:41:10 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/29 17:42:02 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/20 13:23:37 by diosoare          #+#    #+#             */
+/*   Updated: 2025/11/10 10:55:59 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 char	*ft_strdup(const char *s)
 {
-	char	*out;
-	size_t	len;
+	char	*dup;
+	size_t	i;
 
-	if (!s)
+	i = 0;
+	while (s[i])
+		i++;
+	dup = (char *)ft_calloc(i + 1, sizeof(char));
+	if (!dup)
 		return (NULL);
-	len = ft_strlen(s);
-	out = ft_calloc(len + 1, sizeof(char));
-	if (!out)
-		return (NULL);
-	ft_memcpy(out, s, len);
-	return (out);
+	ft_memcpy(dup, s, i);
+	return (dup);
 }

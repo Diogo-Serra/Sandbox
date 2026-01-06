@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 17:17:32 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/29 00:50:51 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/27 18:09:11 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/28 15:54:32 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*node;
 
-	node = (t_list *)malloc(sizeof(t_list));
+	node = malloc(sizeof(t_list));
 	if (!node)
-		return (NULL);
+		return (0);
 	node->content = content;
-	node->next = NULL;
+	node->next = (NULL);
 	return (node);
 }

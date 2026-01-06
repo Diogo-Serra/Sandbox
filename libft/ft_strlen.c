@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 14:41:15 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 16:13:17 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/16 08:42:33 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/27 15:24:10 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (s[i])
 		i++;
 	return (i);
 }

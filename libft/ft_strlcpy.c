@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 16:18:18 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/28 16:57:45 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/20 14:36:57 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/26 01:03:50 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	t_list	*last;
+	size_t	i;
+	size_t	srclen;
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
+	srclen = 0;
+	while (src[srclen] != '\0')
+		srclen++;
+	if (size == 0)
+		return (srclen);
+	i = 0;
+	while (src[i] != '\0' && i < (size - 1))
 	{
-		*lst = new;
-		return ;
+		dst[i] = src[i];
+		i++;
 	}
-	last = *lst;
-	while (last->next)
-		last = last->next;
-	last->next = new;
+	dst[i] = '\0';
+	return (srclen);
 }

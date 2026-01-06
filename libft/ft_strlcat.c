@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 16:18:18 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/28 16:57:45 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/16 08:41:38 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/21 13:24:40 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	t_list	*last;
+	size_t	dlen;
+	size_t	slen;
+	size_t	i;
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
+	dlen = 0;
+	while (dlen < size && dst[dlen])
+		dlen++;
+	slen = 0;
+	while (src[slen])
+		slen++;
+	if (dlen == size)
+		return (size + slen);
+	i = 0;
+	while (src[i] && dlen + i < size - 1)
 	{
-		*lst = new;
-		return ;
+		dst[dlen + i] = src[i];
+		i++;
 	}
-	last = *lst;
-	while (last->next)
-		last = last->next;
-	last->next = new;
+	dst[dlen + i] = '\0';
+	return (dlen + slen);
 }

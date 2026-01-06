@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 14:40:29 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 16:12:45 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/16 08:31:10 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/30 17:06:48 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char	*p;
+	const unsigned char		*p;
+	unsigned char			uc;
 
 	p = (const unsigned char *)s;
+	uc = (unsigned char)c;
 	while (n--)
 	{
-		if (*p == (unsigned char)c)
+		if (*p == uc)
 			return ((void *)p);
 		p++;
 	}

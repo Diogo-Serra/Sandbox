@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 23:10:20 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/29 11:47:28 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/20 14:25:57 by diosoare          #+#    #+#             */
+/*   Updated: 2025/11/23 16:06:57 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
+	char	*p;
 	size_t	total;
 
 	if (size != 0 && nmemb > SIZE_MAX / size)
 		return (NULL);
 	total = nmemb * size;
-	if (nmemb == 0 || size == 0)
-		total = 1;
 	ptr = malloc(total);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, total);
+	p = (char *)ptr;
+	while (total--)
+		*p++ = 0;
 	return (ptr);
 }

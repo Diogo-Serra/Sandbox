@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 16:18:18 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/28 16:57:45 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/16 08:43:08 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/30 01:26:54 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_list	*last;
+	size_t			len;
+	size_t			i;
+	char			*out;
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	out = (char *)ft_calloc((len + 1), sizeof(char));
+	if (!out)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		*lst = new;
-		return ;
+		out[i] = f((unsigned int)i, s[i]);
+		i++;
 	}
-	last = *lst;
-	while (last->next)
-		last = last->next;
-	last->next = new;
+	return (out);
 }

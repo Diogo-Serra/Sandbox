@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/29 01:24:57 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/29 01:38:38 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/27 18:52:55 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/27 18:56:17 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	if (!lst)
-		return (0);
-	while (lst != NULL)
+	count = 0;
+	while (lst)
 	{
-		i++;
+		count++;
 		lst = lst->next;
 	}
-	return (i);
+	return (count);
 }

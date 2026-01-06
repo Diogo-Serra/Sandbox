@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 16:18:18 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/28 16:57:45 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/16 08:34:14 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/28 14:23:52 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_list	*last;
+	char	arr[11];
+	long	i[2];
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
+	i[0] = 10;
+	i[1] = (long)n;
+	if (i[1] < 0)
+		i[1] *= -1;
+	if (i[1] == 0)
+		arr[--i[0]] = '0';
+	while (i[1] > 0)
 	{
-		*lst = new;
-		return ;
+		arr[--i[0]] = (i[1] % 10) + '0';
+		i[1] /= 10;
 	}
-	last = *lst;
-	while (last->next)
-		last = last->next;
-	last->next = new;
+	if (n < 0)
+		arr[--i[0]] = '-';
+	while (i[0] < 10)
+		write(fd, &arr[i[0]++], 1);
 }
