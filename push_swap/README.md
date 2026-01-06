@@ -31,10 +31,10 @@ make
 
 References:
 
-Classic sorting algorithms and complexity analysis
-Stack operation theory and visualizations
-Community testers and visualizers
+- Classic sorting algorithms and complexity analysis
+- Stack operation theory and visualizations
+- Community testers and visualizers
 
 ### AI usage:
-Used solely for generating random test cases, exploring edge-case scenarios, and visualizing sorting steps.
+- Used solely for generating random test cases, exploring edge-case scenarios, and visualizing sorting steps.
 All algorithm design, implementation, optimization, and debugging were done manually, fully understood, and peer-reviewed.
