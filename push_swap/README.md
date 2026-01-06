@@ -1,5 +1,9 @@
 *This project has been created as part of the 42 curriculum by diosoare.*
 
+<p align="center">
+  <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/covers/cover-push_swap.png" alt="Banner">
+</p>
+
 # push_swap
 
 ## Description
