@@ -4,8 +4,6 @@
   <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/covers/cover-push_swap.png" alt="Banner">
 </p>
 
-# push_swap
-
 ## Description
 
 Push_swap is an algorithmic project from the 42 curriculum.  
