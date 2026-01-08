@@ -28,7 +28,7 @@ ssize_t lst_size(t_person **head)
     while (current)
     {
         count++;
-        current->next = current;
+        current = current->next;
     }
     return (count);
 }
