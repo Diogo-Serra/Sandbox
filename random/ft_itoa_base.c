@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 char	*ft_itoa_base(long n, const char *digits)
 {
@@ -21,7 +21,10 @@ char	*ft_itoa_base(long n, const char *digits)
 	int				i;
 
 	nb = n;
-	base = ft_strlen(digits);
+    i = 0;
+    while (digits[i])
+        i++;
+	base = i;
 	if (n < 0 && base == 10)
 		nb = -n;
 	i = 64;
@@ -34,7 +37,7 @@ char	*ft_itoa_base(long n, const char *digits)
 	}
 	if (n < 0 && base == 10)
 		arr[--i] = '-';
-	out = (char *)ft_calloc((64 - i) + 1, sizeof(char));
+	out = (char *)malloc((64 - i) + 1);
 	if (!out)
 		return (NULL);
 	ft_memcpy(out, arr + i, 64 - i);
