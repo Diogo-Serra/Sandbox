@@ -8,6 +8,31 @@ typedef struct s_person
     struct s_person *next;
 }   t_person;
 
+void    add_front(t_person **head, t_person *new_node)
+{
+    if (!new_node)
+        return ;
+    new_node->next = *head;
+    *head = new_node;
+}
+
+ssize_t lst_size(t_person **head)
+{
+    t_person    *current;
+    ssize_t     count;
+
+    if (!head)
+        return (0);
+    count = 0;
+    current = *head;
+    while (current)
+    {
+        count++;
+        current->next = current;
+    }
+    return (count);
+}
+
 t_person    *new_person(char *name, int age)
 {
     t_person    *new_person;
@@ -33,8 +58,14 @@ t_person    *new_person(char *name, int age)
 int main(void)
 {
     t_person    *person1;
+    t_person    *head;
+    ssize_t     size;
 
+    head = NULL;
     person1 = new_person("Diogo", 35);
     printf("Hello World\n%s - %d\n", person1->name, person1->age);
+    add_front(&head, person1);
+    size = lst_size(&head);
+    printf("%zu\n", size);
     return (0);
 }
