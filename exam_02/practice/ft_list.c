@@ -67,5 +67,6 @@ int main(void)
     add_front(&head, person1);
     size = lst_size(&head);
     printf("%zu\n", size);
+    free(person1);
     return (0);
 }
