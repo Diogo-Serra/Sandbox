@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 11:10:20 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/09 11:16:12 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/09 11:24:45 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ typedef struct s_player
 	char			name[25];
 	struct s_player	*next;
 }	t_player;
+
+void	add_front(t_player **head, t_player *new_node)
+{
+	new_node->next = *head;
+	head = new_node;
+}
 
 t_player	*new_player(int id, char *name)
 {
@@ -40,7 +46,6 @@ t_player	*new_player(int id, char *name)
 	new_player->next = NULL;
 	return (new_player);
 }
-
 
 int	main(void)
 {
