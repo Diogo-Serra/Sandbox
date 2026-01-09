@@ -26,7 +26,7 @@ int     list_size(t_player *head)
 void    add_front(t_player **head, t_player *new_node)
 {
     new_node->next = *head;
-    head = new_node;
+    *head = new_node;
 }
 
 t_player    *add_player(char *name, int age)
@@ -54,8 +54,12 @@ t_player    *add_player(char *name, int age)
 int main(void)
 {
     t_player    *player1;
+    t_player    *player2;
     player1 = add_player("Diogo", 35);
+    player2 = add_player("Di", 30);
     printf("%s - %d\n", player1->name, player1->age);
+    printf("%s - %d\n", player2->name, player2->age);
     free(player1);
+    free(player2);
     return (0);
 }
