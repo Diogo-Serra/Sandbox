@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 11:10:20 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/09 11:24:45 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/09 11:40:20 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,22 @@ typedef struct s_player
 void	add_front(t_player **head, t_player *new_node)
 {
 	new_node->next = *head;
-	head = new_node;
+	*head = new_node;
+}
+
+int		lst_size(t_player *head)
+{
+	t_player	*current;
+	int			count;
+
+	count = 0;
+	current = head;
+	while (current)
+	{
+		count++;
+		current = current->next;
+	}
+	return (count);
 }
 
 t_player	*new_player(int id, char *name)
@@ -50,9 +65,20 @@ t_player	*new_player(int id, char *name)
 int	main(void)
 {
 	t_player	*player1;
-
+	t_player	*player2;
+	t_player	*head;
+	int			size;
+	
+	head = NULL;
 	player1 = new_player(1, "Diogo");
+	player2 = new_player(2, "Di");	
 	printf("%i - %s\n", player1->id, player1->name);
+	printf("%i - %s\n", player2->id, player2->name);
+	add_front(&head, player1);
+	add_front(&head, player2);
+	size = lst_size(head);
+	printf("%i\n", size);
 	free(player1);
+	free(player2);
 	return (0);
 }
