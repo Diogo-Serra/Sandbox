@@ -8,6 +8,12 @@ typedef struct  s_player
     struct s_player *next;
 }   t_player;
 
+void    add_front(t_player **head, t_player *new_node)
+{
+    new_node->next = *head;
+    head = new_node;
+}
+
 t_player    *add_player(char *name, int age)
 {
     t_player    *new_player;
