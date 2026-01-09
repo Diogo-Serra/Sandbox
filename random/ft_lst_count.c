@@ -8,6 +8,21 @@ typedef struct  s_player
     struct s_player *next;
 }   t_player;
 
+int     list_size(t_player *head)
+{
+    t_player    *current;
+    int         count;
+
+    current = head;
+    count = 0;
+    while (current)
+    {
+        count++;
+        current = current->next;
+    }
+    return (count);
+}
+
 void    add_front(t_player **head, t_player *new_node)
 {
     new_node->next = *head;
