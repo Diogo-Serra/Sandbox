@@ -24,6 +24,7 @@ t_player    *add_player(char *name, int age)
         new_player->name[i] = name[i];
         i++;
     }
+    new_player->name[i] = '\0';
     new_player->age = age;
     new_player->next = NULL;
     return (new_player);
