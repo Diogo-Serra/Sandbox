@@ -60,10 +60,10 @@ void    free_heap(char **source, int size)
     int i;
 
     i = 0;
-    while (size != -1)
+    while (i < size)
     {
         free(source[i]);
-        size--;
+        i++;
     }
     free(source);
 }
