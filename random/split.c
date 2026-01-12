@@ -7,7 +7,7 @@ char    *ft_strdup(char *source, char sep)
     int     i;
     int     j;
 
-    if (!source || !sep)
+    if (!source)
         return (NULL);
     i = 0;
     while (source[i] && source[i] != sep)
@@ -84,8 +84,8 @@ char    **ft_split(char *source, char sep)
         while (*source == sep)
             source++;
         split[i] = ft_strdup(source, sep);
-        if (split[i])
-            return (free_heap(split, words), NULL);
+        if (!split[i])
+            return (free_heap(split, i), NULL);
         source += lenword(source, sep);
         i++;
     }
