@@ -65,7 +65,7 @@ int main(void)
     dup = ft_strdup(source, sep);
     count = count_words(source, sep);
     len_word = lenword(source, sep); 
-    printf("%s\n%d\n%d\n", dup, count, len_words);
+    printf("%s\n%d\n%d\n", dup, count, len_word);
     free(dup);
     return (0);
 }
