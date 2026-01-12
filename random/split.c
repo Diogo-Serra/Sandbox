@@ -25,6 +25,16 @@ char    *ft_strdup(char *source, char sep)
     return (dup);
 }
 
+int lenword(char *source, char sep)
+{
+    int i;
+
+    i = 0;
+    while (source[i] && source[i] != sep)
+        i++;
+    return (i);
+}
+
 int count_words(char *source, char sep)
 {
     int i;
@@ -49,11 +59,13 @@ int main(void)
     char    sep = ' ';
     char    *dup;
     int     count;
+    int     len_word;
 
     printf("%s\n", source);
     dup = ft_strdup(source, sep);
     count = count_words(source, sep);
-    printf("%s\n%d\n", dup, count);
+    len_word = lenword(source, sep); 
+    printf("%s\n%d\n%d\n", dup, count, len_words);
     free(dup);
     return (0);
 }
