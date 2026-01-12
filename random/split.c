@@ -3,27 +3,24 @@
 
 char    *ft_strdup(char *source, char sep)
 {
-    char    *dup;
     int     i;
-    int     j;
+    char    *dup;
 
-    if (!source)
+    if (!source || !sep)
         return (NULL);
     i = 0;
     while (source[i] && source[i] != sep)
         i++;
-    dup = malloc(i + 1);
+    dup = malloc((i + 1) * sizeof(char));
     if (!dup)
         return (NULL);
-    j = 0;
     i = 0;
     while (source[i] && source[i] != sep)
     {
-        dup[j] = source[i];
-        j++;
+        dup[i] = source[i];
         i++;
     }
-    dup[j] = '\0';
+    dup[i] = '\0';
     return (dup);
 }
 
@@ -114,7 +111,7 @@ int main(void)
         printf("%s\n", split[i]);
         i++;
     }
-    free(split);
+    free_heap(split, i);
     free(dup);
     return (0);
 }
