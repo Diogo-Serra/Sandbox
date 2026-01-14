@@ -13,13 +13,18 @@ int *ft_rrange(int start, int end)
         range = (end - start) + 1;
         rrange = malloc(range * sizeof(ssize_t));
         if (!rrange)
-            return (NULL);
+        	return (NULL);
         while (start <= end)
-            rrange[i++] = end--;
+        	rrange[i++] = end--;
     }
-    if (start < end && start < 0)
+    if (end < start && start > 0)
     {
-        range = ();
+        range = (start - end) + 1;
+	rrange = malloc(range * sizeof(ssize_t));
+	if (!rrange)
+		return (NULL);
+	while (end <= start)
+		rrange[i++] = end++;
     }
     return (rrange);
 }
@@ -27,16 +32,16 @@ int *ft_rrange(int start, int end)
 int main(void)
 {
     int *rrange;
-    int start = 1;
-    int end = 3;
+    int start = 3;
+    int end = 1;
     int i;
 
     rrange = ft_rrange(start, end);
     i = 0;
-    while (start <= end)
+    while (end <= start)
     {
         printf("%d", rrange[i++]);
-        start++;
+        end++;
     }
     free(rrange);
     return (0);
