@@ -35,8 +35,8 @@ int *ft_rrange(int start, int end)
 int main(void)
 {
     int *rrange;
-    int start = 10;
-    int end = 1;
+    int start = 1;
+    int end = 30;
     int i;
 
     rrange = ft_rrange(start, end);
@@ -45,8 +45,8 @@ int main(void)
     {
 	while (start <= end)
 	{
-		printf("%d", rrange[i++]);
-		end--;
+		printf("%d - ", rrange[i++]);
+		start++;
 	}
     }
     if (end < start)
