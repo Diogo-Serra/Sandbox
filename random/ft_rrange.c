@@ -17,6 +17,10 @@ int *ft_rrange(int start, int end)
         while (start <= end)
             rrange[i++] = end--;
     }
+    if (start < end && start < 0)
+    {
+        range = ();
+    }
     return (rrange);
 }
 
