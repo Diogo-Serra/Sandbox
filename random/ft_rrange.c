@@ -15,7 +15,7 @@ int *ft_rrange(int start, int end)
         rrange = malloc(range * sizeof(ssize_t));
         if (!rrange)
         	return (NULL);
-        while (start <= end)
+        while (end >= start
         	rrange[i++] = end--;
 	return (rrange);
     }
@@ -35,8 +35,8 @@ int *ft_rrange(int start, int end)
 int main(void)
 {
     int *rrange;
-    int start = 30;
-    int end = 1;
+    int start = -5;
+    int end = 10;
     int i;
 
     rrange = ft_rrange(start, end);
