@@ -7,7 +7,7 @@ This repo serves as a sandbox to improve skills in:
 - **Bash / Zsh scripting** (automation, aliases, system administration)
 - **System administration & cybersecurity basics**
 - **DevOps experiments** (Git workflows, Makefiles, Docker, networking)
-
+- 
 ---
 
 ## 🚀 Goals
