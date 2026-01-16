@@ -6,23 +6,23 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:45:38 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/16 15:16:49 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:53:27 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <unistd.h>
 
 int ft_atoi_base(char *source, int base)
 {
     int i;
-    int d;
+    int digit;
     int s;
     int result;
 
     i = 0;
-    d = 0;
-    while (source[i] == ' ' || (source[i] > 9 && source[i] < 13))
+    digit = 0;
+    result = 0;
+    while (source[i] == ' ' || (source[i] >= 9 && source[i] <= 13))
         i++;
     s = 1;
     if (source[i] == '+' || source[i] == '-')
@@ -33,19 +33,28 @@ int ft_atoi_base(char *source, int base)
     }
     while (source[i])
     {
-	    d = -1;
+	    digit = -1;
         if (source[i] >= '0' && source[i] <= '9')
             digit = source[i] - '0';
         if (source[i] >= 'a' && source[i] <= 'f')
-            digit = source[i] - 'a' + 'f';
+            digit = source[i] - 'a' + 10;
         if (source[i] >= 'A' && source[i] <= 'F')
-            digit = source[i] - 'A' + 'F';
+            digit = source[i] - 'A' + 10;
         if (digit == -1 || digit >= base)
             break ;
         result = result * base + digit;
         i++;
 	}
     return (result * s);
+}
+
+void print_hex(int n)
+{
+    char *hex_digits = "0123456789abcdef";
+    
+    if (n >= 16)
+        print_hex(n / 16);
+    write(1, &hex_digits[n % 16], 1);
 }
 
 int main(int argc, char **argv)
@@ -58,8 +67,10 @@ int main(int argc, char **argv)
     i = 1;
     while (i < argc)
     {
-        digit = ft_atoi(argv[i]);
-        printf("%i\n", digit);
+        digit = ft_atoi_base(argv[i], 10);
+        write(1, "0x", 2);
+        print_hex(digit);
+        write(1, "\n", 1);
         i++;
     }
     return (0);
