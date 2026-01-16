@@ -33,9 +33,7 @@ int main(int argc, char **argv)
     count = 0;
     i = 1;
     while (i < argc)
-    {
         count += ft_atoi(argv[i++]);
-    }
     printf("%d\n", count);
     return (0);
 }
