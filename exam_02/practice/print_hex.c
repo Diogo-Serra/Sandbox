@@ -6,11 +6,12 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:45:38 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/16 15:53:27 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:54:32 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 int ft_atoi_base(char *source, int base)
 {
