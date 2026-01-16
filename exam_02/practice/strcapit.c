@@ -7,13 +7,13 @@ void strcap(char *source)
     i = 0;
     while (source[i])
     {
-        while (source[i] == ' ' || (source[i] >= 9 && source[i] <= 13))
-            i++;
         if (i == 0 || source[i - 1] == ' ' || (source[i - 1] >= 9 && source[i - 1] <= 13))
         {
             if (source[i] >= 'a' && source[i] <= 'z')
                 source[i] -= 32;
         }
+		else if (source[i] >= 'A' && source[i] <= 'Z')
+			source[i] += 32;
         i++;
     }
 }
