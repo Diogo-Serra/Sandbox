@@ -18,7 +18,7 @@ int ft_atoi(char *source)
         i++;
     }
     digit = 0;
-    while (source[i] > '0' && source[i] < '9')
+    while (source[i] >= '0' && source[i] <= '9')
         digit = digit * 10 + (source[i++] - '0');
     return (digit * sign);
 }

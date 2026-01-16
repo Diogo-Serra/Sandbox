@@ -32,8 +32,6 @@ int *ft_range(int start, int end)
 	int *ranged;
 	int range;
 
-	if (!start || !end)
-		return (0);
 	if (start < end)
 	{
 		range = (end - start) + 1;
