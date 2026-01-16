@@ -29,7 +29,7 @@ int main(int argc, char **argv)
     int i;
 
     if (argc <= 1)
-        return (printf("No Parameters"), 0);
+        return (printf("No Parameters\n"), 0);
     count = 0;
     i = 1;
     while (i < argc)
