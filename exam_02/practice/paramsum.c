@@ -34,6 +34,7 @@ int main(int argc, char **argv)
     i = 1;
     while (i < argc)
         count += ft_atoi(argv[i++]);
-    printf("%d\n", count);
+    printf("Arg Sum: %d\n", count);
+	printf("Arg number: %d", argc - 1);
     return (0);
 }
