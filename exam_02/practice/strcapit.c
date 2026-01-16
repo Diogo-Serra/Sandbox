@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     int     i;
 
     if (argc <= 1)
-        return (printf("Error"), 0);
+        return (printf("\n"), 0);
     i = 1;
     while (i < argc)
     {
