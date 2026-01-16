@@ -49,6 +49,15 @@ int ft_atoi_base(char *source, int base)
     return (result * s);
 }
 
+void print_bin(int n)
+{
+    char *bin_digits = "01";
+
+    if (n >= 2)
+        print_bin(n / 2);
+    write(1, &bin_digits[n % 2), 1);
+}
+
 void print_hex(int n)
 {
     char *hex_digits = "0123456789abcdef";
