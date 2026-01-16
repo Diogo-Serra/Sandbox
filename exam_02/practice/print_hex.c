@@ -55,7 +55,7 @@ void print_bin(int n)
 
     if (n >= 2)
         print_bin(n / 2);
-    write(1, &bin_digits[n % 2), 1);
+    write(1, &bin_digits[n % 2], 1);
 }
 
 void print_hex(int n)
@@ -81,7 +81,9 @@ int main(int argc, char **argv)
         write(1, "0x", 2);
         print_hex(digit);
         write(1, "\n", 1);
-        i++;
+        print_bin(digit);
+        write(1, "\n", 1);
+       i++;
     }
     return (0);
 }
