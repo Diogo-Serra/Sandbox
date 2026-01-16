@@ -1,12 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int *ft_ranged1(int *ranged, int range, int start)
+{
+    int i;
+
+    i = 0;
+    while (range)
+    {
+        ranged[i++] = start++;
+        range--;
+    }
+    return (ranged);
+}
+
+int *ft_ranged2(int *ranged, int range, int end)
+{
+    int i;
+
+    i = 0;
+    while (range)
+    {
+        ranged[i++] = end++;
+        range--;
+    }
+    return (ranged);
+}
+
 int *ft_range(int start, int end)
 {
     int *ranged;
     int range;
-    int i;
 
+    if (!start || !end)
+        return (0);
     if (start < end)
     {
         range = (end - start) + 1;
@@ -17,19 +44,20 @@ int *ft_range(int start, int end)
     ranged = malloc(range * sizeof(int));
     if (!ranged)
         return (NULL);
-    i = 0;
-    while (range)
+    if (start < end)
     {
-        ranged[i++] = start++;
-        range--;
+        ft_ranged1(ranged, range, start);
+    }
+    else {
+        ft_ranged2(ranged, range, end);
     }
     return (ranged);
 }
 
 int main(void)
 {
-    int start = 1;
-    int end = 3;
+    int start = 3;
+    int end = -4;
     int *ranged;
     int range;
     int i;
@@ -50,3 +78,4 @@ int main(void)
     }
     return (0);
 }
+
