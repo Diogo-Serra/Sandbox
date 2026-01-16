@@ -76,6 +76,7 @@ int main(void)
         range--;
         printf("%d\n", ranged[i++]);
     }
+    free (ranged);
     return (0);
 }
 
