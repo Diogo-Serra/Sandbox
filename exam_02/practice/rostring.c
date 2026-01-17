@@ -101,7 +101,7 @@ char	*ft_rotate(char *source)
 	while (source[i])
 		info->rest[j++] = source[i++];
 	info->rest[j] = ' ';
-	i = word_len(info->first_word);
+	i = total_len(info->first_word);
 	j = total_len(info->rest);
 	rotate = malloc((i + j + 1) * sizeof(char));
 	if (!rotate)
