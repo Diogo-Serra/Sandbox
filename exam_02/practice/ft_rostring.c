@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 01:15:30 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/17 01:41:48 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/17 02:26:08 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,13 @@ t_string	*string_info(char *source)
         }
         i++;
     }
+	if (!info->first_word)
+		return (free(info), NULL);
 	i = 0;
 	while (info->first_word[i] != ' ')
 		i++;
 	info->size_firstword = i;
+	return (info);
 }
 
 char	*ft_rostring(char *source)
@@ -60,8 +63,10 @@ char	*ft_rostring(char *source)
 	int			i;
 	int			j;
 
+	if (!source || !*source)
+		return (NULL);
 	info = string_info(source);
-	if (info->total_words <= 1)
+	if (!info || info->total_words <= 1)
 		return (source);
 	rotate = malloc((info->total_len + 1) * sizeof(char));
 	if (!rotate)
@@ -70,6 +75,8 @@ char	*ft_rostring(char *source)
 	j = 0;
 	while (info->rest[j])
 		rotate[i++] = info->rest[j++];
+	while (i > 0 && rotate[i - 1] == ' ')
+		i--;
 	rotate[i++] = ' ';
 	j = 0;
 	while (info->first_word[j] != ' ')
@@ -89,7 +96,10 @@ int main(int argc, char **argv)
     while (i < argc)
 	{
 		rotate = ft_rostring(argv[i++]);
-		printf("%s\n", rotate);
+		if (rotate)
+			return (printf("%s\n", rotate), 0);
+		else
+			printf("\n");
 	}
-    return (0);
+	return (0);
 }
