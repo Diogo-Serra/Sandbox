@@ -1,41 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-typedef hex "123456789abcdef"
-typedef HEX "123456789ABCDEF"
+typedef HEX "123456789ABCDEF";
 
 char    *ft_itoa_base(int nb)
 {
     char    arr[21];
     int     i;
-    ssize_t n;
+    int		j;
+	ssize_t n;
+	char	*out;
 
     n = nb;
     if (nb < 0)
         n *= -1;
     i = 20;
     if (nb == 0)
-    {
         arr[--i] = '0';
-    }
     while (n)
     {
         arr[--i] = (n % 10) + '0';
         n /= 10;
     }
-    printf("%s\n"), arr);
-    return (arr);
+	if (nb < 0)
+		arr[--i] = '-';
+	out = malloc((21 - i) * sizeof(char));
+	if (!out)
+		return (NULL);
+	j = 0;
+	while (arr[i])
+		out[j++] = arr[i++];
+	out[j] = '\0';
+	return (out);
 }
 
-int main(int argc, char **argv)
+int main(void)
 {
-    int i;
-
-    i = 0;
-    if (argc <= 1)
-        printf("\n");
-    else
-        while (i < argc)
-            printf("%s\n", ft_itoa_base(argv[i++]);
-    return (0);
+	printf("%s\n", ft_itoa_base(42));
+	return (0);
 }
