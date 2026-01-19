@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 09:25:35 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/19 10:25:53 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/19 10:26:43 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_itoa(int n, char *base)
 	if (!out)
 		return (NULL);
 	j = 0;
-	while (arr[i])
+	while (i < 30)
 		out[j++] = arr[i++];
 	out[j] = '\0';
 	return (out);
