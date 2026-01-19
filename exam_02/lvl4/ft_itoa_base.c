@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 09:25:35 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/19 10:21:30 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/19 10:23:07 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-# define HEX "123456789ABCDEF"
-# define hex "123456789abcdef"
+# define HEX "0123456789ABCDEF"
+# define hex "0123456789abcdef"
 # define dec "0123456789"
 
 char	*ft_itoa(int n, char *base)
@@ -88,7 +88,7 @@ int	main(int argc, char **argv)
 	{
 		atoi = ft_atoi(argv[i]);
 		printf("%d\n", atoi);
-		itoa = ft_itoa(atoi, dec);
+		itoa = ft_itoa(atoi, HEX);
 		printf("%s\n", itoa);
 		i++;
 	}
