@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 11:35:38 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/19 15:04:41 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/19 18:13:29 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,33 @@ void	add_front(t_person **head, t_person *node)
 
 void	list_remove_if(t_person **begin_list, void *data_ref, int (*cmp)())
 {
-	t_person	*tmp;
-	int			comp;
+	t_person	*current;
+	t_person	*prev;
 
-	tmp = begin_list;
-	while (tmp)
+	if (!begin_list || !*begin_list)
+		return ;
+	current = *begin_list;
+	prev = NULL;
+	while (current)
 	{
-		if (cmp(tmp->data, ) == data_ref)
+		if (cmp(current->data, data_ref) == 0)
 		{
-			
+			if (prev == NULL)
+				*begin_list = current->next;
+			else
+				prev->next = current->next;
+			free(current);
+			if (prev == NULL)
+				current = *begin_list;
+			else
+				current = prev->next;
 		}
-		
+		else
+		{
+			prev = current;
+			current = current->next;
+		}
 	}
-	
 }
 
 void	print_lst(t_person *head)
