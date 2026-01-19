@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 11:35:38 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/19 14:10:36 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:12:44 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,10 @@ int	main(int argc, char **argv)
 	{
 		person = add_person(argv[i++]);
 		add_front(&head, person);
-		printf("%s\n", (char *)person->data);
-		free(person);		
+		printf("%s\n", (char *)person->data);		
 	}
 	count = lst_size(head);
-	printf("%d\n", count);	
+	printf("%d\n", count);
+	free(person);
 	return (0);
 }
