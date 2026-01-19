@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 11:35:38 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/19 14:45:24 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:46:50 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_person	*add_person(void *data)
 {
 	char		*name;
 	t_person	*new_person;
-	
+
 	name = (char *)data;
 	new_person = malloc(sizeof(t_person));
 	if (!new_person)
