@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 11:35:38 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/19 13:59:34 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:10:36 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_person	*add_person(void *data)
 void	add_front(t_person **head, t_person *node)
 {
 	node->next = *head;
-	head = node;	
+	*head = node;	
 }
 
 int	lst_size(t_person *head)
@@ -67,7 +67,7 @@ int	main(int argc, char **argv)
 	while (i < argc)
 	{
 		person = add_person(argv[i++]);
-		add_front(head, person);
+		add_front(&head, person);
 		printf("%s\n", (char *)person->data);
 		free(person);		
 	}
