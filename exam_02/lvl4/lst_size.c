@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 11:35:38 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/19 11:37:00 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/19 11:47:12 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ typedef struct s_person {
 	void			*data;
 	struct s_person	*next;
 }	t_person;
+
+t_person	*add_person(void *data)
+{
+	
+}
 
 int	main(int argc, char **argv)
 {
