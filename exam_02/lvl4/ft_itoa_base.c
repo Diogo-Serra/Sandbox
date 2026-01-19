@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 09:25:35 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/19 10:14:48 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/19 10:21:30 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,37 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char	*ft_itoa(int n)
+# define HEX "123456789ABCDEF"
+# define hex "123456789abcdef"
+# define dec "0123456789"
+
+char	*ft_itoa(int n, char *base)
 {
-	char	arr[11];
+	char	arr[31];
 	ssize_t	nb;
 	int		i;
 	int		j;
 	char	*out;
+	int		base_len;
 
-	i = 10;
+	i = 0;
+	while (base[i])
+		i++;
+	base_len = i;
+	i = 30;
 	nb = (ssize_t)n;
 	if (n == 0)
 		arr[--i] = '0';
-	if (n < 0)
+	if (n < 0 && base_len == 10)
 		nb *= -1;
 	while (nb)
 	{
-		arr[--i] = (nb % 10) + '0';
-		nb /= 10;
+		arr[--i] = base[nb % base_len];
+		nb /= base_len;
 	}
-	if (n < 0)
+	if (n < 0 && base_len == 10)
 		arr[--i] = '-';
-	out = malloc((11 - i) * sizeof(char));
+	out = malloc((31 - i) * sizeof(char));
 	if (!out)
 		return (NULL);
 	j = 0;
@@ -79,7 +88,7 @@ int	main(int argc, char **argv)
 	{
 		atoi = ft_atoi(argv[i]);
 		printf("%d\n", atoi);
-		itoa = ft_itoa(atoi);
+		itoa = ft_itoa(atoi, dec);
 		printf("%s\n", itoa);
 		i++;
 	}
