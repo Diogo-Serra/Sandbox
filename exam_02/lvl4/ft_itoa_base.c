@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 09:25:35 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/19 10:23:07 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/19 10:25:53 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char	*ft_itoa(int n, char *base)
 	j = 0;
 	while (arr[i])
 		out[j++] = arr[i++];
+	out[j] = '\0';
 	return (out);
 }
 
@@ -72,7 +73,6 @@ int	ft_atoi(char *source)
 	}
 	while (source[i] >= '0' && source[i] <= '9')
 		result = result * 10 + (source[i++] - '0');
-	i++;
 	return (result * sign);
 }
 int	main(int argc, char **argv)
@@ -90,6 +90,7 @@ int	main(int argc, char **argv)
 		printf("%d\n", atoi);
 		itoa = ft_itoa(atoi, HEX);
 		printf("%s\n", itoa);
+		free(itoa);
 		i++;
 	}
 	return (0);
