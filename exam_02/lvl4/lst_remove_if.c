@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 10:37:32 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/20 11:20:01 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:38:27 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,17 @@ void	print_list(t_list *head)
 
 int	count_list(t_list *head)
 {
-	int	count;
+	t_list	*current;
+	int		count;
+
+	count = 0;
+	current = head;
+	while (current)
+	{
+		count++;
+		current = current->next;
+	}
+	return (count);
 }
 
 int	main(int argc, char **argv)
@@ -69,5 +79,6 @@ int	main(int argc, char **argv)
 		add_front(&head, node);
 	}
 	print_list(head);
+	printf("Count: %d\n", count_list(head));
 	return (0);
 }
