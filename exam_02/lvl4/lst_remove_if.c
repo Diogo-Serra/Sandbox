@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 10:37:32 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/20 11:47:40 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:55:38 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,27 @@ void	lst_remove_if(t_list **head, void *data_ref, int (*cmp)())
 
 	current = *head;
 	prev = NULL;
-	while (current && cmp(current->data, data_ref) == 0)
+	if (!head || !*head)
+		return ;
+	while (current)
 	{
-			
+		if (cmp(current->data, data_ref) == 0)
+		{
+			if (prev == NULL)
+				*head = current->next;	
+			else
+				prev->next = current->next;
+			free (current);
+			if (prev == NULL)
+				current = *head;
+			else
+				current = prev->next;
+		}
+		else
+		{
+			prev = current;
+			current = current->next;
+		}
 	}
 }
 
