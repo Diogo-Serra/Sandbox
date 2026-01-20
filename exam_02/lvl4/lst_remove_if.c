@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 10:37:32 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/20 11:38:27 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:47:40 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,19 @@ int	count_list(t_list *head)
 		current = current->next;
 	}
 	return (count);
+}
+
+void	lst_remove_if(t_list **head, void *data_ref, int (*cmp)())
+{
+	t_list	*current;
+	t_list	*prev;
+
+	current = *head;
+	prev = NULL;
+	while (current && cmp(current->data, data_ref) == 0)
+	{
+			
+	}
 }
 
 int	main(int argc, char **argv)
