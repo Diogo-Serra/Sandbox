@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 10:37:32 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/20 10:48:07 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:16:48 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,48 @@ typedef struct s_list {
 t_list	*addto_list(void *data)
 {
 	t_list	*new_node;
-	char	*name;
-	int		i;
-
-	name = (char *)data;
-	new_node->data = name;
+	
+	new_node = malloc(sizeof(t_list));
+	if (!new_node)
+		return (NULL);
+	new_node->data = data;
 	new_node->next = NULL;
 	return (new_node);
 }
 
+void	add_front(t_list **head, t_list *node)
+{
+	node->next = *head;
+	*head = node;
+}
+
+void	print_list(t_list *head)
+{
+	t_list	*current;
+
+	current = head;
+	while (current)
+	{
+		printf("%s\n", (char *)current->data);
+		current = current->next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
-
+	t_list	*head;
+	t_list	*node;
+	int		i;
+	
+	head = NULL;
+	if (argc <= 1)
+		printf("\n");
+	i = 1;
+	while (i < argc)
+	{
+		node = addto_list(argv[i++]);
+		add_front(&head, node);
+	}
+	print_list(head);
 	return (0);
 }
