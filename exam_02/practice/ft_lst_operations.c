@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 22:27:02 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/20 23:27:26 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/20 23:43:49 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	ft_atoi(char *source)
 	
 	i = 0;
 	sign = 1;
+	result = 0;
 	while (source[i] == ' ' || (source[i] >= 9 && source[i] <= 13))
 		i++;
 	if (source[i] == '+' || source[i] == '-')
@@ -37,7 +38,6 @@ int	ft_atoi(char *source)
 	}
 	while (source[i] >= '0' && source[i] <= '9')
 		result = result * 10 + (source[i++] - '0');
-	i++;
 	return (result * sign);
 }
 
@@ -55,20 +55,40 @@ t_list	*new_node(char *name, int age)
 	return (new_node);
 }
 
+void	add_front(t_list **head, t_list *node)
+{
+	node->next = *head;
+	*head = node;
+}
+
+void	print_list(t_list *head)
+{
+	t_list	*current;
+
+	current = head;
+	while (current)
+	{
+		printf("%s\n%d\n", current->name, current->age);
+		current = current->next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
+	t_list	*head;
 	t_list	*person;
 	int		i;
 	
+	head = NULL;
 	if (argc <= 1)
 		printf("\n");
 	i = 1;
 	while (i < argc)
 	{
 		person = new_node(argv[i], ft_atoi(argv[i + 1]));
-		printf("---\nName: %s\nAge: %d\n---\n", person->name, person->age);
 		i += 2;
-		free(person);
+		add_front(&head, person);
 	}
+	print_list(head);
 	return (0);
 }
