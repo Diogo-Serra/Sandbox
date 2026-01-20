@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 22:27:02 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/20 23:26:11 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/20 23:27:26 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	main(int argc, char **argv)
 		person = new_node(argv[i], ft_atoi(argv[i + 1]));
 		printf("---\nName: %s\nAge: %d\n---\n", person->name, person->age);
 		i += 2;
+		free(person);
 	}
 	return (0);
 }
