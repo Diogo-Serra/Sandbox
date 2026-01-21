@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:04:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/21 21:05:15 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/21 21:10:58 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	cmp(int a, int b)
 
 t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 {
-	int	swap;
+	int		tmp;
 	t_list	*current;
 
 	current = lst;
@@ -55,9 +55,9 @@ t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 	{
 		if (((*cmp)(lst->data, lst->next->data)) == 0)
 		{
-			swap = lst->data;
+			tmp = lst->data;
 			lst->data = lst->next->data;
-			lst->next->data = swap;
+			lst->next->data = tmp;
 			lst = current;
 		}
 		else
@@ -100,6 +100,20 @@ void	print_lst(t_list *head)
 	}
 }
 
+void	free_lst(t_list *head)
+{
+	t_list	*current;
+	t_list	*tmp;
+	
+	current = head;
+	while (current)
+	{
+		tmp = current->next;
+		free(current);
+		current = tmp;
+	}
+}
+
 int	main(int ac, char **av)
 {
 	int	i;
@@ -117,6 +131,7 @@ int	main(int ac, char **av)
 	}
 	print_lst(head);
 	sort_list(head, cmp);
-	print_lst(head);	
+	print_lst(head);
+	free_lst(head);	
 	return (0);
 }
