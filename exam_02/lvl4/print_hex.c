@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:26:19 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/21 11:41:57 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/21 11:47:09 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,20 @@ int	ft_atoi(char *s)
 
 	sign = 1;
 	result = 0;
-	while (*s == ' ' || *s >= 9 && *s <= 13)
+	while (*s == ' ' || (*s >= 9 && *s <= 13))
 		s++;
-	while (*s == '+' || *s == '-')
+	if (*s == '+' || *s == '-')
+	{
 		if (*s == '-')
 			sign *= -1;
 		s++;
+	}
 	while (*s >= '0' && *s <= '9')
 		result = result * 10 + (*s++ - '0');
 	return (result * sign);	
 }
 
-void	print_hex(int n)
+void	print_hex(unsigned int n)
 {
 	char	hex[] = "0123456789abcdef";
 	
