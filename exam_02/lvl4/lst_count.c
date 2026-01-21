@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 12:35:48 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/21 13:58:20 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:00:33 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,20 @@ void	print_list(t_person *head)
 	}
 }
 
+void	free_lst(t_person *head)
+{
+	t_person *tmp;
+	t_person *current;
+
+	current = head;
+	while (current)
+	{
+		tmp = current->next;
+		free(current);
+		current = tmp;
+	}
+}
+
 int	main(int ac, char **av)
 {
 	int			i;
@@ -100,5 +114,6 @@ int	main(int ac, char **av)
 	}
 	printf("%d\n", count_list(head));
 	print_list(head);
+	free_lst(head);
 	return (0);
 }
