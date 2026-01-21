@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 22:27:02 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/20 23:43:49 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/21 00:20:27 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,21 @@ void	add_front(t_list **head, t_list *node)
 	*head = node;
 }
 
+void	add_back(t_list **head, t_list *node)
+{
+	t_list	*current;
+	
+	if (!*head)
+	{
+		*head = node;
+		return ;		
+	}
+	current = *head;
+	while (current->next)
+		current = current->next;
+	current->next = node;
+}
+
 void	print_list(t_list *head)
 {
 	t_list	*current;
@@ -70,6 +85,20 @@ void	print_list(t_list *head)
 	{
 		printf("%s\n%d\n", current->name, current->age);
 		current = current->next;
+	}
+}
+
+void free_lst(t_list *head)
+{
+	t_list *tmp;
+	t_list *current;
+
+	current = head;
+	while (current)
+	{
+		tmp = current->next;
+		free(current);
+		current = tmp;
 	}
 }
 
@@ -87,8 +116,9 @@ int	main(int argc, char **argv)
 	{
 		person = new_node(argv[i], ft_atoi(argv[i + 1]));
 		i += 2;
-		add_front(&head, person);
+		add_back(&head, person);
 	}
 	print_list(head);
+	free_lst(head);
 	return (0);
 }
