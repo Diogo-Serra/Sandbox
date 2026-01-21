@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 23:03:54 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/09 23:11:04 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:09:45 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	print_bits(unsigned char octet)
 		bit = bit + '0';
 		write(1, &bit, 1);
 	}
-}
 
+}
 int	main(void)
 {
 	print_bits(2);
