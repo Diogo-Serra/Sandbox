@@ -44,6 +44,8 @@ t_list	*sort_list(t_list *list, int (*cmp)(int, int))
 	t_list	*head;
 	int		tmp;
 
+	if (!list || !list->next)
+		return (list);
 	head = list;
 	while (list->next)
 	{
@@ -70,6 +72,8 @@ t_list	*clean_dups(t_list *list, int (*equal)(int, int))
 	t_list	*head;
 	t_list	*tmp;
 
+	if (!list || !list->next)
+		return (list);
 	head = list;
 	while (list->next)
 	{

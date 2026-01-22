@@ -10,62 +10,35 @@
 #                                                                              #
 # **************************************************************************** #
 
-# Program name
-NAME = list_program
+NAME     := list_ops
 
-# Compiler and flags
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CC       := cc
+CFLAGS   := -Wall -Wextra -Werror -I. 
+RM       := rm -f
 
-# Source files
-SRCS = main.c \
-       list_core.c \
-       list_algo.c \
-       user_input.c
+SRCS := \
+	list_algo.c list_core.c user_input.c error_handling.c \
+	main.c
 
-# Object files
-OBJS = $(SRCS:.c=.o)
+OBJS := $(SRCS:.c=.o)
 
-# Header file
-HEADER = list_op.h
+# **************************************************************************** #
 
-# Colors for output
-GREEN = \033[0;32m
-RESET = \033[0m
-
-# Default rule
 all: $(NAME)
 
-# Compile the program
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)✓ $(NAME) compiled successfully! $(RESET)"
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@echo "✓ $(NAME) compiled successfully!"
 
-# Compile object files
-%.o: %. c $(HEADER)
-	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(GREEN)✓ Compiled $<$(RESET)"
+%.o: %.c list_op.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean object files
 clean:
-	@rm -f $(OBJS)
-	@echo "$(GREEN)✓ Object files cleaned$(RESET)"
+	$(RM) $(OBJS)
 
-# Clean everything
 fclean: clean
-	@rm -f $(NAME)
-	@echo "$(GREEN)✓ Executable removed$(RESET)"
+	$(RM) $(NAME)
 
-# Rebuild everything
 re: fclean all
 
-# Test with different inputs
-test: all
-	@echo "\n=== Test 1: Command line ==="
-	@./$(NAME) 5 3 8 1 9 5
-	@echo "\n=== Test 2: Sorted input ==="
-	@./$(NAME) 1 2 3 4 5
-	@echo "\n=== Test 3: Duplicates ==="
-	@./$(NAME) 5 5 5 3 3 1
-
-. PHONY: all clean fclean re test
+. PHONY: all clean fclean re

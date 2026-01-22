@@ -66,4 +66,19 @@ int		ft_atoi(char *s);
 // Print a simple menu
 void	print_menu(void);
 
+// Check if string is a valid number
+int		is_valid_number(char *s);
+
+// Check if number is in safe range
+int		is_safe_range(char *s);
+
+// Print error message
+void	print_error(char *msg);
+
+// Print warning message
+void	print_warning(void);
+
+// Print a simple menu
+void	print_menu(void);
+
 #endif
