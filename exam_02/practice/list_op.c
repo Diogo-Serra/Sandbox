@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:02:59 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/22 15:27:38 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/22 15:45:17 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,48 @@ int ft_atoi(char *s)
     return (result * sign);
 }
 
+void    free_list(t_list *head)
+{
+    t_list  *current;
+    t_list  *tmp;
+
+    current = head;
+    while (current)
+    {
+        tmp = current->next;
+        free(current);
+        current = tmp;
+    }
+}
+
+int cmp(int a, int b)
+{
+    if (b < a)
+        return (0);
+    return (1);
+}
+
+t_list  *sort_list(t_list   *list, int (*cmp)(int, int))
+{
+    t_list  *head;
+    int     tmp;
+
+    head = list;
+    while (list->next)
+    {
+        if (cmp(list->data, list->next->data) == 0)
+        {
+            tmp = list->next->data;
+            list->next->data = list->data;
+            list->data = tmp;
+            list = head;
+        }
+        else
+            list = list->next;
+    }
+    return (head);
+}
+
 int main(int ac, char **av)
 {
     int     i;
@@ -88,6 +130,9 @@ int main(int ac, char **av)
         add_front(&head, node);
     }
     print_list(head);
+    sort_list(head, cmp);
+    print_list(head);
+    free_list(head);
     return (0);
 }
 
