@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:02:59 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/22 16:13:21 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/22 16:17:47 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ t_list  *clean_dups(t_list  *list, int (*equal)(int, int))
         else
             list = list->next;
     }
+    printf("Dups cleaned\n");
     return (head);
 }
 
@@ -139,6 +140,7 @@ t_list  *sort_list(t_list   *list, int (*cmp)(int, int))
         else
             list = list->next;
     }
+    printf("Input sorted\n");
     return (head);
 }
 
@@ -157,6 +159,7 @@ int main(int ac, char **av)
         node = add_node(ft_atoi(av[i++]));
         add_front(&head, node);
     }
+    printf("Input:\n");
     print_list(head);
     sort_list(head, cmp);
     print_list(head);
