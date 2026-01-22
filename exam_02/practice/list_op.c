@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:02:59 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/22 15:45:17 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/22 16:13:21 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,39 @@ void    free_list(t_list *head)
     }
 }
 
+int equal(int a, int b)
+{
+    if (a == b)
+        return (0);
+    return (1);
+}
+
 int cmp(int a, int b)
 {
     if (b < a)
         return (0);
     return (1);
+}
+
+t_list  *clean_dups(t_list  *list, int (*equal)(int, int))
+{
+    t_list  *head;
+    t_list  *tmp;
+    
+    head = list;
+    while (list->next)
+    {
+        if (equal(list->data, list->next->data) == 0)
+        {
+            tmp = list->next->next;
+            free(list->next);
+            list->next = tmp;
+            list = head;
+        }
+        else
+            list = list->next;
+    }
+    return (head);
 }
 
 t_list  *sort_list(t_list   *list, int (*cmp)(int, int))
@@ -131,6 +159,8 @@ int main(int ac, char **av)
     }
     print_list(head);
     sort_list(head, cmp);
+    print_list(head);
+    clean_dups(head, equal);
     print_list(head);
     free_list(head);
     return (0);
