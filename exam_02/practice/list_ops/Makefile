@@ -20,7 +20,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 # Source files
 SRCS = main.c \
        list_core.c \
-       list_algorithms.c \
+       list_algo.c \
        user_input.c
 
 # Object files
