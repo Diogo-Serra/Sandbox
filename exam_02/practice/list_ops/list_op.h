@@ -17,19 +17,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-/* ************************************************************************** */
-/*                              STRUCTURES                                    */
-/* ************************************************************************** */
-
 typedef struct s_list
 {
 	int				data;
 	struct s_list	*next;
 }	t_list;
 
-/* ************************************************************************** */
-/*                          CORE LIST FUNCTIONS                               */
-/* ************************************************************************** */
 
 // Create a new node
 t_list	*add_node(int data);
@@ -43,10 +36,6 @@ void	print_list(t_list *head);
 // Free all nodes in the list
 void	free_list(t_list *head);
 
-/* ************************************************************************** */
-/*                        ALGORITHM FUNCTIONS                                 */
-/* ************************************************************************** */
-
 // Sort list in ascending order
 t_list	*sort_list(t_list *list, int (*cmp)(int, int));
 
@@ -59,10 +48,6 @@ int		cmp(int a, int b);
 // Equality function for duplicates
 int		equal(int a, int b);
 
-/* ************************************************************************** */
-/*                          INPUT FUNCTIONS                                   */
-/* ************************************************************************** */
-
 // Parse command line arguments into list
 t_list	*parse_args(int ac, char **av);
 
@@ -74,10 +59,6 @@ t_list	*load_from_file(char *filename);
 
 // Interactive mode menu
 void	interactive_mode(void);
-
-/* ************************************************************************** */
-/*                          UTILITY FUNCTIONS                                 */
-/* ************************************************************************** */
 
 // Convert string to integer
 int		ft_atoi(char *s);
