@@ -6,15 +6,17 @@
 /*   By: diosoare <diosoare@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 14:18:25 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/23 14:19:10 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/23 14:21:50 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
+# define bit "01"
+
 int main(void)
 {
-    write(1, "Ok", 2);
+    write(1, &bit, 2);
     return (0);
 }
 
