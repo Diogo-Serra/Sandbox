@@ -3,20 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   print_bit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diosoare <diosoare@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 14:18:25 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/23 14:21:50 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/23 14:52:33 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-# define bit "01"
+# define bits "01"
+
+void    print_bit(unsigned char octect)
+{
+    int             i;
+    unsigned char   bit;
+
+    i = 8;
+    while (i--)
+    {
+        bit = (octect >> i) + '0';
+        write(1, &bits[bit % 2], 1); 
+    }
+}
 
 int main(void)
 {
-    write(1, &bit, 2);
+    print_bit(255);
     return (0);
 }
 
