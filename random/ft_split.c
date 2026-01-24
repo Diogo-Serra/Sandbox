@@ -3,127 +3,99 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diosoare <diosoare@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 21:31:10 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/20 00:23:48 by diosoare         ###   ########.fr       */
+/*   Created: 2026/01/24 16:33:29 by diosoare          #+#    #+#             */
+/*   Updated: 2026/01/24 17:05:20 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
 
-char	*ft_strdup(char *source, char sep)
+char    *ft_strdup(char **source)
 {
-	char	*dup;
-	size_t	i;
-
-	i = 0;
-	while (source[i] && source[i] != sep)
-		i++;
-	dup = malloc(i * sizeof(char) + 1);
-	if (!dup)
-		return (NULL);
-	i = 0;
-	while (source[i] && source[i] != sep)
-	{
-		dup[i] = source[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
+    int     i;
+    char    *dup;
+    i = 0;
+    while ((*source)[i] && (*source)[i] != ' ')
+        i++;
+    dup = malloc((i + 1) * sizeof(char));
+    if (!dup)
+        return (NULL);
+    i = 0;
+    while (**source && **source != ' ')
+    {
+        dup[i++] = **source;
+        (*source)++;
+    }
+    dup[i] = '\0';
+    return (dup);
 }
 
-void	free_heap(char **source, size_t n)
+int count_words(char *source)
 {
-	size_t	i;
+    int i;
+    int count;
 
-	i = 0;
-	while (i < n)
-		free(source[i++]);
-	free(source);
+    i = 0;
+    count = 0;
+    while (source[i])
+    {
+        if (source[i] != ' ' && (i == 0 || source[i - 1] == ' '))
+            count++;
+        i++;
+    }
+    return (count);
 }
 
-size_t	strlenw(char *source, char sep)
+void    free_heap(char **split)
 {
-	size_t	i;
+    int i;
 
-	i = 0;
-	while (source[i] && source[i] != sep)
-		i++;
-	return (i);
+    i = 0;
+    while(split[i])
+        free(split[i++]);
+    free(split);
 }
 
-size_t	count_words(char *source, char sep)
+char    **ft_split(char *source)
 {
-	size_t	i;
-	size_t	count;
-	
-	i = 0;
-	count = 0;
-	while (source[i])
-	{
-		if (source[i] != sep && (i == 0 || source[i - 1] == sep))
-			count++;
-		i++;
-	}
-	return (count);
+    char    **split;
+    int     nwords;
+    int     i;
+
+    nwords = count_words(source);
+    if (nwords < 1)
+        return (NULL);
+    split = malloc((nwords + 1) * sizeof(char **));
+    if (!split)
+        return (NULL);
+    i = 0;
+    while (i < nwords)
+    {
+        while (*source && *source == ' ')
+            source++;
+        split[i] = ft_strdup(&source);
+        if (!split[i])
+            return (free_heap(split), NULL);
+        i++;
+    }
+    split[i] = NULL;
+    return (split);
 }
 
-char	**ft_split(char *source, char sep)
+int main(int ac, char ** av)
 {
-	char	**split;
-	size_t	nwords;
-	size_t	i;
-	size_t	j;
+    char    **split;
+    int     i;
 
-	if (!source)
-		return (NULL);
-	nwords = count_words(source, sep);
-	if (!nwords)
-	{
-		split = malloc(1 * sizeof(char *));
-		if (!split)
-			return (NULL);
-		split[0] = NULL;
-		return (split);
-	}
-	split = (char **)malloc((nwords + 1) * sizeof(char *));
-	if (!split)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (i < nwords)
-	{
-		while (source[j] == sep)
-			j++;
-		split[i] = ft_strdup(&source[j], sep);
-		if (!split[i])
-			return (free_heap(split, i), NULL);
-		j += strlenw(&source[j], sep);
-		i++;
-	}
-	split[i] = NULL;
-	return (split);
-}
-
-int	main(void)
-{
-	char	source[] = "Hello World Test!";
-	char	sep = ' ';
-	char	**split;
-	size_t	nwords;
-	size_t	i;
-
-	nwords = count_words(source, sep);
-	printf("Words: %zu\n\n", nwords);
-	split = ft_split(source, sep);
-	if (!split)
-		return (0);
-	i = 0;
-	while (i < nwords)
-		printf("%s\n", split[i++]);
-	free_heap(split, i);
-	return (0);
+    if (ac != 2)
+        return (printf("\n"), 0);
+    split = ft_split(av[1]);
+    i = 0;
+    while (split[i])
+        printf("%s\n", split[i++]);
+    free_heap(split);
+    return (0);
 }
