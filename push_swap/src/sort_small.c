@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:15:24 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 16:48:16 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:58:22 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	get_position(t_stack *stack, int value)
 	return (pos);
 }
 
-static void	sort_three(t_stack **a)
+static void	sort_three(t_stack **a, int *move_count)
 {
 	int	first;
 	int	second;
@@ -37,24 +37,24 @@ static void	sort_three(t_stack **a)
 	second = (*a)->next->value;
 	third = (*a)->next->next->value;
 	if (first > second && second < third && first < third)
-		operation_handler(a, NULL, "sa");
+		operation_handler(a, NULL, "sa", move_count);
 	else if (first > second && second > third)
 	{
-		operation_handler(a, NULL, "sa");
-		operation_handler(a, NULL, "rra");
+		operation_handler(a, NULL, "sa", move_count);
+		operation_handler(a, NULL, "rra", move_count);
 	}
 	else if (first > second && second < third && first > third)
-		operation_handler(a, NULL, "ra");
+		operation_handler(a, NULL, "ra", move_count);
 	else if (first < second && second > third && first < third)
 	{
-		operation_handler(a, NULL, "sa");
-		operation_handler(a, NULL, "ra");
+		operation_handler(a, NULL, "sa", move_count);
+		operation_handler(a, NULL, "ra", move_count);
 	}
 	else if (first < second && second > third && first > third)
-		operation_handler(a, NULL, "rra");
+		operation_handler(a, NULL, "rra", move_count);
 }
 
-static void	push_min_to_b(t_stack **a, t_stack **b)
+static void	push_min_to_b(t_stack **a, t_stack **b, int *move_count)
 {
 	t_stack	*min_node;
 	int		min_pos;
@@ -66,17 +66,17 @@ static void	push_min_to_b(t_stack **a, t_stack **b)
 	if (min_pos <= size / 2)
 	{
 		while ((*a)->value != min_node->value)
-			operation_handler(a, NULL, "ra");
+			operation_handler(a, NULL, "ra", move_count);
 	}
 	else
 	{
 		while ((*a)->value != min_node->value)
-			operation_handler(a, NULL, "rra");
+			operation_handler(a, NULL, "rra", move_count);
 	}
-	operation_handler(a, b, "pb");
+	operation_handler(a, b, "pb", move_count);
 }
 
-void	sort_small(t_stack **a, t_stack **b)
+void	sort_small(t_stack **a, t_stack **b, int *move_count)
 {
 	int	size;
 
@@ -84,22 +84,22 @@ void	sort_small(t_stack **a, t_stack **b)
 	if (size == 2)
 	{
 		if ((*a)->value > (*a)->next->value)
-			operation_handler(a, NULL, "sa");
+			operation_handler(a, NULL, "sa", move_count);
 	}
 	else if (size == 3)
-		sort_three(a);
+		sort_three(a, move_count);
 	else if (size == 4)
 	{
-		push_min_to_b(a, b);
-		sort_three(a);
-		operation_handler(a, b, "pa");
+		push_min_to_b(a, b, move_count);
+		sort_three(a, move_count);
+		operation_handler(a, b, "pa", move_count);
 	}
 	else if (size == 5)
 	{
-		push_min_to_b(a, b);
-		push_min_to_b(a, b);
-		sort_three(a);
-		operation_handler(a, b, "pa");
-		operation_handler(a, b, "pa");
+		push_min_to_b(a, b, move_count);
+		push_min_to_b(a, b, move_count);
+		sort_three(a, move_count);
+		operation_handler(a, b, "pa", move_count);
+		operation_handler(a, b, "pa", move_count);
 	}
 }

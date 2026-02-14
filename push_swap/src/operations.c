@@ -6,13 +6,11 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:56:47 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 16:53:41 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:58:22 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	g_move_count = 0;
 
 /* Swap the first two elements of a stack */
 static void	swap(t_stack *stack)
@@ -77,7 +75,7 @@ static void	reverse_rotate(t_stack **stack)
 }
 
 /* Public operations - print the instruction */
-void	operation_handler(t_stack **a, t_stack **b, char *flag)
+void	operation_handler(t_stack **a, t_stack **b, char *flag, int *move_count)
 {
 	if (flag[0] == 's' && flag[1] == 'a')
 		swap(*a);
@@ -111,15 +109,6 @@ void	operation_handler(t_stack **a, t_stack **b, char *flag)
 		reverse_rotate(b);
 	}
 	ft_putendl_fd(flag, 1);
-	g_move_count++;
-}
-
-int	get_move_count(void)
-{
-	return (g_move_count);
-}
-
-void	reset_move_count(void)
-{
-	g_move_count = 0;
+	if (move_count)
+		(*move_count)++;
 }

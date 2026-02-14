@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 16:53:41 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 17:00:38 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -26,9 +27,8 @@ typedef struct s_stack
 }					t_stack;
 
 /* operations.c */
-void	operation_handler(t_stack **a, t_stack **b, char *flag);
-int		get_move_count(void);
-void	reset_move_count(void);
+void	operation_handler(t_stack **a, t_stack **b, char *flag,
+			int *move_count);
 
 /* utils.c */
 t_stack	*stack_new(int value);
@@ -50,10 +50,10 @@ void	free_stack(t_stack **stack);
 void	free_split(char **split);
 
 /* sort_small.c */
-void	sort_small(t_stack **a, t_stack **b);
+void	sort_small(t_stack **a, t_stack **b, int *move_count);
 
 /* radix_sort.c */
-void	radix_sort(t_stack **a, t_stack **b);
+void	radix_sort(t_stack **a, t_stack **b, int *move_count);
 void	assign_indices(t_stack *stack);
 
 #endif
