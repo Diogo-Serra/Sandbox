@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:03:50 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 16:50:38 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:53:41 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main(int argc, char **argv)
 	}
 	push_swap(&a, &b);
 	stack_print(a);
+	ft_printf("\nTotal moves: %d\n", get_move_count());
 	stack_clear(&a);
 	stack_clear(&b);
 	return (0);

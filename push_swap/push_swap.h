@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 16:51:50 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:53:41 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_stack
 
 /* operations.c */
 void	operation_handler(t_stack **a, t_stack **b, char *flag);
+int		get_move_count(void);
+void	reset_move_count(void);
 
 /* utils.c */
 t_stack	*stack_new(int value);
