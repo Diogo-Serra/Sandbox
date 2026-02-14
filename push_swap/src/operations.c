@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:56:47 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 16:58:22 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 18:26:37 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,36 +74,45 @@ static void	reverse_rotate(t_stack **stack)
 	*stack = last;
 }
 
-/* Public operations - print the instruction */
-void	operation_handler(t_stack **a, t_stack **b, char *flag, int *move_count)
+/* Execute normal operations: sa, sb, ss, pa, pb, ra, rb, rr */
+void	exec_operation(t_stack **a, t_stack **b, char *flag, int *move_count)
 {
 	if (flag[0] == 's' && flag[1] == 'a')
 		swap(*a);
-	if (flag[0] == 's' && flag[1] == 'b')
+	else if (flag[0] == 's' && flag[1] == 'b')
 		swap(*b);
-	if (flag[0] == 's' && flag[1] == 's')
+	else if (flag[0] == 's')
 	{
 		swap(*a);
 		swap(*b);
 	}
-	if (flag[0] == 'p' && flag[1] == 'a')
+	else if (flag[0] == 'p' && flag[1] == 'a')
 		push(a, b);
-	if (flag[0] == 'p' && flag[1] == 'b')
+	else if (flag[0] == 'p')
 		push(b, a);
-	if (flag[0] == 'r' && flag[1] == 'a')
+	else if (flag[1] == 'a')
 		rotate(a);
-	if (flag[0] == 'r' && flag[1] == 'b')
+	else if (flag[1] == 'b')
 		rotate(b);
-	if (flag[0] == 'r' && flag[1] == 'r')
+	else
 	{
 		rotate(a);
 		rotate(b);
 	}
-	if (flag[0] == 'r' && flag[1] == 'r' && flag[2] == 'a')
+	ft_putendl_fd(flag, 1);
+	if (move_count)
+		(*move_count)++;
+}
+
+/* Execute reverse operations: rra, rrb, rrr */
+void	exec_reverse_operation(t_stack **a, t_stack **b, char *flag,
+			int *move_count)
+{
+	if (flag[2] == 'a')
 		reverse_rotate(a);
-	if (flag[0] == 'r' && flag[1] == 'r' && flag[2] == 'b')
+	else if (flag[2] == 'b')
 		reverse_rotate(b);
-	if (flag[0] == 'r' && flag[1] == 'r' && flag[2] == 'r')
+	else
 	{
 		reverse_rotate(a);
 		reverse_rotate(b);

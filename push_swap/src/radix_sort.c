@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:10:29 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 16:58:22 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 18:26:37 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ void	radix_sort(t_stack **a, t_stack **b, int *move_count)
 		while (j < size)
 		{
 			if ((((*a)->index >> i) & 1) == 0)
-				operation_handler(a, b, "pb", move_count);
+				exec_operation(a, b, "pb", move_count);
 			else
-				operation_handler(a, NULL, "ra", move_count);
+				exec_operation(a, NULL, "ra", move_count);
 			j++;
 		}
 		while (*b)
-			operation_handler(a, b, "pa", move_count);
+			exec_operation(a, b, "pa", move_count);
 		i++;
 	}
 }

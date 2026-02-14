@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 09:51:54 by diosoare          #+#    #+#              #
-#    Updated: 2026/01/06 11:19:13 by diosoare         ###   ########.fr        #
+#    Updated: 2026/02/14 18:07:56 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,18 +25,17 @@ SRCS		:= \
 				src/sort_small.c \
 				src/radix_sort.c \
 				src/utils.c \
+				src/utils2.c \
 				src/error_handling.c
 
 OBJS		:= $(SRCS:.c=.o)
 
-INCLUDES	:= -I . -I $(LIBFT_DIR)
-
-%.o: %.c push_swap.h
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
 # **************************************************************************** #
 
 all: $(LIBFT) $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -I. -I$(LIBFT_DIR) -c $< -o $@
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)

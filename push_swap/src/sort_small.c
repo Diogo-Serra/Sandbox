@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:15:24 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 16:58:22 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 18:26:37 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,21 @@ static void	sort_three(t_stack **a, int *move_count)
 	second = (*a)->next->value;
 	third = (*a)->next->next->value;
 	if (first > second && second < third && first < third)
-		operation_handler(a, NULL, "sa", move_count);
+		exec_operation(a, NULL, "sa", move_count);
 	else if (first > second && second > third)
 	{
-		operation_handler(a, NULL, "sa", move_count);
-		operation_handler(a, NULL, "rra", move_count);
+		exec_operation(a, NULL, "sa", move_count);
+		exec_reverse_operation(a, NULL, "rra", move_count);
 	}
 	else if (first > second && second < third && first > third)
-		operation_handler(a, NULL, "ra", move_count);
+		exec_operation(a, NULL, "ra", move_count);
 	else if (first < second && second > third && first < third)
 	{
-		operation_handler(a, NULL, "sa", move_count);
-		operation_handler(a, NULL, "ra", move_count);
+		exec_operation(a, NULL, "sa", move_count);
+		exec_operation(a, NULL, "ra", move_count);
 	}
 	else if (first < second && second > third && first > third)
-		operation_handler(a, NULL, "rra", move_count);
+		exec_reverse_operation(a, NULL, "rra", move_count);
 }
 
 static void	push_min_to_b(t_stack **a, t_stack **b, int *move_count)
@@ -66,14 +66,14 @@ static void	push_min_to_b(t_stack **a, t_stack **b, int *move_count)
 	if (min_pos <= size / 2)
 	{
 		while ((*a)->value != min_node->value)
-			operation_handler(a, NULL, "ra", move_count);
+			exec_operation(a, NULL, "ra", move_count);
 	}
 	else
 	{
 		while ((*a)->value != min_node->value)
-			operation_handler(a, NULL, "rra", move_count);
+			exec_reverse_operation(a, NULL, "rra", move_count);
 	}
-	operation_handler(a, b, "pb", move_count);
+	exec_operation(a, b, "pb", move_count);
 }
 
 void	sort_small(t_stack **a, t_stack **b, int *move_count)
@@ -84,7 +84,7 @@ void	sort_small(t_stack **a, t_stack **b, int *move_count)
 	if (size == 2)
 	{
 		if ((*a)->value > (*a)->next->value)
-			operation_handler(a, NULL, "sa", move_count);
+			exec_operation(a, NULL, "sa", move_count);
 	}
 	else if (size == 3)
 		sort_three(a, move_count);
@@ -92,14 +92,14 @@ void	sort_small(t_stack **a, t_stack **b, int *move_count)
 	{
 		push_min_to_b(a, b, move_count);
 		sort_three(a, move_count);
-		operation_handler(a, b, "pa", move_count);
+		exec_operation(a, b, "pa", move_count);
 	}
 	else if (size == 5)
 	{
 		push_min_to_b(a, b, move_count);
 		push_min_to_b(a, b, move_count);
 		sort_three(a, move_count);
-		operation_handler(a, b, "pa", move_count);
-		operation_handler(a, b, "pa", move_count);
+		exec_operation(a, b, "pa", move_count);
+		exec_operation(a, b, "pa", move_count);
 	}
 }
