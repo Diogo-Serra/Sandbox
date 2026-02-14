@@ -6,18 +6,12 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:03:50 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/06 11:03:57 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:04:16 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-** Main sorting dispatcher
-** If stack is already sorted → do nothing
-** If size <= 5 → use optimized small sort
-** Else → use radix sort (best for large random inputs)
-*/
 static void	push_swap(t_stack **a, t_stack **b)
 {
 	int	size;
@@ -31,14 +25,6 @@ static void	push_swap(t_stack **a, t_stack **b)
 		radix_sort(a, b);
 }
 
-/*
-** Entry point
-** - No arguments → exit silently (as required)
-** - Parse input → build stack a
-** - On error → print "Error\n" and exit
-** - Sort and output operations
-** - Free everything
-*/
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -47,11 +33,11 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (argc < 2)
-		return (0);                          // No args → nothing to do
+		return (0);
 	a = parse_input(argc, argv);
-	if (!a)                                   // Parsing failed (error already printed)
+	if (!a)
 		return (1);
-	if (stack_has_duplicates(a))              // Duplicates detected in parsing
+	if (stack_has_duplicates(a))
 	{
 		error_exit(&a, &b);
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:09:52 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/06 11:09:55 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 15:17:19 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	stack_size(t_stack *stack)
 	int	size;
 
 	size = 0;
-	while (stack)
+	while (stack)aofjaafjafiafhiahfiahfiafaavbavbaihfhheahn  
 	{
 		size++;
 		stack = stack->next;
