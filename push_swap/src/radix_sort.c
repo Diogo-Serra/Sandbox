@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:10:29 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/06 11:18:43 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:51:50 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,26 @@ static int	get_max_bits(int max_index)
 	return (bits);
 }
 
-static int	get_index(t_stack *stack, int value)
+void	assign_indices(t_stack *stack)
 {
-	t_stack	*tmp;
+	t_stack	*current;
+	t_stack	*compare;
 	int		index;
 
-	tmp = stack;
-	index = 0;
-	while (tmp)
+	current = stack;
+	while (current)
 	{
-		if (value > tmp->value)
-			index++;
-		tmp = tmp->next;
+		index = 0;
+		compare = stack;
+		while (compare)
+		{
+			if (current->value > compare->value)
+				index++;
+			compare = compare->next;
+		}
+		current->index = index;
+		current = current->next;
 	}
-	return (index);
 }
 
 void	radix_sort(t_stack **a, t_stack **b)
@@ -44,8 +50,8 @@ void	radix_sort(t_stack **a, t_stack **b)
 	int	max_bits;
 	int	i;
 	int	j;
-	int	index;
 
+	assign_indices(*a);
 	size = stack_size(*a);
 	max_bits = get_max_bits(size - 1);
 	i = 0;
@@ -54,15 +60,14 @@ void	radix_sort(t_stack **a, t_stack **b)
 		j = 0;
 		while (j < size)
 		{
-			index = get_index(*a, (*a)->value);
-			if (((index >> i) & 1) == 0)
-				pb(a, b);
+			if ((((*a)->index >> i) & 1) == 0)
+				operation_handler(a, b, "pb");
 			else
-				ra(a);
+				operation_handler(a, NULL, "ra");
 			j++;
 		}
 		while (*b)
-			pa(a, b);
+			operation_handler(a, b, "pa");
 		i++;
 	}
 }

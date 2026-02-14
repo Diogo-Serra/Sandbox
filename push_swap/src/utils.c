@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:09:52 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 15:17:19 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:50:38 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	stack_size(t_stack *stack)
 	int	size;
 
 	size = 0;
-	while (stack)aofjaafjafiafhiahfiahfiafaavbavbaihfhheahn  
+	while (stack)  
 	{
 		size++;
 		stack = stack->next;
@@ -105,4 +105,21 @@ t_stack	*stack_max(t_stack *stack)
 		stack = stack->next;
 	}
 	return (max);
+}
+
+void	stack_print(t_stack *stack)
+{
+	char	*str;
+
+	ft_putstr_fd("Sorted: ", 1);
+	while (stack)
+	{
+		str = ft_itoa(stack->value);
+		ft_putstr_fd(str, 1);
+		if (stack->next)
+			ft_putstr_fd(" ", 1);
+		free(str);
+		stack = stack->next;
+	}
+	ft_putstr_fd("\n", 1);
 }

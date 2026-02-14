@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:15:24 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/06 11:16:35 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:48:16 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,21 @@ static void	sort_three(t_stack **a)
 	second = (*a)->next->value;
 	third = (*a)->next->next->value;
 	if (first > second && second < third && first < third)
-		sa(a);
+		operation_handler(a, NULL, "sa");
 	else if (first > second && second > third)
 	{
-		sa(a);
-		rra(a);
+		operation_handler(a, NULL, "sa");
+		operation_handler(a, NULL, "rra");
 	}
 	else if (first > second && second < third && first > third)
-		ra(a);
+		operation_handler(a, NULL, "ra");
 	else if (first < second && second > third && first < third)
 	{
-		sa(a);
-		ra(a);
+		operation_handler(a, NULL, "sa");
+		operation_handler(a, NULL, "ra");
 	}
 	else if (first < second && second > third && first > third)
-		rra(a);
+		operation_handler(a, NULL, "rra");
 }
 
 static void	push_min_to_b(t_stack **a, t_stack **b)
@@ -66,14 +66,14 @@ static void	push_min_to_b(t_stack **a, t_stack **b)
 	if (min_pos <= size / 2)
 	{
 		while ((*a)->value != min_node->value)
-			ra(a);
+			operation_handler(a, NULL, "ra");
 	}
 	else
 	{
 		while ((*a)->value != min_node->value)
-			rra(a);
+			operation_handler(a, NULL, "rra");
 	}
-	pb(a, b);
+	operation_handler(a, b, "pb");
 }
 
 void	sort_small(t_stack **a, t_stack **b)
@@ -84,7 +84,7 @@ void	sort_small(t_stack **a, t_stack **b)
 	if (size == 2)
 	{
 		if ((*a)->value > (*a)->next->value)
-			sa(a);
+			operation_handler(a, NULL, "sa");
 	}
 	else if (size == 3)
 		sort_three(a);
@@ -92,14 +92,14 @@ void	sort_small(t_stack **a, t_stack **b)
 	{
 		push_min_to_b(a, b);
 		sort_three(a);
-		pa(a, b);
+		operation_handler(a, b, "pa");
 	}
 	else if (size == 5)
 	{
 		push_min_to_b(a, b);
 		push_min_to_b(a, b);
 		sort_three(a);
-		pa(a, b);
-		pa(a, b);
+		operation_handler(a, b, "pa");
+		operation_handler(a, b, "pa");
 	}
 }

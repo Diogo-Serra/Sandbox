@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:56:47 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/06 10:57:05 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 16:48:50 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,71 +75,38 @@ static void	reverse_rotate(t_stack **stack)
 }
 
 /* Public operations - print the instruction */
-void	sa(t_stack **a)
+void	operation_handler(t_stack **a, t_stack **b, char *flag)
 {
-	swap(*a);
-	write(1, "sa\n", 3);
-}
-
-void	sb(t_stack **b)
-{
-	swap(*b);
-	write(1, "sb\n", 3);
-}
-
-void	ss(t_stack **a, t_stack **b)
-{
-	swap(*a);
-	swap(*b);
-	write(1, "ss\n", 3);
-}
-
-void	pa(t_stack **a, t_stack **b)
-{
-	push(a, b);
-	write(1, "pa\n", 3);
-}
-
-void	pb(t_stack **a, t_stack **b)
-{
-	push(b, a);
-	write(1, "pb\n", 3);
-}
-
-void	ra(t_stack **a)
-{
-	rotate(a);
-	write(1, "ra\n", 3);
-}
-
-void	rb(t_stack **b)
-{
-	rotate(b);
-	write(1, "rb\n", 3);
-}
-
-void	rr(t_stack **a, t_stack **b)
-{
-	rotate(a);
-	rotate(b);
-	write(1, "rr\n", 3);
-}
-
-void	rra(t_stack **a)
-{
-	reverse_rotate(a);
-	write(1, "rra\n", 4);
-}
-
-void	rrb(t_stack **b)
-{
-	reverse_rotate(b);
-	write(1, "rrb\n", 4);
-}
-
-void	rrr(t_stack **a, t_stack **b)
-{
-	reverse_rotate(a);
-	reverse_rotate(b);
-	write(1, "rrr\n", 4);
+	if (flag[0] == 's' && flag[1] == 'a')
+		swap(*a);
+	if (flag[0] == 's' && flag[1] == 'b')
+		swap(*b);
+	if (flag[0] == 's' && flag[1] == 's')
+	{
+		swap(*a);
+		swap(*b);
+	}
+	if (flag[0] == 'p' && flag[1] == 'a')
+		push(a, b);
+	if (flag[0] == 'p' && flag[1] == 'b')
+		push(b, a);
+	if (flag[0] == 'r' && flag[1] == 'a')
+		rotate(a);
+	if (flag[0] == 'r' && flag[1] == 'b')
+		rotate(b);
+	if (flag[0] == 'r' && flag[1] == 'r')
+	{
+		rotate(a);
+		rotate(b);
+	}
+	if (flag[0] == 'r' && flag[1] == 'r' && flag[2] == 'a')
+		reverse_rotate(a);
+	if (flag[0] == 'r' && flag[1] == 'r' && flag[2] == 'b')
+		reverse_rotate(b);
+	if (flag[0] == 'r' && flag[1] == 'r' && flag[2] == 'r')
+	{
+		reverse_rotate(a);
+		reverse_rotate(b);
+	}
+	ft_putendl_fd(flag, 1);
 }
