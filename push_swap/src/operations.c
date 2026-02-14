@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:56:47 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 18:26:37 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/14 18:39:33 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,40 +38,32 @@ static void	push(t_stack **dst, t_stack **src)
 }
 
 /* Rotate: first element becomes last */
-static void	rotate(t_stack **stack)
+static void	rotate(t_stack **stack, int is_reverse)
 {
-	t_stack	*first;
-	t_stack	*last;
-
-	if (!*stack || !(*stack)->next)
-		return ;
-	first = *stack;
-	last = *stack;
-	while (last->next)
-		last = last->next;
-	*stack = first->next;
-	first->next = NULL;
-	last->next = first;
-}
-
-/* Reverse rotate: last element becomes first */
-static void	reverse_rotate(t_stack **stack)
-{
-	t_stack	*last;
+	t_stack	*node;
 	t_stack	*prev;
 
 	if (!*stack || !(*stack)->next)
 		return ;
+	node = *stack;
 	prev = NULL;
-	last = *stack;
-	while (last->next)
+	while (node->next)
 	{
-		prev = last;
-		last = last->next;
+		prev = node;
+		node = node->next;
 	}
-	prev->next = NULL;
-	last->next = *stack;
-	*stack = last;
+	if (is_reverse)
+	{
+		prev->next = NULL;
+		node->next = *stack;
+		*stack = node;
+	}
+	else
+	{
+		node->next = *stack;
+		*stack = (*stack)->next;
+		node->next->next = NULL;
+	}
 }
 
 /* Execute normal operations: sa, sb, ss, pa, pb, ra, rb, rr */
@@ -91,13 +83,13 @@ void	exec_operation(t_stack **a, t_stack **b, char *flag, int *move_count)
 	else if (flag[0] == 'p')
 		push(b, a);
 	else if (flag[1] == 'a')
-		rotate(a);
+		rotate(a, 0);
 	else if (flag[1] == 'b')
-		rotate(b);
+		rotate(b, 0);
 	else
 	{
-		rotate(a);
-		rotate(b);
+		rotate(a, 0);
+		rotate(b, 0);
 	}
 	ft_putendl_fd(flag, 1);
 	if (move_count)
@@ -109,13 +101,13 @@ void	exec_reverse_operation(t_stack **a, t_stack **b, char *flag,
 			int *move_count)
 {
 	if (flag[2] == 'a')
-		reverse_rotate(a);
+		rotate(a, 1);
 	else if (flag[2] == 'b')
-		reverse_rotate(b);
+		rotate(b, 1);
 	else
 	{
-		reverse_rotate(a);
-		reverse_rotate(b);
+		rotate(a, 1);
+		rotate(b, 1);
 	}
 	ft_putendl_fd(flag, 1);
 	if (move_count)
