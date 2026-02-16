@@ -6,13 +6,13 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:15:24 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 18:26:37 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/16 18:37:24 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	get_position(t_stack *stack, int value)
+static int	get_value_position(t_stack *stack, int value)
 {
 	int	pos;
 
@@ -61,7 +61,7 @@ static void	push_min_to_b(t_stack **a, t_stack **b, int *move_count)
 	int		size;
 
 	min_node = stack_min(*a);
-	min_pos = get_position(*a, min_node->value);
+	min_pos = get_value_position(*a, min_node->value);
 	size = stack_size(*a);
 	if (min_pos <= size / 2)
 	{

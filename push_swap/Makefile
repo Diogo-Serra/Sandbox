@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 09:51:54 by diosoare          #+#    #+#              #
-#    Updated: 2026/02/16 18:29:17 by diosoare         ###   ########.fr        #
+#    Updated: 2026/02/16 18:38:00 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,11 @@ LIBFT		:= $(LIBFT_DIR)/libft.a
 SRCS		:= \
 				src/main.c \
 				src/parsing.c \
+				src/parsing_utils.c \
 				src/operations.c \
 				src/sort_small.c \
 				src/chunk_sort.c \
+				src/chunk_utils.c \
 				src/utils.c \
 				src/utils2.c \
 				src/error_handling.c
