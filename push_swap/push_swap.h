@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/16 18:29:17 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/16 18:35:24 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+typedef struct s_chunk
+{
+	int				start;
+	int				end;
+	int				chunk_size;
+	int				chunks;
+	int				*move_count;
+}					t_chunk;
+
 /* operations.c */
 void	exec_operation(t_stack **a, t_stack **b, char *flag, int *move_count);
 void	exec_reverse_operation(t_stack **a, t_stack **b, char *flag,
@@ -44,6 +53,13 @@ void	stack_print(t_stack *stack);
 
 /* parsing.c */
 t_stack	*parse_input(int argc, char **argv);
+void	validate_and_add(t_stack **a, char *str);
+void	process_split(t_stack **a, char **split);
+
+/* parsing_utils.c */
+long	ft_atol(const char *str);
+int		is_valid_number(char *str);
+void	add_number(t_stack **a, long num);
 
 /* error_handling.c */
 void	error_exit(t_stack **a, t_stack **b);
@@ -56,5 +72,10 @@ void	sort_small(t_stack **a, t_stack **b, int *move_count);
 /* chunk_sort.c */
 void	chunk_sort(t_stack **a, t_stack **b, int *move_count);
 void	assign_indices(t_stack *stack);
+
+/* chunk_utils.c */
+int		get_position(t_stack *stack, int index);
+int		find_max_index(t_stack *stack);
+void	push_max_to_a(t_stack **a, t_stack **b, int *move_count);
 
 #endif
