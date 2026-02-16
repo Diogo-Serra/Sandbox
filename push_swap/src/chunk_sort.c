@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 18:30:00 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/16 18:35:24 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/16 18:44:41 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ static void	push_chunk_to_b(t_stack **a, t_stack **b, t_chunk chunk)
 		{
 			exec_operation(a, b, "pb", chunk.move_count);
 			pushed++;
-			if (*b && (*b)->next && (*b)->index < chunk.start
-				+ (chunk.end - chunk.start) / 2)
+			if (*b && (*b)->next && (*b)->index < (chunk.start + chunk.end) / 2)
 				exec_operation(NULL, b, "rb", chunk.move_count);
 		}
 		else
@@ -62,10 +61,14 @@ static void	init_chunk_params(t_chunk *chunk, int size, int *move_count)
 	int	chunks;
 	int	chunk_size;
 
-	if (size <= 100)
+	if (size <= 16)
+		chunks = 1;
+	else if (size <= 100)
 		chunks = 5;
+	else if (size <= 250)
+		chunks = 10;
 	else
-		chunks = 11;
+		chunks = 12;
 	chunk_size = size / chunks;
 	chunk->move_count = move_count;
 	chunk->chunk_size = chunk_size;
