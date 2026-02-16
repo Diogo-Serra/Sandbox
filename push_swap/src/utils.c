@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:09:52 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 17:07:59 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:56:26 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,19 @@ void	stack_add_front(t_stack **stack, t_stack *new_node)
 	*stack = new_node;
 }
 
-void	stack_clear(t_stack **stack)
+void	stack_add_back(t_stack **stack, t_stack *new_node)
 {
-	free_stack(stack);
+	t_stack	*last;
+
+	if (!*stack)
+	{
+		*stack = new_node;
+		return ;
+	}
+	last = *stack;
+	while (last->next)
+		last = last->next;
+	last->next = new_node;
 }
 
 int	stack_size(t_stack *stack)

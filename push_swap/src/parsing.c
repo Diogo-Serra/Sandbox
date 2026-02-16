@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:06:24 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/06 11:07:01 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/16 16:07:34 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,10 @@ static void	add_number(t_stack **a, long num)
 {
 	t_stack	*new;
 
-	if (num > INT_MAX || num < INT_MIN)
-		error_exit(a, NULL);
 	new = stack_new((int)num);
 	if (!new)
 		error_exit(a, NULL);
-	stack_add_front(a, new);
+	stack_add_back(a, new);
 }
 
 t_stack	*parse_input(int argc, char **argv)
@@ -75,20 +73,29 @@ t_stack	*parse_input(int argc, char **argv)
 	char	**split;
 	int		i;
 	int		j;
+	long	num;
 
 	a = NULL;
 	i = 1;
 	while (i < argc)
 	{
 		split = ft_split(argv[i], ' ');
-		if (!split || !*split)
+		if (!split)
 			error_exit(&a, NULL);
+		if (!*split)
+		{
+			free(split);
+			error_exit(&a, NULL);
+		}
 		j = 0;
 		while (split[j])
 		{
 			if (!is_valid_number(split[j]))
 				(free_split(split), error_exit(&a, NULL));
-			add_number(&a, ft_atol(split[j]));
+			num = ft_atol(split[j]);
+			if (num > INT_MAX || num < INT_MIN)
+				(free_split(split), error_exit(&a, NULL));
+			add_number(&a, num);
 			j++;
 		}
 		free_split(split);
