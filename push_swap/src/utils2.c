@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 16:58:04 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/14 17:08:07 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 03:59:40 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,4 @@ t_stack	*stack_min(t_stack *stack)
 		stack = stack->next;
 	}
 	return (min);
-}
-
-t_stack	*stack_max(t_stack *stack)
-{
-	t_stack	*max;
-
-	max = stack;
-	while (stack)
-	{
-		if (stack->value > max->value)
-			max = stack;
-		stack = stack->next;
-	}
-	return (max);
 }

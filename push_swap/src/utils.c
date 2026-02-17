@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:09:52 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/16 15:56:26 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 03:59:40 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,6 @@ t_stack	*stack_new(int value)
 	new->value = value;
 	new->next = NULL;
 	return (new);
-}
-
-void	stack_add_front(t_stack **stack, t_stack *new_node)
-{
-	new_node->next = *stack;
-	*stack = new_node;
 }
 
 void	stack_add_back(t_stack **stack, t_stack *new_node)
@@ -56,21 +50,4 @@ int	stack_size(t_stack *stack)
 		stack = stack->next;
 	}
 	return (size);
-}
-
-void	stack_print(t_stack *stack)
-{
-	char	*str;
-
-	ft_putstr_fd("Sorted: ", 1);
-	while (stack)
-	{
-		str = ft_itoa(stack->value);
-		ft_putstr_fd(str, 1);
-		if (stack->next)
-			ft_putstr_fd(" ", 1);
-		free(str);
-		stack = stack->next;
-	}
-	ft_putstr_fd("\n", 1);
 }

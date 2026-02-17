@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/16 18:35:24 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 04:00:41 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,11 @@ void	exec_reverse_operation(t_stack **a, t_stack **b, char *flag,
 
 /* utils.c */
 t_stack	*stack_new(int value);
-void	stack_add_front(t_stack **stack, t_stack *new_node);
 void	stack_add_back(t_stack **stack, t_stack *new_node);
 int		stack_size(t_stack *stack);
 int		stack_is_sorted(t_stack *stack);
 int		stack_has_duplicates(t_stack *stack);
 t_stack	*stack_min(t_stack *stack);
-t_stack	*stack_max(t_stack *stack);
-void	stack_print(t_stack *stack);
 
 /* parsing.c */
 t_stack	*parse_input(int argc, char **argv);
