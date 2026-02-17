@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 18:30:00 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/16 18:34:25 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 04:24:52 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ long	ft_atol(const char *str)
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = num * 10 + (str[i] - '0');
-		i++;
-	}
+		num = num * 10 + (str[i++] - '0');
 	return (sign * num);
 }
 
