@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 09:51:54 by diosoare          #+#    #+#              #
-#    Updated: 2026/02/17 14:24:39 by diosoare         ###   ########.fr        #
+#    Updated: 2026/02/17 14:34:01 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS		:= \
 				src/radix_sort.c \
 				src/radix_utils.c \
 				src/utils.c \
-				src/error_handling.c
+				src/error_handling.c \
+				src/sort_small.c
 
 OBJS		:= $(SRCS:.c=.o)
 

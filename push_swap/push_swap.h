@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 14:31:29 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 14:36:14 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,11 @@ void	radix_sort(t_stack **a, t_stack **b, int *move_count);
 /* radix_utils.c */
 void	assign_indices(t_stack *stack);
 int		get_max_bits(int size);
+
+/* sort_small.c */
+void	sort_two(t_stack **a, int *move_count);
+void	sort_three(t_stack **a, int *move_count);
+void	sort_four(t_stack **a, t_stack **b, int *move_count);
+void	sort_five(t_stack **a, t_stack **b, int *move_count);
 
 #endif
