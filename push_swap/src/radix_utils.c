@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 14:30:00 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 14:27:48 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 16:18:09 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int	find_index_in_sorted(int *sorted, int size, int value)
 	return (-1);
 }
 
-void	assign_indices(t_stack *stack)
+void	assign_index(t_stack *stack)
 {
 	int		*sorted;
 	int		size;

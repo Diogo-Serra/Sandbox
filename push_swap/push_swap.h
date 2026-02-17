@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 14:55:46 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 16:18:09 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	free_split(char **split);
 void	radix_sort(t_stack **a, t_stack **b, int *move_count);
 
 /* radix_utils.c */
-void	assign_indices(t_stack *stack);
+void	assign_index(t_stack *stack);
 int		get_max_bits(int size);
 
 /* sort_small.c */

@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 14:30:00 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 14:31:29 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 16:18:09 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	radix_sort(t_stack **a, t_stack **b, int *move_count)
 	int	max_bits;
 	int	bit;
 
-	assign_indices(*a);
+	assign_index(*a);
 	max_bits = get_max_bits(stack_size(*a));
 	bit = 0;
 	while (bit < max_bits)
