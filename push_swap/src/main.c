@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:03:50 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 14:55:46 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 19:14:35 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	move_count = 0;
+
 	if (argc < 2)
 		return (0);
 	a = parse_input(argc, argv);
