@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:03:50 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 14:36:14 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 14:55:46 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,8 @@ static void	push_swap(t_stack **a, t_stack **b, int *move_count)
 	if (stack_is_sorted(*a))
 		return ;
 	size = stack_size(*a);
-	if (size == 2)
-		sort_two(a, move_count);
-	else if (size == 3)
-		sort_three(a, move_count);
-	else if (size == 4)
-		sort_four(a, b, move_count);
-	else if (size == 5)
-		sort_five(a, b, move_count);
+	if (size <= 5)
+		sort_small(a, b, move_count);
 	else
 		radix_sort(a, b, move_count);
 }

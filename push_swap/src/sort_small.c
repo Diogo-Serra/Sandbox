@@ -6,31 +6,11 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 14:35:00 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 14:36:14 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 14:54:53 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sort_two(t_stack **a, int *move_count)
-{
-	if ((*a)->value > (*a)->next->value)
-		exec_operation(a, NULL, "sa", move_count);
-}
-
-static int	find_min_value(t_stack *stack)
-{
-	int	min;
-
-	min = stack->value;
-	while (stack)
-	{
-		if (stack->value < min)
-			min = stack->value;
-		stack = stack->next;
-	}
-	return (min);
-}
 
 static int	find_max_value(t_stack *stack)
 {
@@ -52,20 +32,23 @@ static int	find_min_position(t_stack *stack)
 	int	pos;
 	int	min_pos;
 
-	min = find_min_value(stack);
+	min = stack->value;
 	pos = 0;
 	min_pos = 0;
 	while (stack)
 	{
-		if (stack->value == min)
+		if (stack->value < min)
+		{
+			min = stack->value;
 			min_pos = pos;
+		}
 		pos++;
 		stack = stack->next;
 	}
 	return (min_pos);
 }
 
-void	sort_three(t_stack **a, int *move_count)
+static void	sort_three(t_stack **a, int *move_count)
 {
 	int	max;
 
@@ -106,18 +89,30 @@ static void	push_min_to_b(t_stack **a, t_stack **b, int *move_count)
 	exec_operation(a, b, "pb", move_count);
 }
 
-void	sort_four(t_stack **a, t_stack **b, int *move_count)
+void	sort_small(t_stack **a, t_stack **b, int *move_count)
 {
-	push_min_to_b(a, b, move_count);
-	sort_three(a, move_count);
-	exec_operation(a, b, "pa", move_count);
-}
+	int	size;
 
-void	sort_five(t_stack **a, t_stack **b, int *move_count)
-{
-	push_min_to_b(a, b, move_count);
-	push_min_to_b(a, b, move_count);
-	sort_three(a, move_count);
-	exec_operation(a, b, "pa", move_count);
-	exec_operation(a, b, "pa", move_count);
+	size = stack_size(*a);
+	if (size == 2)
+	{
+		if ((*a)->value > (*a)->next->value)
+			exec_operation(a, NULL, "sa", move_count);
+	}
+	else if (size == 3)
+		sort_three(a, move_count);
+	else if (size == 4)
+	{
+		push_min_to_b(a, b, move_count);
+		sort_three(a, move_count);
+		exec_operation(a, b, "pa", move_count);
+	}
+	else if (size == 5)
+	{
+		push_min_to_b(a, b, move_count);
+		push_min_to_b(a, b, move_count);
+		sort_three(a, move_count);
+		exec_operation(a, b, "pa", move_count);
+		exec_operation(a, b, "pa", move_count);
+	}
 }
