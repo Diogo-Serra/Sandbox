@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 09:51:54 by diosoare          #+#    #+#              #
-#    Updated: 2026/02/17 04:08:26 by diosoare         ###   ########.fr        #
+#    Updated: 2026/02/17 04:10:03 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ SRCS		:= \
 				src/chunk_sort.c \
 				src/chunk_utils.c \
 				src/utils.c \
-				src/utils2.c \
 				src/error_handling.c
 
 OBJS		:= $(SRCS:.c=.o)
