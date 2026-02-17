@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 04:08:26 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 14:31:29 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,6 @@ typedef struct s_stack
 	int				index;
 	struct s_stack	*next;
 }					t_stack;
-
-typedef struct s_chunk
-{
-	int				start;
-	int				end;
-	int				chunk_size;
-	int				chunks;
-	int				*move_count;
-}					t_chunk;
 
 /* operations.c */
 void	exec_operation(t_stack **a, t_stack **b, char *flag, int *move_count);
@@ -62,13 +53,11 @@ void	error_exit(t_stack **a, t_stack **b);
 void	free_stack(t_stack **stack);
 void	free_split(char **split);
 
-/* chunk_sort.c */
-void	chunk_sort(t_stack **a, t_stack **b, int *move_count);
-void	assign_indices(t_stack *stack);
+/* radix_sort.c */
+void	radix_sort(t_stack **a, t_stack **b, int *move_count);
 
-/* chunk_utils.c */
-int		get_position(t_stack *stack, int index);
-int		find_max_index(t_stack *stack);
-void	push_max_to_a(t_stack **a, t_stack **b, int *move_count);
+/* radix_utils.c */
+void	assign_indices(t_stack *stack);
+int		get_max_bits(int size);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 09:51:54 by diosoare          #+#    #+#              #
-#    Updated: 2026/02/17 04:10:03 by diosoare         ###   ########.fr        #
+#    Updated: 2026/02/17 14:24:39 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ SRCS		:= \
 				src/parsing.c \
 				src/parsing_utils.c \
 				src/operations.c \
-				src/chunk_sort.c \
-				src/chunk_utils.c \
+				src/radix_sort.c \
+				src/radix_utils.c \
 				src/utils.c \
 				src/error_handling.c
 
