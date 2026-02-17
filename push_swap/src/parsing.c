@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:06:24 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/16 18:34:29 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 16:25:37 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@ void	validate_and_add(t_stack **a, char *str)
 
 void	process_split(t_stack **a, char **split)
 {
-	int	j;
+	int	i;
 
-	j = 0;
-	while (split[j])
+	i = 0;
+	while (split[i])
 	{
-		validate_and_add(a, split[j]);
-		j++;
+		validate_and_add(a, split[i]);
+		i++;
 	}
 }
 
 t_stack	*parse_input(int argc, char **argv)
 {
+	int		i;
 	t_stack	*a;
 	char	**split;
-	int		i;
 
 	a = NULL;
 	i = 1;
