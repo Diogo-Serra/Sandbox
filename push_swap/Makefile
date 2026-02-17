@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 09:51:54 by diosoare          #+#    #+#              #
-#    Updated: 2026/02/16 18:38:00 by diosoare         ###   ########.fr        #
+#    Updated: 2026/02/17 04:08:26 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ SRCS		:= \
 				src/parsing.c \
 				src/parsing_utils.c \
 				src/operations.c \
-				src/sort_small.c \
 				src/chunk_sort.c \
 				src/chunk_utils.c \
 				src/utils.c \

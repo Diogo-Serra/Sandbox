@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 04:00:41 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 04:08:26 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	stack_add_back(t_stack **stack, t_stack *new_node);
 int		stack_size(t_stack *stack);
 int		stack_is_sorted(t_stack *stack);
 int		stack_has_duplicates(t_stack *stack);
-t_stack	*stack_min(t_stack *stack);
 
 /* parsing.c */
 t_stack	*parse_input(int argc, char **argv);
@@ -62,9 +61,6 @@ void	add_number(t_stack **a, long num);
 void	error_exit(t_stack **a, t_stack **b);
 void	free_stack(t_stack **stack);
 void	free_split(char **split);
-
-/* sort_small.c */
-void	sort_small(t_stack **a, t_stack **b, int *move_count);
 
 /* chunk_sort.c */
 void	chunk_sort(t_stack **a, t_stack **b, int *move_count);

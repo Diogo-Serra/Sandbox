@@ -6,11 +6,114 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 18:30:00 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/16 18:44:41 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 04:08:26 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static t_stack	*stack_min(t_stack *stack)
+{
+	t_stack	*min;
+
+	min = stack;
+	while (stack)
+	{
+		if (stack->value < min->value)
+			min = stack;
+		stack = stack->next;
+	}
+	return (min);
+}
+
+static int	get_value_position(t_stack *stack, int value)
+{
+	int	pos;
+
+	pos = 0;
+	while (stack)
+	{
+		if (stack->value == value)
+			return (pos);
+		pos++;
+		stack = stack->next;
+	}
+	return (pos);
+}
+
+static void	sort_three(t_stack **a, int *move_count)
+{
+	int	first;
+	int	second;
+	int	third;
+
+	first = (*a)->value;
+	second = (*a)->next->value;
+	third = (*a)->next->next->value;
+	if (first > second && second < third && first < third)
+		exec_operation(a, NULL, "sa", move_count);
+	else if (first > second && second > third)
+	{
+		exec_operation(a, NULL, "sa", move_count);
+		exec_reverse_operation(a, NULL, "rra", move_count);
+	}
+	else if (first > second && second < third && first > third)
+		exec_operation(a, NULL, "ra", move_count);
+	else if (first < second && second > third && first < third)
+	{
+		exec_operation(a, NULL, "sa", move_count);
+		exec_operation(a, NULL, "ra", move_count);
+	}
+	else if (first < second && second > third && first > third)
+		exec_reverse_operation(a, NULL, "rra", move_count);
+}
+
+static void	push_min_to_b(t_stack **a, t_stack **b, int *move_count)
+{
+	t_stack	*min_node;
+	int		min_pos;
+	int		size;
+
+	min_node = stack_min(*a);
+	min_pos = get_value_position(*a, min_node->value);
+	size = stack_size(*a);
+	if (min_pos <= size / 2)
+	{
+		while ((*a)->value != min_node->value)
+			exec_operation(a, NULL, "ra", move_count);
+	}
+	else
+	{
+		while ((*a)->value != min_node->value)
+			exec_reverse_operation(a, NULL, "rra", move_count);
+	}
+	exec_operation(a, b, "pb", move_count);
+}
+
+static void	sort_small(t_stack **a, t_stack **b, int size, int *move_count)
+{
+	if (size == 2)
+	{
+		if ((*a)->value > (*a)->next->value)
+			exec_operation(a, NULL, "sa", move_count);
+	}
+	else if (size == 3)
+		sort_three(a, move_count);
+	else if (size == 4)
+	{
+		push_min_to_b(a, b, move_count);
+		sort_three(a, move_count);
+		exec_operation(a, b, "pa", move_count);
+	}
+	else if (size == 5)
+	{
+		push_min_to_b(a, b, move_count);
+		push_min_to_b(a, b, move_count);
+		sort_three(a, move_count);
+		exec_operation(a, b, "pa", move_count);
+		exec_operation(a, b, "pa", move_count);
+	}
+}
 
 void	assign_indices(t_stack *stack)
 {
@@ -97,8 +200,13 @@ void	chunk_sort(t_stack **a, t_stack **b, int *move_count)
 	t_chunk	chunk;
 	int		size;
 
-	assign_indices(*a);
 	size = stack_size(*a);
+	if (size <= 5)
+	{
+		sort_small(a, b, size, move_count);
+		return ;
+	}
+	assign_indices(*a);
 	init_chunk_params(&chunk, size, move_count);
 	push_all_chunks(a, b, chunk, size);
 	while (*b)

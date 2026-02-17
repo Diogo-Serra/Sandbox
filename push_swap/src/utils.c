@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:09:52 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 03:59:40 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 04:09:21 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,35 @@ int	stack_size(t_stack *stack)
 		stack = stack->next;
 	}
 	return (size);
+}
+
+int	stack_is_sorted(t_stack *stack)
+{
+	while (stack && stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
+int	stack_has_duplicates(t_stack *stack)
+{
+	t_stack	*curr;
+	t_stack	*check;
+
+	curr = stack;
+	while (curr)
+	{
+		check = curr->next;
+		while (check)
+		{
+			if (curr->value == check->value)
+				return (1);
+			check = check->next;
+		}
+		curr = curr->next;
+	}
+	return (0);
 }
