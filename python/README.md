@@ -30,7 +30,6 @@ This folder contains Python exercises and solutions for:
 ```
 python/
 ├── README.md          # This file
-├── challenges/        # 42 challenge solutions (as populated)
 ├── exercises/         # General Python exercises
 ├── utils/             # Reusable utility functions and libraries
 └── experiments/       # Prototypes and explorations
