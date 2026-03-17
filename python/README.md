@@ -1,7 +1,9 @@
 
-===================================
-  PYTHON TRAINING & 42 CHALLENGES
-===================================
+<div align="center">
+  <img src="public/banner.png" alt="Python Training & 42 Challenges Banner">
+</div>
+
+---
 
 Purpose
 
