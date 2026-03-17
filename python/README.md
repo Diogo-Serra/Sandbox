@@ -31,7 +31,6 @@ This folder contains Python exercises and solutions for:
 python/
 ├── README.md          # This file
 ├── exercises/         # General Python exercises
-├── utils/             # Reusable utility functions and libraries
 └── experiments/       # Prototypes and explorations
 ```
 
