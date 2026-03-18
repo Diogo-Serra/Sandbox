@@ -24,11 +24,11 @@ class NumericProcessor(DataProcessor):
         super().__init__()
 
     def process(self, data: Any):
-        try:
-            validated_data = self.validate(data)
-        except (TypeError, ValueError):
-            return (TypeError | ValueError)
-        return (self.format_output(validated_data))
+        validated_data = self.validate(data)
+        if isinstance(validated_data, ValueError):
+            return validated_data
+        else:
+            return self.format_output(validated_data)
 
     def validate(self, data: Any):
         for x in data:
@@ -36,7 +36,7 @@ class NumericProcessor(DataProcessor):
                 int(x)
             except ValueError as v:
                 return v
-        return (data)
+        return data
 
     def format_output(self, message):
         return f"Numbers validated: {message}"
@@ -44,7 +44,7 @@ class NumericProcessor(DataProcessor):
 
 def main():
     processor = NumericProcessor()
-    print(processor.process({1, 2, 3}))
+    print(processor.process({1, "a", 3}))
 
 
 main()
