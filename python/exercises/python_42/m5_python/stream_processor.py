@@ -15,7 +15,7 @@ class DataProcessor(ABC):
     def validate(self, data):
         pass
 
-    def format_output(message):
+    def format_output(self, message):
         return f"Format output: {message}"
 
 
