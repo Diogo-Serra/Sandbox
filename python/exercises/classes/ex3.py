@@ -12,8 +12,9 @@ class Person:
         return self.__age
 
     def setp(self, new_age):
-        
-        self.__age = age_int
+        try:
+            if __validate_age(new_age) == False:
+                self.__age = age_int
         except ValueError:
             print("Not a valid age!")
             return
