@@ -10,15 +10,13 @@ class Rectangle:
         return self.width * self.height
 
     def __str__(self):
-        return f"{self.width} x {self.height}"
+        return f"Rectangle({self.width}x{self.height})"
 
     def __eq__(self, other):
-        area1 = self.area()
-        area2 = other.area()
-        return (area2 - area1)
+        return self.area() == other.area()
 
-    def __It__(self, other):
-        return (self.area() < other.area())
+    def __lt__(self, other):
+        return self.area() < other.area()
 
 
 def tester():
@@ -29,7 +27,7 @@ def tester():
     print(rectangle1.area())
     print(rectangle2.area())
     print(rectangle1.__eq__(rectangle2))
-    print(rectangle1.__It__(rectangle2))
+    print(rectangle1.__lt__(rectangle2))
 
 
 tester()
