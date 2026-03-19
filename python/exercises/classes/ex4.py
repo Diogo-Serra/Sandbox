@@ -9,12 +9,10 @@ class Book:
         self.pages = pages
 
     def __str__(self):
-        return (f"Title: \"{self.title}\" "
-                f"(author={self.author}, year={self.year}"
-                f" pages={self.pages}")
+        return f"{self.title} by {self.author} ({self.year}), {self.pages} pages"
 
     def __repr__(self):
-        print(self)
+        return f"Book(title='{self.title}', author='{self.author}', year={self.year})"
 
 
 def tester():
