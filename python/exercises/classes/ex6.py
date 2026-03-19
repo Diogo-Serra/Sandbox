@@ -19,7 +19,7 @@ class Cat(Animal):
         self.indoor = indoor
 
     def make_sound(self):
-        return (f"{self.name} says: miau")
+        return (f"{self.name} says: Meow!")
 
 
 def tester():
