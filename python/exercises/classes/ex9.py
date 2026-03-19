@@ -11,21 +11,24 @@ class Address:
 
 class Employee:
 
-    def __init__(self, name, salary, address=Address()):
+    def __init__(self, name, salary, address):
         self.name = name
         self.salary = salary
+        self.address = address
 
     def get_full_address(self):
-        return (f"{Address.street}, {Address.city}"
-                f"{Address.country} {Address.zipcode}")
+        return (f"{self.address.street}, {self.address.city}, "
+                f"{self.address.country} {self.address.zipcode}")
 
     def __str__(self):
         return f"{self.name}: {self.salary}"
 
 
 def tester():
-    employee_1 = Employee("Mark", 2300)
+    address = Address()
+    employee_1 = Employee("Mark", 2300, address)
     print(employee_1)
+    print(employee_1.get_full_address())
 
 
 tester()
