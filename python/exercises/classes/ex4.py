@@ -20,6 +20,7 @@ class Book:
 def tester():
     book1 = Book("LOTR", "JRRT", 1990, 400)
     print(book1)
+    book1.__repr__()
 
 
 tester()
