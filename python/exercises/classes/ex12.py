@@ -18,6 +18,7 @@ class Counter:
 def tester():
     counter1 = Counter()
     counter1()
+    counter1()
     print(counter1)
 
 
