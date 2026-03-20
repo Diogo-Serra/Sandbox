@@ -20,7 +20,6 @@ class Circle(Shape):
         self.radius = radius
 
     def area(self):
-        print("Circle used")
         return (pi * (self.radius ** 2))
 
     def perimeter(self):
@@ -33,7 +32,6 @@ class Square(Shape):
         self.side = side
 
     def area(self):
-        print("Square used")
         return (self.side ** 2)
 
     def perimeter(self):
@@ -43,7 +41,7 @@ class Square(Shape):
 def bonus(objects_list):
     for o in objects_list:
         print(f"Area of {type(o).__name__} {o.area()}")
-        print(f"Perimeter of {type(o).__name__} {o.area()}")
+        print(f"Perimeter of {type(o).__name__} {o.perimeter()}")
 
 
 def tester():
