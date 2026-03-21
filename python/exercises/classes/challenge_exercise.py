@@ -53,8 +53,12 @@ class ShoppingCart:
     def __str__(self):
         if not self.items:
             return "Cart is empty"
-        lines = [f"  {p.name} x{q} = {p.price * q}Euros" for p, q in self.items]
-        return "Cart:\n" + "\n".join(lines) + f"\n  Total: {self.calculate_total()}Euros"
+        lines = [
+            f"  {p.name} x{q} = {p.price * q}Euros"
+            for p, q in self.items
+        ]
+        total = self.calculate_total()
+        return "Cart:\n" + "\n".join(lines) + f"\n  Total: {total}Euros"
 
 
 class Customer:
