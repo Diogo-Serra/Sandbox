@@ -10,6 +10,14 @@ class Vector:
         self.x += int(vector.x)
         self.y += int(vector.y)
 
+    def __sub__(self, vector):
+        self.x -= int(vector.x)
+        self.y -= int(vector.y)
+
+    def __mul__(self, vector):
+        self.x *= int(vector.x)
+        self.y *= int(vector.y)
+
     def __str__(self):
         return f"{self.x} {self.y}"
 
