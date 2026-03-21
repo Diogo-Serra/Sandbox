@@ -9,10 +9,19 @@ class Product:
         self.stock = stock
 
     def reduce_stock(self, quantity):
-        pass
+        if self.stock >= quantity:
+            self.stock -= quantity
+        else:
+            return "Not enought stock"
 
-    def is_available(self):
-        pass
+    def is_available(self, quantity):
+        if self.stock > quantity:
+            return True
+        else:
+            return False
+
+    def __str__(self):
+        return f"{self.name}: {self.price}Euros\nAvailable: {self.stock}"
 
 
 class ShoppingCart:
@@ -22,14 +31,22 @@ class ShoppingCart:
     def __init__(self):
         pass
 
-    def add_item(product, quantity):
-        pass
+    def add_item(self, product, quantity):
+        if product.is_available(quantity):
+            self.items.append(product)
+        else:
+            return f"Only {product.stock} available"
 
-    def remove_item(product):
-        pass
+    def remove_item(self, product):
+        for p in self.items:
+            if p is product:
+                del p
 
     def calculate_total(self):
-        pass
+        total = 0
+        for p in self.items:
+            total += p.price
+        return total
 
     def checkout(self):
         pass
@@ -56,8 +73,9 @@ class Customer:
 
 def tester():
     customer1 = Customer("Bob", "bob@gmail.com", "123 St. USA")
-    print(customer1.create_cart())
+    product1 = Product("Prod1", 78, 5)
     print(customer1)
+    print(product1)
 
 
 tester()
