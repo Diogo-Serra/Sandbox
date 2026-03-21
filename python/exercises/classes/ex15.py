@@ -17,18 +17,10 @@ class SecureData:
             self.__data.append(encrypted_word)
 
     def __encrypt(self, value):
-        encrypted = ""
-        for ch in value:
-            ch = chr(ord(ch) + 3)
-            encrypted += ch
-        return encrypted
+        return "".join(chr(ord(ch) + 3) for ch in value)
 
     def __decrypt(self, value):
-        decrypted = ""
-        for ch in value:
-            ch = chr(ord(ch) - 3)
-            decrypted += ch
-        return decrypted
+        return "".join(chr(ord(ch) - 3) for ch in value)
 
 
 def tester():
