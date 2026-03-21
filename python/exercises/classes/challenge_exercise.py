@@ -56,6 +56,7 @@ class Customer:
 
 def tester():
     customer1 = Customer("Bob", "bob@gmail.com", "123 St. USA")
+    print(customer1.create_cart())
     print(customer1)
 
 
