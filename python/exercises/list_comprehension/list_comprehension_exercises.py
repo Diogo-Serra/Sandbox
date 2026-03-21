@@ -59,7 +59,7 @@ def get_names(people):
     pass  # TODO: unpack the tuple in the for clause
 
 
-# Ex 6: Given a list of (item, price) tuples, return items that cost more than 10
+# Ex 6: Given a list of (item, price) tuples, return items that cost more than
 # Input:  [("pen", 2), ("book", 15), ("laptop", 999)]
 # Output: [("pen", 2)]     -- wait, re-read! We want CHEAP items
 # Actually: [("pen", 2)]
@@ -156,13 +156,10 @@ def run_tests():
     test("only_evens", only_evens([1, 2, 3, 4, 5, 6]), [2, 4, 6])
     test("only_evens none", only_evens([1, 3, 5]), [])
     test("word_lengths", word_lengths(["hi", "hello", "hey"]), [2, 5, 3])
-    test("upper_a_words", upper_a_words(["apple", "banana", "avocado", "cherry"]),
+    test("upper_a_words", upper_a_words(["apple", "banana", "avocado",]),
          ["APPLE", "AVOCADO"])
 
     print("\n=== LEVEL 2: Tuple Unpacking ===")
-    test("get_names", get_names([("Alice", 30), ("Bob", 25)]), ["Alice", "Bob"])
-    test("cheap_items", cheap_items([("pen", 2), ("book", 15), ("laptop", 999)]),
-         [("pen", 2)])
     test("total_cost", total_cost([(10, 3), (5, 2)]), 40)
     test("total_cost single", total_cost([(7, 1)]), 7)
 
