@@ -1,0 +1,19 @@
+#1
+easy
+Word counter
+Given a sentence, count how many times each word appears using a dict. Print the 3 most common words. 💡 Hint: dict.get(word, 0) + 1, or collections.Counter
+
+#2
+easy
+Dict comprehension
+Given a list of names, create a dict mapping each name to its length using a dict comprehension. Then filter to only names longer than 4 characters. 💡 Hint: {name: len(name) for name in names if ...}
+
+#3
+medium
+Nested config merger
+You have a default_config dict and a user_config dict (both nested). Write a function that merges them, with user values overriding defaults. 💡 Hint: {**default, **user} or dict.update() — careful with nested dicts!
+
+#4
+hard
+Inventory system
+Build a small inventory system with a dict of {item: quantity}. Implement: restock(item, qty), sell(item, qty) — raise an error if stock is insufficient, and a report() that shows items low on stock (< 5). 💡 Hint: use .get(), raise ValueError, dict comprehension for report
