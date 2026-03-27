@@ -11,12 +11,13 @@ Hint: x, y, z = point
 
 
 def ex1() -> None:
-    coordinate = (10, 25, -3)
+    coordinate = (10.0, 25.0, -3.0)
 
+    print(type(coordinate))
     x, y, z = coordinate
-    print(x)
-    print(y)
-    print(z)
+    print(f"X: {x}")
+    print(f"Y: {y}")
+    print(f"Z: {z}")
 
 
 ex1()
