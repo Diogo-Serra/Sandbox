@@ -1,0 +1,20 @@
+#1
+easy
+Shopping cart
+Create a list of 5 grocery items. Add 2 more items, remove one by name, and print the final list sorted alphabetically.
+💡 Hint: look into .append(), .remove(), sorted()
+
+#2
+easy
+Slicing scores
+Given scores = [88, 42, 95, 73, 61, 100, 55], use slicing to get the first 3, the last 2, and every other score. 💡 Hint: list[start:stop:step]
+
+#3
+medium
+List comprehension filter
+From a list of numbers 1–20, use a list comprehension to build a new list with only numbers divisible by 3 or 5, squared. 💡 Hint: [x**2 for x in range(...) if ...]
+
+#4
+hard
+Matrix transposer
+Given a 3×3 matrix as a list of lists, write a function that returns its transpose — without using zip(). 💡 Hint: nested list comprehension with row/col indices
