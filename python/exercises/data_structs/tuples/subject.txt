@@ -1,0 +1,19 @@
+#1
+easy
+Coordinate unpacking
+Define a tuple point = (10, 25, -3) representing x, y, z. Unpack it into three variables and print each axis label with its value. 💡 Hint: x, y, z = point
+
+#2
+easy
+Swap without temp
+Use tuple unpacking to swap two variables a = "hello" and b = "world" in a single line. 💡 Hint: a, b = b, a
+
+#3
+medium
+Named records
+Store 3 student records as tuples (name, age, grade) in a list. Sort the list by grade descending using a lambda. 💡 Hint: sorted(records, key=lambda x: x[2], reverse=True)
+
+#4
+hard
+namedtuple vs dict
+Rewrite the student records exercise using collections.namedtuple. Access fields by name instead of index. Explain when you'd prefer namedtuple over a dict. 💡 Hint: from collections import namedtuple
