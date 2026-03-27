@@ -11,11 +11,7 @@ only numbers divisible by 3 or 5, squared
 
 
 def ex3() -> None:
-    numbers = []
-    for i in range(1, 21):
-        numbers.append(i)
-    print(numbers)
-    result = [x for x in numbers if (x % 5 == 0) or (x % 3 == 0)]
+    result = [x for x in range(1, 21) if (x % 5 == 0) or (x % 3 == 0)]
     print(result)
 
 
