@@ -1,0 +1,19 @@
+#1
+easy
+Deduplicate a list
+Given tags = ["python", "web", "python", "api", "web", "cli"], remove duplicates using a set and return the result as a sorted list. 💡 Hint: sorted(set(tags))
+
+#2
+medium
+Set operations
+Given two sets of skills — yours and job_requirements — find: skills you already have, skills you're missing, and skills not required by the job. 💡 Hint: &, -, ^ operators or .intersection(), .difference()
+
+#3
+medium
+Common friends
+You have a dict where each key is a person and the value is a set of their friends. Write a function that takes two names and returns their mutual friends. 💡 Hint: friends[a] & friends[b]
+
+#4
+hard
+Subset validator
+Write a function has_all_perms(required, granted) that checks if a set of required permissions is a subset of granted ones. Test with edge cases: empty sets, exact match, partial overlap. 💡 Hint: .issubset() or <= operator
