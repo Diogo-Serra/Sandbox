@@ -20,6 +20,7 @@ def ex1() -> None:
     grocery_list.append("Tomato")
     print(grocery_list)
     grocery_list.remove("Fruit3")
+    grocery_list.sort()
     print(grocery_list)
 
 
