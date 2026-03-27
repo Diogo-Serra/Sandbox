@@ -11,7 +11,7 @@ returns its transpose — without using zip()
 
 
 def ex4() -> None:
-    col = 7
+    col = 3
     row = 5
     matrix = [[col for col in range(col)] for row in range(row)]
     for m in matrix:
