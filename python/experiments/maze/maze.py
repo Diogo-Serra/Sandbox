@@ -18,6 +18,11 @@ if __name__ == "__main__":
 
         print("Creating map with settings")
 
-        maze = 
+        values = settings.settings.values()
+        try:
+            maze = Maze(**values)
+            print(maze)
+        except ValidationError as ve:
+            print(ve)
     else:
         print("Maze generator only takes a config.txt file")
