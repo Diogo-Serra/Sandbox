@@ -17,9 +17,10 @@ class Parser:
         "OUTPUT_FILE",
         "PERFECT"]
 
+    settings: dict[str, int | float | str]
+
     def __init__(self, args: list[str]):
         self.args = args
-        self.settings: dict[str, int | str | float] = {}
 
     def parse(self):
         with open("config.txt", "r") as f:
@@ -31,7 +32,10 @@ class Parser:
                     key, value = setting.split('=')
                     self.settings[key] = value
 
-    def check_settings(self):
+    def check_settings(self) -> bool:
+        for key in self.settings.keys():
+            if key not in self.mandatory_settings:
+                raise ParsingError(f"Requires {key} in settings")
 
 
 if __name__ == "__main__":
