@@ -17,7 +17,7 @@ if __name__ == "__main__":
             settings = parse(argv)
             print("Settings validated and loaded")
         except Exception:
-            print("Error parsing arguments")
+            print("No config.txt found")
             exit(1)
 
         print("\nCreating Maze with settings")
