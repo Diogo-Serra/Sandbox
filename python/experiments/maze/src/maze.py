@@ -11,8 +11,8 @@ except ImportError:
 
 
 class Maze(BaseModel):
-    WIDTH: int = Field(ge=0)
-    HEIGHT: int = Field(ge=0)
+    WIDTH: int = Field(ge=0, le=40)
+    HEIGHT: int = Field(ge=0, le=40)
     ENTRY: tuple[int, int]
     EXIT: tuple[int, int]
     OUTPUT_FILE: str
@@ -21,7 +21,7 @@ class Maze(BaseModel):
     @field_validator('OUTPUT_FILE', mode="after")
     def validator_output_file(cls, value: str):
         if not value.endswith('.txt'):
-            raise ValueError('Incorrect outfile format')
+            raise ValueError('Incorrect output_file format')
         else:
             return value
 
@@ -40,7 +40,7 @@ class Maze(BaseModel):
         return self
 
     def __str__(self) -> str:
-        return (f"Width: {self.WIDTH}\nHeight: {self.HEIGHT}\n"
+        return (f"Maze:\nWidth: {self.WIDTH}\nHeight: {self.HEIGHT}\n"
                 f"Entry: {self.ENTRY}\nExit: {self.EXIT}\n"
                 f"Output_file: {self.OUTPUT_FILE}\n"
                 f"Perfect: {self.PERFECT}")

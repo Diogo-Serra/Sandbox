@@ -2,8 +2,8 @@ try:
     from sys import argv
     from src.parser import parse
     from src.maze import Maze, ValidationError
-except ImportError:
-    print("Error importing modules")
+except ImportError as e:
+    print(e)
     exit(1)
 
 
@@ -12,17 +12,17 @@ if __name__ == "__main__":
     if len(argv) == 2:
 
         print("Validating config.txt settings")
-        settings: dict[str, int | float | str] = {}
+        file: dict[str, int | float | str] = {}
         try:
-            settings = parse(argv)
+            file = parse(argv)
             print("Settings validated and loaded")
         except Exception:
             print("No config.txt found")
             exit(1)
 
-        print("\nCreating Maze with settings")
+        print("\nCreating maze with the settings file")
         try:
-            maze = Maze(**settings)
+            maze = Maze(**file)
             print(maze)
         except ValidationError as ve:
             error = ve.errors()

@@ -14,4 +14,4 @@ def parse(argv: str) -> dict[str, int | float | str]:
             settings['EXIT'] = tuple(settings['EXIT'].split(','))
         return settings
     except Exception:
-        raise Exception("Error opening file")
+        raise Exception("Error opening config file")
