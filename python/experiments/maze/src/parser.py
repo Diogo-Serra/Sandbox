@@ -8,6 +8,8 @@ def parse(argv: str) -> dict[str, int | float | str]:
                 raise ValueError(f"{setting} missing '='")
             else:
                 key, value = setting.split('=')
+                if not key or value:
+                    raise ValueError(f"{setting} is incorrect")
                 settings[key] = value
         settings['ENTRY'] = tuple(settings['ENTRY'].split(','))
         settings['EXIT'] = tuple(settings['EXIT'].split(','))
