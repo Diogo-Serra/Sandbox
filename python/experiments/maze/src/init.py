@@ -1,1 +1,1 @@
-from src import parser # noqa
+from src import parser, maze # noqa

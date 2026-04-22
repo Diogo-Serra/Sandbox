@@ -1,28 +1,26 @@
 from sys import argv
-from src.map import Maze
+from src.maze import Maze
 from pydantic import ValidationError
-from src.parser import Parser, ParsingError
-# python3 a_maze_ing.py config.txt
+from src.parser import parse
 
 if __name__ == "__main__":
     print("\n=== Maze Generator ===\n")
     if len(argv) == 2:
-        print("Validating config.txt settings\n")
-        settings: Parser
+
+        print("Validating config.txt settings")
+        settings: dict[str, int | float | str] = {}
         try:
-            settings = Parser(argv)
-            settings.parse()
+            settings = parse(argv)
             print("Settings validated and loaded")
-        except ParsingError as e:
+        except ValueError as e:
             print(e)
 
-        print("Creating map with settings")
-
-        values = settings.settings.values()
+        print("\nCreating Maze with settings")
         try:
-            maze = Maze(**values)
+            maze = Maze(**settings)
             print(maze)
         except ValidationError as ve:
-            print(ve)
+            error = ve.errors()
+            print(error[0]['msg'])
     else:
-        print("Maze generator only takes a config.txt file")
+        print("Maze generator takes a config.txt file")
