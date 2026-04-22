@@ -1,7 +1,8 @@
 from sys import argv
 from src.maze import Maze
-from pydantic import ValidationError
 from src.parser import parse
+from pydantic import ValidationError
+
 
 if __name__ == "__main__":
     print("\n=== Maze Generator ===\n")
