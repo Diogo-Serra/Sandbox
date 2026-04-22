@@ -1,7 +1,10 @@
-from sys import argv
-from src.maze import Maze
-from src.parser import parse
-from pydantic import ValidationError
+try:
+    from sys import argv
+    from src.parser import parse
+    from src.maze import Maze, ValidationError
+except ImportError:
+    print("Error importing modules")
+    exit(1)
 
 
 if __name__ == "__main__":
@@ -13,8 +16,9 @@ if __name__ == "__main__":
         try:
             settings = parse(argv)
             print("Settings validated and loaded")
-        except ValueError as e:
-            print(e)
+        except Exception:
+            print("Error parsing arguments")
+            exit(1)
 
         print("\nCreating Maze with settings")
         try:

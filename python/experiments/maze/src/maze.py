@@ -1,4 +1,13 @@
-from pydantic import BaseModel, Field, field_validator, model_validator
+try:
+    from pydantic import ( # noqa
+        BaseModel,
+        Field,
+        field_validator,
+        model_validator,
+        ValidationError)
+except ImportError:
+    print("Error importing modules")
+    exit(1)
 
 
 class Maze(BaseModel):
