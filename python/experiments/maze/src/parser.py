@@ -2,7 +2,7 @@
 def parse(argv: str) -> dict[str, int | float | str]:
     settings: dict[str, int | float | str] = {}
     try:
-        with open("config.txt", "r") as f:
+        with open(argv[1], "r") as f:
             settings_file = f.read().split('\n')
             for setting in settings_file:
                 if "=" not in setting:
