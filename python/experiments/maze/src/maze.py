@@ -40,7 +40,7 @@ class Maze(BaseModel):
         return self
 
     def __str__(self) -> str:
-        return (f"Maze:\nWidth: {self.WIDTH}\nHeight: {self.HEIGHT}\n"
+        return (f"Width: {self.WIDTH}\nHeight: {self.HEIGHT}\n"
                 f"Entry: {self.ENTRY}\nExit: {self.EXIT}\n"
                 f"Output_file: {self.OUTPUT_FILE}\n"
                 f"Perfect: {self.PERFECT}")
