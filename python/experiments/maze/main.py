@@ -1,10 +1,14 @@
 try:
-    import sys
-    import time
     from sys import argv
     from src.parser import parse
     from src.dfs_algo import Generator
     from src.maze import Maze, ValidationError
+    from src.visualizer import (
+        hide_cursor,
+        make_draw_step,
+        render_final,
+        show_cursor,
+    )
 except ImportError as e:
     print(e)
     exit(1)
@@ -31,24 +35,13 @@ if __name__ == "__main__":
             generator = Generator(maze)
 
             if viz_mode:
-                sys.stdout.write("\033[?25l")
-                sys.stdout.flush()
-
-                def draw_step(current_grid: list[list[int]], current: tuple[int, int]) -> None:
-                    sys.stdout.write("\033[2J\033[H")
-                    sys.stdout.write("\n=== Maze Generator (building...) ===\n\n")
-                    sys.stdout.write(generator.to_ascii(current_grid, current))
-                    sys.stdout.write("\n")
-                    sys.stdout.flush()
-                    time.sleep(0.05)
-
-                grid = generator.generate(on_step=draw_step)
-                sys.stdout.write("\033[2J\033[H")
-                sys.stdout.write("\n=== Maze Generator (done!) ===\n\n")
-                sys.stdout.write(generator.to_ascii(grid))
-                sys.stdout.write("\n\n")
-                sys.stdout.write("\033[?25h")
-                sys.stdout.flush()
+                hide_cursor()
+                try:
+                    draw_step = make_draw_step(generator, delay=0.05)
+                    grid = generator.generate(on_step=draw_step)
+                    render_final(generator, grid)
+                finally:
+                    show_cursor()
             else:
                 grid = generator.generate()
 

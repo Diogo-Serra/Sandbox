@@ -2,6 +2,7 @@ import random
 from src.maze import Maze
 from typing import Callable, List, Optional, Tuple
 
+
 class Generator:
     Grid = List[List[int]]
     NORTH = 0x8
@@ -15,14 +16,20 @@ class Generator:
         self.rng = random.Random()
 
     def generate(self,
-                 on_step: Optional[Callable[[Grid, Tuple[int, int]], None]] = None
+                 on_step: Optional[
+                     Callable[[Grid, Tuple[int, int]], None]
+                 ] = None
                  ) -> List[List[int]]:
 
         w = self.maze.WIDTH
         h = self.maze.HEIGHT
 
-        grid: List[List[int]] = [[self.ALL_WALLS for _ in range(w)] for _ in range(h)]
-        visited: List[List[bool]] = [[False for _ in range(w)] for _ in range(h)]
+        grid: List[List[int]] = [
+            [self.ALL_WALLS for _ in range(w)] for _ in range(h)
+        ]
+        visited: List[List[bool]] = [
+            [False for _ in range(w)] for _ in range(h)
+        ]
         start_x = int(self.maze.ENTRY[0])
         start_y = int(self.maze.ENTRY[1])
 
@@ -37,7 +44,8 @@ class Generator:
                 (0, -1, self.NORTH, self.SOUTH),
                 (1, 0, self.EAST, self.WEST),
                 (0, 1, self.SOUTH, self.NORTH),
-                (-1, 0, self.WEST, self.EAST)):
+                (-1, 0, self.WEST, self.EAST),
+            ):
                 nx, ny = x + dx, y + dy
                 if 0 <= nx < w and 0 <= ny < h and not visited[ny][nx]:
                     neighbors.append((nx, ny, here_wall, next_wall))
@@ -94,18 +102,18 @@ class Generator:
             (True,  False, False, False): '╵',
             (False, True,  False, False): '╷',
             (False, False, True,  False): '╴',
-            (False, False, False, True ): '╶',
+            (False, False, False, True): '╶',
             (True,  True,  False, False): '│',
-            (False, False, True,  True ): '─',
+            (False, False, True,  True): '─',
             (True,  False, True,  False): '┘',
-            (True,  False, False, True ): '└',
+            (True,  False, False, True): '└',
             (False, True,  True,  False): '┐',
-            (False, True,  False, True ): '┌',
+            (False, True,  False, True): '┌',
             (True,  True,  True,  False): '┤',
-            (True,  True,  False, True ): '├',
-            (True,  False, True,  True ): '┴',
-            (False, True,  True,  True ): '┬',
-            (True,  True,  True,  True ): '┼',
+            (True,  True,  False, True): '├',
+            (True,  False, True,  True): '┴',
+            (False, True,  True,  True): '┬',
+            (True,  True,  True,  True): '┼',
         }
 
         canvas: List[List[str]] = [[' '] * cols for _ in range(rows)]
@@ -116,10 +124,10 @@ class Generator:
                     canvas[ry][rx] = ' '
                 elif ry % 2 == 0 and rx % 2 == 0:
                     # Junction: pick the right box-drawing char
-                    up    = ry > 0          and wall[ry - 1][rx]
-                    down  = ry < rows - 1   and wall[ry + 1][rx]
-                    left  = rx > 0          and wall[ry][rx - 1]
-                    right = rx < cols - 1   and wall[ry][rx + 1]
+                    up = ry > 0 and wall[ry - 1][rx]
+                    down = ry < rows - 1 and wall[ry + 1][rx]
+                    left = rx > 0 and wall[ry][rx - 1]
+                    right = rx < cols - 1 and wall[ry][rx + 1]
                     canvas[ry][rx] = CORNER.get((up, down, left, right), '┼')
                 elif ry % 2 == 0:
                     canvas[ry][rx] = '─'   # horizontal segment
@@ -138,7 +146,7 @@ class Generator:
 
     def export(self, grid: List[List[int]]) -> None:
         entry_x, entry_y = int(self.maze.ENTRY[0]), int(self.maze.ENTRY[1])
-        exit_x, exit_y   = int(self.maze.EXIT[0]), int(self.maze.EXIT[1])
+        exit_x, exit_y = int(self.maze.EXIT[0]), int(self.maze.EXIT[1])
 
         with open(self.maze.OUTPUT_FILE, 'w', encoding='ascii') as f:
             for y, row in enumerate(grid):
