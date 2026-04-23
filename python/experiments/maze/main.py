@@ -1,5 +1,7 @@
 try:
     from sys import argv
+    import sys
+    import time
     from src.parser import parse
     from src.maze import Maze, ValidationError
     from src.dfs_algo import Generator
@@ -10,7 +12,8 @@ except ImportError as e:
 
 if __name__ == "__main__":
     print("\n=== Maze Generator ===\n")
-    if len(argv) == 2:
+    viz_mode = len(argv) == 3 and argv[2] == "--viz"
+    if len(argv) == 2 or viz_mode:
 
         print("Validating config.txt settings")
         file: dict[str, int | float | str] = {}
@@ -26,13 +29,35 @@ if __name__ == "__main__":
             maze = Maze(**file)
             print(maze)
             generator = Generator(maze)
-            grid = generator.generate()
+
+            if viz_mode:
+                sys.stdout.write("\033[?25l")
+                sys.stdout.flush()
+
+                def draw_step(current_grid: list[list[int]], current: tuple[int, int]) -> None:
+                    sys.stdout.write("\033[2J\033[H")
+                    sys.stdout.write("\n=== Maze Generator (building...) ===\n\n")
+                    sys.stdout.write(generator.to_ascii(current_grid, current))
+                    sys.stdout.write("\n")
+                    sys.stdout.flush()
+                    time.sleep(0.05)
+
+                grid = generator.generate(on_step=draw_step)
+                sys.stdout.write("\033[2J\033[H")
+                sys.stdout.write("\n=== Maze Generator (done!) ===\n\n")
+                sys.stdout.write(generator.to_ascii(grid))
+                sys.stdout.write("\n\n")
+                sys.stdout.write("\033[?25h")
+                sys.stdout.flush()
+            else:
+                grid = generator.generate()
+
             generator.export(grid)
-            print(f"Maze generated in hex format -> {maze.OUTPUT_FILE}")
+            print(f"Maze generated (hex format) -> {maze.OUTPUT_FILE}")
         except ValidationError as ve:
             error = ve.errors()
             print(error[0]['msg'])
         except ValueError as ve:
             print(ve)
     else:
-        print("Maze generator takes a config.txt file")
+        print("Usage: python main.py config.txt [--viz]")

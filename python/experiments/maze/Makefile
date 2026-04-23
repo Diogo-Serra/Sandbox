@@ -11,7 +11,7 @@ install:
 	$(PY) $(ENV) && $(ACTIVATE_ENV) && $(PIP)
 
 run:
-	$(ACTIVATE_ENV) && $(PY) main.py config.txt
+	$(ACTIVATE_ENV) && $(PY) main.py config.txt --viz
 
 clean:
 	$(CLEAN_ENV)
