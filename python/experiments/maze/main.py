@@ -1,10 +1,10 @@
 try:
-    from sys import argv
     import sys
     import time
+    from sys import argv
     from src.parser import parse
-    from src.maze import Maze, ValidationError
     from src.dfs_algo import Generator
+    from src.maze import Maze, ValidationError
 except ImportError as e:
     print(e)
     exit(1)
