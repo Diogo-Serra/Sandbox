@@ -12,6 +12,15 @@ def spell_transformer(spells: list[str]) -> list[str]:
     return map(lambda x: '* ' + x + ' *', spells)
 
 
+def mage_stats(mages: list[dict]) -> dict:
+    stats: dict = {'max_power': int, 'min_power': int, 'avg_power': float}
+    stats['max_power'] = max(mages, key=lambda x: x['power'])['power']
+    stats['min_power'] = min(mages, key=lambda x: x['power'])['power']
+    total_power = [x['power'] for x in mages]
+    stats['avg_power'] = round(sum(total_power) / len(mages), 2)
+    return stats
+
+
 if __name__ == "__main__":
 
     print("\nSorted per power")
@@ -41,3 +50,6 @@ if __name__ == "__main__":
         "Spell3"]
     for spell in spell_transformer(spells):
         print(spell)
+
+    print("\nStats")
+    print(mage_stats(mages))
