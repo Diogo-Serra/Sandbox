@@ -4,8 +4,17 @@ def artifact_sorter(artifacts: list[dict]) -> list[dict]:
     return sorted(artifacts, key=lambda x: x['power'], reverse=True)
 
 
+def power_filter(mages: list[dict], min_power: int) -> list[dict]:
+    return filter(lambda x: x['power'] > min_power, mages)
+
+
+def spell_transformer(spells: list[str]) -> list[str]:
+    return map(lambda x: '* ' + x + ' *', spells)
+
+
 if __name__ == "__main__":
 
+    print("\nSorted per power")
     artifacts: list[dict] = [
         {"name": "art1", "power": 3, "type": "Type1"},
         {"name": "art2", "power": 1, "type": "Type2"},
@@ -14,3 +23,21 @@ if __name__ == "__main__":
         {"name": "art5", "power": 4, "type": "Type5"},]
     for artifac in artifact_sorter(artifacts):
         print(artifac)
+
+    print("\nFilter per power")
+    mages: list[dict] = [
+        {"name": "mage1", "power": 3, "element": "element1"},
+        {"name": "mage2", "power": 1, "element": "element2"},
+        {"name": "mage3", "power": 2, "element": "element3"},
+        {"name": "mage4", "power": 5, "element": "element4"},
+        {"name": "mage5", "power": 4, "element": "element5"},]
+    for mage in power_filter(mages, 3):
+        print(mage)
+
+    print("\nTransform spell")
+    spells: list[dict] = [
+        "Spell1",
+        "Spell2",
+        "Spell3"]
+    for spell in spell_transformer(spells):
+        print(spell)
