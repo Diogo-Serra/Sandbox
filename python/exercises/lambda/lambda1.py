@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-from math import sqrt
 
-numbers = [1, 2, 3, 4, 5]
-double = lambda x: x * 2
-sqr = lambda x: sqrt(x)
-list_double = list(map(lambda x: x*2, numbers))
-even_number = list(filter(lambda x: x % 2 == 0, numbers))
+def artifact_sorter(artifacts: list[dict]) -> list[dict]:
+    return sorted(artifacts, key=lambda x: x['power'], reverse=True)
 
 
-print(double(2))
-print(sqr(2))
-print(list_double)
-print(even_number)
+if __name__ == "__main__":
+
+    artifacts: list[dict] = [
+        {"name": "art1", "power": 3, "type": "Type1"},
+        {"name": "art2", "power": 1, "type": "Type2"},
+        {"name": "art3", "power": 2, "type": "Type3"},
+        {"name": "art4", "power": 5, "type": "Type4"},
+        {"name": "art5", "power": 4, "type": "Type5"},]
+    for artifac in artifact_sorter(artifacts):
+        print(artifac)
