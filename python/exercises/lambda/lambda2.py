@@ -44,3 +44,4 @@ if __name__ == "__main__":
 
     enchantment_factory = enchantment_factory("Flamming")
     print(enchantment_factory("Sword"))
+    print(enchantment_factory("Shield"))
