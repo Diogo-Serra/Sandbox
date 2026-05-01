@@ -12,21 +12,9 @@ class ListNode:
 
 
 class Solution:
-    def mergeTwoLists(
-        self,
-        list1: Optional[ListNode],
-        list2: Optional[ListNode],
-    ) -> Optional[ListNode]:
-        unpack1: list[int] = []
-        unpack2: list[int] = []
-        if list1:
-            unpack1 = unpack(list1)
-        if list2:
-            unpack2 = unpack(list2)
-        if not list1 and not list2:
-            return None
-        unpack1.extend(unpack2)
-        sorted_unpacked = sorted(unpack1)
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        unpacked = unpack(head)
+        sorted_unpacked = sorted(unpacked)
         head = create_linked_list(sorted_unpacked)
         return head
 
