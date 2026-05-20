@@ -4,6 +4,7 @@ from sys import argv, exit
 
 def grid_creation(width: int, height: int):
 
+    print()
     grid = [[0xF]*width for _ in range(height)]
     for row in grid:
         for cell in row:
@@ -14,6 +15,8 @@ def grid_creation(width: int, height: int):
         for cell in row:
             print(bin(cell)[2:], end='.')
         print('\n')
+
+    print(grid[0][0])
 
 
 if __name__ == '__main__':
