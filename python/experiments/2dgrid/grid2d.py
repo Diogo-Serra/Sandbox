@@ -10,7 +10,7 @@ if len(argv) == 1:
         grid = [[0xF]*width for _ in range(height)]
         for row in grid:
             for cell in row:
-                print(int(cell), end='')
+                print(hex(cell)[2].capitalize(), end='')
             print(end='\n')
     else:
         print("Exiting")
