@@ -3,11 +3,34 @@ from sys import argv, exit
 from os import system
 
 
-def grid_generator(width: int, height: int) -> list[list[int]]:
+def navigation(px: int, py: int, grid: list[list[str]]):
+    pass
+
+
+def grid_show(px: int, py: int, grid: list[list[str]]) -> None:
+
+    print("\nCoordinates view")
+    for y, row in enumerate(grid):
+        for x, col in enumerate(row):
+            print(f"({x}, {y})", end='')
+        print('\n', end='')
+
+    print("\nGrid view")
+    for y, row in enumerate(grid):
+        for x, col in enumerate(row):
+            if (px, py) == (x, y):
+                print(" P ", end='')
+            else:
+                print(" . ", end='')
+        print('\n', end='')
+    print()
+
+
+def grid_generator(width: int, height: int) -> list[list[str]]:
     if not (0 < width < 20) or not (0 < height < 20):
         raise ValueError("Grid size must be between 0 and 20")
     else:
-        return [[0xF]*width for line in range(height)]
+        return [[' . ']*width for line in range(height)]
 
 
 def run(argv: list[str]) -> None:
@@ -15,7 +38,28 @@ def run(argv: list[str]) -> None:
         raise ValueError("Expected grid2d.py script name")
     width = int(argv[1].strip())
     height = int(argv[2].strip())
-    print(grid_generator(width, height))
+    grid = grid_generator(width, height)
+
+    px, py = (0, 0)
+    while True:
+
+        system('clear')
+        grid_show(px, py, grid)
+
+        choice = input("Navigation WASD or Q to exit: ").strip()
+
+        if choice == 'w' and 0 < py:
+            py -= 1
+        elif choice == 's' and py < height - 1:
+            py += 1
+        elif choice == 'a' and 0 < px:
+            px -= 1
+        elif choice == 'd' and px < width - 1:
+            px += 1
+        elif choice == 'q':
+            exit(1)
+        else:
+            print("Invalid key")
 
 
 if __name__ == "__main__":
