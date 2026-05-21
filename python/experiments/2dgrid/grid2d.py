@@ -57,9 +57,10 @@ def run(argv: list[str]) -> None:
         elif choice == 'd' and px < width - 1:
             px += 1
         elif choice == 'q':
-            exit(1)
+            break
         else:
-            print("Invalid key")
+            continue
+    print("Exiting now...")
 
 
 if __name__ == "__main__":
@@ -68,8 +69,10 @@ if __name__ == "__main__":
         try:
             run(argv)
         except (BaseException, Exception) as error:
-            print(error)
-            exit(1)
+            if error:
+                print(error)
+            print("Exiting now...")
+            exit()
     else:
         print("Usage: 2dgrid.py <width> <height>")
-        exit(1)
+        exit()
