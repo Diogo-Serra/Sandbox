@@ -3,10 +3,6 @@ from sys import argv, exit
 from os import system
 
 
-def navigation(px: int, py: int, grid: list[list[str]]):
-    pass
-
-
 def grid_show(px: int, py: int, grid: list[list[str]]) -> None:
 
     print("\nCoordinates view")
@@ -23,6 +19,7 @@ def grid_show(px: int, py: int, grid: list[list[str]]) -> None:
             else:
                 print(" . ", end='')
         print('\n', end='')
+    print(f"\nPlayer position: ({px}, {py})")
     print()
 
 
