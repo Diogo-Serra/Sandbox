@@ -1,41 +1,31 @@
 #!/usr/bin/python3
 from sys import argv, exit
+from os import system
 
 
-def grid_creation(width: int, height: int):
-
-    print()
-    grid = [[0xF]*width for _ in range(height)]
-    for y, row in enumerate(grid):
-        for x, col in enumerate(row):
-            print(grid[x][y], end='')
-        print('\n', end='')
-    print()
-
-    for y, row in enumerate(grid):
-        for x, col in enumerate(row):
-            print(f"({x}, {y})", end='')
-        print('\n', end='')
-    print()
+def grid_generator(width: int, height: int) -> list[list[int]]:
+    if not (0 < width < 20) or not (0 < height < 20):
+        raise ValueError("Grid size must be between 0 and 20")
+    else:
+        return [[0xF]*width for line in range(height)]
 
 
-if __name__ == '__main__':
+def run(argv: list[str]) -> None:
+    if argv[0].strip() != "grid2d.py":
+        raise ValueError("Expected grid2d.py script name")
+    width = int(argv[1].strip())
+    height = int(argv[2].strip())
+    print(grid_generator(width, height))
 
-    if len(argv) == 1:
 
+if __name__ == "__main__":
+
+    if len(argv) == 3:
         try:
-
-            user = input("Insert Width and Height: ").strip().split()
-
-            if len(user) == 2:
-                width = int(user[0])
-                height = int(user[1])
-                grid_creation(width, height)
-            else:
-                print("Exiting\n"
-                      "Usage:<int> <int>")
-                exit(1)
-
-        except (Exception, BaseException) as error:
+            run(argv)
+        except (BaseException, Exception) as error:
             print(error)
             exit(1)
+    else:
+        print("Usage: 2dgrid.py <width> <height>")
+        exit(1)
