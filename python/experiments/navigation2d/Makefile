@@ -10,7 +10,7 @@ HEIGHT := 10
 
 install:
 	$(PY) -m venv .venv
-	$(ENV_PIP) install -r requirements.txt
+	$(ENV_PIP) install -r src/requirements.txt
 
 run:
 	$(ENV_PY) nav.py $(WIDTH) $(HEIGHT)
