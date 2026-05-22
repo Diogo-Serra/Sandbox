@@ -19,4 +19,4 @@ clean:
 
 lint:
 	$(ENV)flake8 . --exclude=.venv
-	$(ENV)mypy .
+	$(ENV)mypy . --strict

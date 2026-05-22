@@ -4,7 +4,7 @@ class Grid:
     def __init__(self, width: int, height: int) -> None:
         self.width = width
         self.height = height
-        self.grid: Grid = self.generate_grid()
+        self.grid: list[list[str]] = self.generate_grid()
 
     def generate_grid(self) -> list[list[str]]:
         return [[' . ']*self.width for line in range(self.height)]
@@ -29,7 +29,7 @@ class Navigation:
         self.grid = grid
         self.player = player
 
-    def render_navigation(self) -> list[list[str]]:
+    def render_navigation(self) -> None:
         print(f"Grid info: {self.grid.width} x {self.grid.height}")
         print(f"Player pos: {self.player.x} x {self.player.y}\n")
         for y, row in enumerate(self.grid.grid):
@@ -40,7 +40,7 @@ class Navigation:
                     print(" . ", end='')
             print('\n', end='')
 
-    def navigate(self, flag: str) -> int:
+    def navigate(self, flag: str) -> None:
         if flag == 'w' and self.player.y > 0:
             self.player.y -= 1
         elif flag == 's' and self.player.y < self.grid.height - 1:

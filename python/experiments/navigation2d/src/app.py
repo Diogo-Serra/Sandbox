@@ -3,7 +3,7 @@ from .classes import Grid, Player, Navigation
 from os import system
 
 
-def run(argv: list[str]):
+def run(argv: list[str]) -> None:
 
     grid_settings: tuple[int, int] = parser(argv)
     grid = Grid(*grid_settings)
