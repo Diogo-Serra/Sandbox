@@ -10,6 +10,7 @@ HEIGHT := 10
 
 install:
 	$(PY) -m venv .venv
+	$(ENV_PIP) install --upgrade pip
 	$(ENV_PIP) install -r src/requirements.txt
 
 run:
