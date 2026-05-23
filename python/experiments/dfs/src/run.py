@@ -6,11 +6,14 @@ from sys import exit
 def run(argv: list[str]) -> None:
     try:
         grid = parser(argv)
+        print("\nGrid Coordinates:")
         show_grid_coordinates(grid)
+        print("\nGrid Hex:")
         show_grid_hex(grid)
         print()
         maze = dfs_generator(grid)
-        print(maze)
+        print("\nMaze Hex:")
+        show_grid_hex(maze)
     except (BaseException, Exception) as error:
         print(f"\nError: {error}")
         exit()
@@ -29,7 +32,6 @@ def create_grid(width: int, height: int) -> list[list[str]]:
 
 
 def show_grid_coordinates(grid: list[list[str]]) -> None:
-    print("\nGrid Coordinates:")
     for y, row in enumerate(grid):
         for x, col in enumerate(row):
             print(f"{x, y}", end='')
@@ -37,7 +39,6 @@ def show_grid_coordinates(grid: list[list[str]]) -> None:
 
 
 def show_grid_hex(grid: list[list[str]]) -> None:
-    print("\nGrid Hex:")
     for y, row in enumerate(grid):
         for x, col in enumerate(row):
             print(f"{format(grid[x][y], 'X')}", end='')
