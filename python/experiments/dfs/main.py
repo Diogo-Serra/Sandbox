@@ -1,5 +1,5 @@
 from sys import argv
-from src.run import run
+from src import run
 
 
 def main() -> None:
