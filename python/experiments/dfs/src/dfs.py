@@ -1,6 +1,7 @@
 # Maze generator - DFS
 
 def dfs_generator(grid: list[list[int]]) -> list[list[int]]:
+    from random import choice
 
     # (bit, dx, dy, mirror)
     DIRECTIONS = [
@@ -25,4 +26,15 @@ def dfs_generator(grid: list[list[int]]) -> list[list[int]]:
             if (0 <= nx < width
                     and 0 <= ny < height
                     and (nx, ny) not in visited):
-                neighbors.append(nx, ny)
+                neighbors.append(nx, ny, bit, mirror)
+
+        if neighbors:
+            nx, ny, bit, mirror = choice(neighbors)
+            grid[x][y] &= ~(1 << bit)
+            grid[nx][ny] &= ~(1 << mirror)
+            visited.add((nx, ny))
+            stack.append((nx, ny))
+        else:
+            stack.pop()
+
+    return grid
