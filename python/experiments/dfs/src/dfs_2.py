@@ -13,38 +13,40 @@ walls between adjacent cells, using a stack to backtrack when no unvisited
 neighbours remain.
 """
 
-# (bit, dr, dc, mirror_bit)
+# (bit, dx, dy, mirror_bit)
 DIRECTIONS = [
-    (0, -1,  0, 2),  # North
-    (1,  0, +1, 3),  # East
-    (2, +1,  0, 0),  # South
-    (3,  0, -1, 1),  # West
+    (0,  0, -1, 2),  # North
+    (1, +1,  0, 3),  # East
+    (2,  0, +1, 0),  # South
+    (3, -1,  0, 1),  # West
 ]
 
 
 def dfs_generator(grid: list[list[int]]) -> list[list[int]]:
     import random
 
-    rows = len(grid)
-    cols = len(grid[0])
+    width = len(grid)
+    height = len(grid[0])
     visited: set[tuple[int, int]] = {(0, 0)}
     stack: list[tuple[int, int]] = [(0, 0)]
 
     while stack:
-        r, c = stack[-1]
+        x, y = stack[-1]
 
         neighbors = []
-        for bit, dr, dc, mirror_bit in DIRECTIONS:
-            nr, nc = r + dr, c + dc
-            if 0 <= nr < rows and 0 <= nc < cols and (nr, nc) not in visited:
-                neighbors.append((nr, nc, bit, mirror_bit))
+        for bit, dx, dy, mirror_bit in DIRECTIONS:
+            nx, ny = x + dx, y + dy
+            if (0 <= nx < width
+                    and 0 <= ny < height
+                    and (nx, ny) not in visited):
+                neighbors.append((nx, ny, bit, mirror_bit))
 
         if neighbors:
-            nr, nc, bit, mirror_bit = random.choice(neighbors)
-            grid[r][c] &= ~(1 << bit)
-            grid[nr][nc] &= ~(1 << mirror_bit)
-            visited.add((nr, nc))
-            stack.append((nr, nc))
+            nx, ny, bit, mirror_bit = random.choice(neighbors)
+            grid[x][y] &= ~(1 << bit)
+            grid[nx][ny] &= ~(1 << mirror_bit)
+            visited.add((nx, ny))
+            stack.append((nx, ny))
         else:
             stack.pop()
 

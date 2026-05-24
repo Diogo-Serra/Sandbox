@@ -27,19 +27,21 @@ def parser(argv: list[str]) -> list[list[str]]:
     return grid
 
 
-def create_grid(width: int, height: int) -> list[list[str]]:
-    return [[0xF] * width for row in range(height)]
+def create_grid(width: int, height: int) -> list[list[int]]:
+    return [[0xF] * height for _ in range(width)]
 
 
-def show_grid_coordinates(grid: list[list[str]]) -> None:
-    for y, row in enumerate(grid):
-        for x, col in enumerate(row):
+def show_grid_coordinates(grid: list[list[int]]) -> None:
+    width, height = len(grid), len(grid[0])
+    for y in range(height):
+        for x in range(width):
             print(f"{x, y}", end='')
-        print('\n', end='')
+        print()
 
 
-def show_grid_hex(grid: list[list[str]]) -> None:
-    for y, row in enumerate(grid):
-        for x, col in enumerate(row):
+def show_grid_hex(grid: list[list[int]]) -> None:
+    width, height = len(grid), len(grid[0])
+    for y in range(height):
+        for x in range(width):
             print(f"{format(grid[x][y], 'X')}", end='')
-        print('\n', end='')
+        print()
