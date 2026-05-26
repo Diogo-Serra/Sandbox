@@ -1,6 +1,7 @@
 from string import punctuation, ascii_letters
 from .dfs import dfs_generator
 from sys import exit
+from .file import write_to_file
 
 
 def run(argv: list[str]) -> None:
@@ -14,6 +15,7 @@ def run(argv: list[str]) -> None:
         maze = dfs_generator(grid)
         print("\nMaze Hex:")
         show_grid_hex(maze)
+        write_to_file('Output_maze.txt', maze)
     except (BaseException, Exception) as error:
         print(f"\nError: {error}")
         exit()
